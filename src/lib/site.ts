@@ -3,7 +3,7 @@ export const site = {
   name: 'Annelis Ortiz',
   legalName: 'Annelis Ortiz',
   ogImage: '/og.jpg',
-  twitter: '@annelisortiz',
+  locale: 'es' as const,
 } as const
 
 // Redes sociales verificadas. OJO: TikTok handle es @annelis.7 (no @annelisortiz).
@@ -16,29 +16,19 @@ export const social = {
 } as const
 
 export const business = {
-  employer: 'NEXA Mortgage LLC',
-  role: {
-    es: 'Originadora de Préstamos Hipotecarios',
-    en: 'Mortgage Loan Originator',
-  },
-  alsoRole: {
-    es: 'Agente de Bienes Raíces',
-    en: 'Real Estate Agent',
-  },
+  employer: 'NEXA Lending',
+  employerUrl: 'https://nexalending.com',
+  role: 'Originadora de Préstamos Hipotecarios',
+  alsoRole: 'Agente de Bienes Raíces',
 } as const
 
 export const books = [
   {
     slug: 'antes-de-decidir',
     title: 'Antes de Decidir: Cuando Nadie Te Enseñó a Prepararte',
-    subtitle: {
-      es: 'Educación financiera, preparación y mentalidad antes de comprar una propiedad.',
-      en: 'Financial education, preparation, and mindset before buying property.',
-    },
-    description: {
-      es: 'Una guía enfocada en educación financiera, preparación y mentalidad antes de comprar una propiedad.',
-      en: 'A guide focused on financial education, preparation, and mindset before purchasing property.',
-    },
+    subtitle: 'Educación financiera, preparación y mentalidad antes de comprar una propiedad.',
+    description:
+      'Una guía enfocada en educación financiera, preparación y mentalidad antes de comprar una propiedad.',
     cover: '/books/antes-de-decidir.jpg', // TODO: subir portada real
     inLanguage: 'es',
     author: 'Annelis Ortiz',

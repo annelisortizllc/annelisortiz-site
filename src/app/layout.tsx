@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Cormorant_Garamond } from 'next/font/google'
-import { notFound } from 'next/navigation'
-import '../globals.css'
+import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { getDictionary, hasLocale, locales } from '@/lib/dictionaries'
+import { getDictionary } from '@/lib/dictionaries'
 import { personJsonLd, websiteJsonLd, jsonLdScript } from '@/lib/jsonld'
 import { site } from '@/lib/site'
 
@@ -21,35 +20,21 @@ export const viewport: Viewport = {
   colorScheme: 'dark',
 }
 
-export async function generateStaticParams() {
-  return locales.map((lang) => ({ lang }))
-}
-
-export async function generateMetadata(props: LayoutProps<'/[lang]'>): Promise<Metadata> {
-  const { lang } = await props.params
-  if (!hasLocale(lang)) return {}
-  const dict = await getDictionary(lang)
-  const url = `${site.url}/${lang}`
+export async function generateMetadata(): Promise<Metadata> {
+  const dict = await getDictionary()
   return {
     metadataBase: new URL(site.url),
     title: { default: dict.meta.title, template: '%s — Annelis Ortiz' },
     description: dict.meta.description,
     keywords: dict.meta.keywords,
-    alternates: {
-      canonical: url,
-      languages: {
-        es: `${site.url}/es`,
-        en: `${site.url}/en`,
-        'x-default': `${site.url}/es`,
-      },
-    },
+    alternates: { canonical: site.url },
     openGraph: {
       type: 'website',
-      url,
+      url: site.url,
       siteName: site.name,
       title: dict.meta.title,
       description: dict.meta.description,
-      locale: lang === 'es' ? 'es_ES' : 'en_US',
+      locale: 'es_ES',
       images: [{ url: site.ogImage, width: 1200, height: 630 }],
     },
     twitter: {
@@ -62,25 +47,23 @@ export async function generateMetadata(props: LayoutProps<'/[lang]'>): Promise<M
   }
 }
 
-export default async function LangLayout(props: LayoutProps<'/[lang]'>) {
-  const { lang } = await props.params
-  if (!hasLocale(lang)) notFound()
-  const dict = await getDictionary(lang)
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const dict = await getDictionary()
 
   return (
-    <html lang={lang} className={`${sans.variable} ${serif.variable}`}>
+    <html lang="es" className={`${sans.variable} ${serif.variable}`}>
       <body className="min-h-screen bg-background text-foreground font-sans">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={jsonLdScript(personJsonLd(lang))}
+          dangerouslySetInnerHTML={jsonLdScript(personJsonLd())}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={jsonLdScript(websiteJsonLd(lang))}
+          dangerouslySetInnerHTML={jsonLdScript(websiteJsonLd())}
         />
-        <Header dict={dict} locale={lang} />
-        <main className="flex-1">{props.children}</main>
-        <Footer dict={dict} locale={lang} />
+        <Header dict={dict} />
+        <main className="flex-1">{children}</main>
+        <Footer dict={dict} />
       </body>
     </html>
   )

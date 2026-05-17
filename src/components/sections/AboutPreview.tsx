@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import type { Dictionary, Locale } from '@/lib/dictionaries'
+import type { Dictionary } from '@/lib/dictionaries'
 
-export function AboutPreview({ dict, locale }: { dict: Dictionary; locale: Locale }) {
+export function AboutPreview({ dict }: { dict: Dictionary }) {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
       <div className="grid gap-12 md:grid-cols-5">
@@ -16,7 +16,7 @@ export function AboutPreview({ dict, locale }: { dict: Dictionary; locale: Local
         <div className="md:col-span-3">
           <p className="text-lg leading-relaxed text-muted">{dict.about.body}</p>
           <Link
-            href={`/${locale}/sobre-mi`}
+            href="/sobre-mi"
             className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-soft"
           >
             {dict.about.cta} <span aria-hidden>→</span>

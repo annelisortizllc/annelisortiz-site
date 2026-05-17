@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import type { Dictionary } from '@/lib/dictionaries'
-import type { Locale } from '@/lib/locales'
 
-export function BookFeature({ dict, locale }: { dict: Dictionary; locale: Locale }) {
+export function BookFeature({ dict }: { dict: Dictionary }) {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
       <div className="grid items-center gap-12 md:grid-cols-2">
@@ -40,7 +39,7 @@ export function BookFeature({ dict, locale }: { dict: Dictionary; locale: Locale
           <p className="mt-6 text-lg leading-relaxed text-muted">{dict.books.bookPitch}</p>
           <p className="mt-4 text-base leading-relaxed text-muted">{dict.books.lead}</p>
           <Link
-            href={`/${locale}/libros/antes-de-decidir`}
+            href="/libros/antes-de-decidir"
             className="mt-8 inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent"
           >
             {dict.books.cta} <span aria-hidden>→</span>

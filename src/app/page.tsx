@@ -1,5 +1,4 @@
-import { notFound } from 'next/navigation'
-import { getDictionary, hasLocale } from '@/lib/dictionaries'
+import { getDictionary } from '@/lib/dictionaries'
 import { Hero } from '@/components/sections/Hero'
 import { Stats } from '@/components/sections/Stats'
 import { AboutPreview } from '@/components/sections/AboutPreview'
@@ -9,19 +8,17 @@ import { BookFeature } from '@/components/sections/BookFeature'
 import { SocialProof } from '@/components/sections/SocialProof'
 import { Contact } from '@/components/sections/Contact'
 
-export default async function HomePage(props: PageProps<'/[lang]'>) {
-  const { lang } = await props.params
-  if (!hasLocale(lang)) notFound()
-  const dict = await getDictionary(lang)
+export default async function HomePage() {
+  const dict = await getDictionary()
 
   return (
     <>
-      <Hero dict={dict} locale={lang} />
+      <Hero dict={dict} />
       <Stats dict={dict} />
-      <AboutPreview dict={dict} locale={lang} />
+      <AboutPreview dict={dict} />
       <Philosophy dict={dict} />
       <Ecosystem dict={dict} />
-      <BookFeature dict={dict} locale={lang} />
+      <BookFeature dict={dict} />
       <SocialProof dict={dict} />
       <Contact dict={dict} />
     </>

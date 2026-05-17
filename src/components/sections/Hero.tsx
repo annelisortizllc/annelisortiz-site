@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import type { Dictionary, Locale } from '@/lib/dictionaries'
+import type { Dictionary } from '@/lib/dictionaries'
 
-export function Hero({ dict, locale }: { dict: Dictionary; locale: Locale }) {
+export function Hero({ dict }: { dict: Dictionary }) {
   return (
     <section className="relative isolate overflow-hidden">
       {/* Radial glow */}
@@ -30,14 +30,14 @@ export function Hero({ dict, locale }: { dict: Dictionary; locale: Locale }) {
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link
-              href={`/${locale}#contacto`}
+              href="/#contacto"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)] transition hover:bg-accent-soft"
             >
               {dict.hero.ctaPrimary}
               <span aria-hidden>→</span>
             </Link>
             <Link
-              href={`/${locale}/sobre-mi`}
+              href="/sobre-mi"
               className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent"
             >
               {dict.hero.ctaSecondary}
