@@ -6,6 +6,15 @@ export const site = {
   locale: 'es' as const,
 } as const
 
+// Contacto público directo (sin asistente — Annelis maneja directamente).
+export const contact = {
+  email: 'info@annelisortiz.com',
+  whatsappE164: '+14073076493',
+  whatsappPretty: '+1 (407) 307-6493',
+  whatsappUrl: 'https://wa.me/14073076493',
+  mailto: 'mailto:info@annelisortiz.com',
+} as const
+
 // Redes sociales verificadas. OJO: TikTok handle es @annelis.7 (no @annelisortiz).
 export const social = {
   instagram: 'https://www.instagram.com/annelisortiz/',
@@ -35,6 +44,12 @@ export const applicationPortal = {
   label: 'aortizloans.com',
 } as const
 
+// Activos visuales centralizados — cambiar el path aquí si se renombran los archivos.
+export const assets = {
+  portrait: '/annelis-portrait.jpg',
+  bookCover: '/books/antes-de-decidir.jpg',
+} as const
+
 export const books = [
   {
     slug: 'antes-de-decidir',
@@ -42,7 +57,7 @@ export const books = [
     subtitle: 'Educación financiera, preparación y mentalidad antes de comprar una propiedad.',
     description:
       'Una guía enfocada en educación financiera, preparación y mentalidad antes de comprar una propiedad.',
-    cover: '/books/antes-de-decidir.jpg', // TODO: subir portada real
+    cover: '/books/antes-de-decidir.jpg',
     inLanguage: 'es',
     author: 'Annelis Ortiz',
   },

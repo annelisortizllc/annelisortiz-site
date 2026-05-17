@@ -2,7 +2,7 @@
   "meta": {
     "lang": "es",
     "siteName": "Annelis Ortiz",
-    "title": "Annelis Ortiz — Originadora de Préstamos Hipotecarios · Agente de Bienes Raíces · Autora",
+    "title": "Annelis Ortiz — Originadora de Préstamos Hipotecarios · Agente de Bienes Raíces · Autora · Coach",
     "description": "Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión. NEXA Lending. Autora de \"Antes de Decidir\".",
     "keywords": [
       "Annelis Ortiz",
@@ -28,7 +28,7 @@
     "contact": "Contacto"
   },
   "hero": {
-    "eyebrow": "Originadora de Préstamos Hipotecarios · NEXA Lending · Agente de Bienes Raíces · Autora",
+    "eyebrow": "Originadora de Préstamos · NEXA Lending · Bienes Raíces · Autora · Coach para Originadores",
     "title": "Construyendo patrimonio,",
     "titleAccent": "una familia a la vez.",
     "tagline": "Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión.",
@@ -82,12 +82,12 @@
   },
   "ecosystem": {
     "title": "Mi ecosistema",
-    "lead": "Cada parte de lo que hago se conecta para servir a un solo objetivo: que más familias logren propiedad — con claridad, honestidad y visión a largo plazo.",
+    "lead": "Cada parte de lo que hago se conecta para servir dos objetivos: que más familias logren propiedad — y que más Originadores hispanos crezcan en su carrera.",
     "pillars": [
       { "title": "Hipotecas", "body": "Préstamos hipotecarios en NEXA Lending, adaptados a tu realidad y tus metas." },
       { "title": "Bienes raíces", "body": "Compra y venta de propiedades principales y de inversión en Estados Unidos." },
       { "title": "Educación financiera", "body": "Mi libro \"Antes de Decidir\" y contenido que te prepara antes de cualquier decisión." },
-      { "title": "Preparación estratégica", "body": "Acompañamiento real para organizar finanzas, crédito y metas familiares." }
+      { "title": "Coach para Originadores", "body": "Mentoría en español para Loan Originators que quieren crecer su producción y carrera." }
     ]
   },
   "socialProof": {
@@ -113,6 +113,7 @@
       "Compra de propiedad",
       "Inversión en bienes raíces",
       "Preparación financiera / crédito",
+      "Coaching para Originadores",
       "Conferencia / Evento",
       "Medios / Prensa",
       "Otro"

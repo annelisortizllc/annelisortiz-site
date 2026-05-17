@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { PageHeader } from '@/components/PageHeader'
 import { breadcrumbJsonLd, jsonLdScript } from '@/lib/jsonld'
-import { social } from '@/lib/site'
+import { social, assets } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Sobre mí',
@@ -81,8 +82,27 @@ export default function SobreMiPage() {
         </div>
       </section>
 
-      {/* Bio completa */}
-      <section className="mx-auto max-w-3xl px-6 py-24">
+      {/* Retrato + Bio completa */}
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <div className="grid gap-12 md:grid-cols-5">
+          <div className="md:col-span-2">
+            <div className="sticky top-24">
+              <div className="relative overflow-hidden rounded-2xl border border-border bg-background-elev-1">
+                <Image
+                  src={assets.portrait}
+                  alt="Retrato profesional de Annelis Ortiz"
+                  width={1080}
+                  height={1440}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </div>
+              <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-muted">
+                Annelis Ortiz · NMLS #2006182
+              </p>
+            </div>
+          </div>
+          <div className="md:col-span-3">
         <p className="text-xs uppercase tracking-[0.22em] text-accent">Biografía</p>
         <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
           La historia detrás de las cifras.
@@ -129,7 +149,10 @@ export default function SobreMiPage() {
             Hoy, a través de su marca personal, educación financiera y experiencia en hipotecas
             y bienes raíces, continúa guiando a compradores e inversionistas con una visión basada
             en <strong className="text-foreground">confianza, preparación y crecimiento a largo plazo</strong>.
+            También acompaña como <strong className="text-foreground">Coach en español a Originadores de Préstamos</strong> que buscan crecer su producción y carrera.
           </p>
+        </div>
+          </div>
         </div>
       </section>
 

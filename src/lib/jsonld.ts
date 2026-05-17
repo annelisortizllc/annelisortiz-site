@@ -1,4 +1,4 @@
-import { site, social, business, books } from '@/lib/site'
+import { site, social, business, books, contact, assets } from '@/lib/site'
 
 export function personJsonLd() {
   return {
@@ -7,10 +7,17 @@ export function personJsonLd() {
     '@id': `${site.url}#person`,
     name: 'Annelis Ortiz',
     url: site.url,
-    image: `${site.url}/og.jpg`,
+    image: `${site.url}${assets.portrait}`,
+    email: contact.email,
+    telephone: contact.whatsappE164,
     description:
-      'Originadora de Préstamos Hipotecarios en NEXA Lending y Agente de Bienes Raíces. Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión. Autora de "Antes de Decidir".',
-    jobTitle: [business.role, business.alsoRole, 'Autora', 'Coach financiera'],
+      'Originadora de Préstamos Hipotecarios en NEXA Lending LLC, Agente de Bienes Raíces, Autora de "Antes de Decidir" y Coach en español para Originadores de Préstamos. Ayudo a familias a construir patrimonio a través de la propiedad, y a Originadores hispanos a crecer en su carrera.',
+    jobTitle: [
+      business.role,
+      business.alsoRole,
+      'Autora',
+      'Coach para Originadores de Préstamos',
+    ],
     worksFor: {
       '@type': 'Organization',
       name: business.employer,
@@ -28,6 +35,8 @@ export function personJsonLd() {
       'Preparación crediticia',
       'Construcción de patrimonio familiar',
       'Compra de primera vivienda',
+      'Coaching para Originadores de Préstamos',
+      'Crecimiento de producción hipotecaria',
     ],
     areaServed: [
       { '@type': 'Country', name: 'United States' },
