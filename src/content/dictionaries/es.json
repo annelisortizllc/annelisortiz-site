@@ -2,21 +2,33 @@
   "meta": {
     "lang": "es",
     "siteName": "Annelis Ortiz",
-    "title": "Annelis Ortiz — Mortgage Loan Officer, Agente de Bienes Raíces, Autora y Coach",
-    "description": "Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión.",
-    "keywords": ["mortgage loan officer", "agente bienes raíces", "préstamo hipotecario", "inversión propiedades", "patrimonio familiar", "coach financiero", "Annelis Ortiz"]
+    "title": "Annelis Ortiz — Originadora de Préstamos Hipotecarios · Agente de Bienes Raíces · Autora",
+    "description": "Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión. NEXA Mortgage LLC. Autora de \"Antes de Decidir\".",
+    "keywords": [
+      "Annelis Ortiz",
+      "originadora de préstamos hipotecarios",
+      "mortgage loan officer en español",
+      "agente de bienes raíces",
+      "préstamo hipotecario",
+      "comprar casa Estados Unidos",
+      "inversión en propiedades",
+      "patrimonio familiar",
+      "educación financiera",
+      "NEXA Mortgage",
+      "Antes de Decidir libro"
+    ]
   },
   "nav": {
     "home": "Inicio",
     "about": "Sobre mí",
-    "books": "Libros",
+    "books": "Libro",
     "speaking": "Conferencias",
     "press": "Prensa",
     "blog": "Blog",
     "contact": "Contacto"
   },
   "hero": {
-    "eyebrow": "Mortgage Loan Officer · Agente de Bienes Raíces · Autora · Coach",
+    "eyebrow": "Originadora de Préstamos Hipotecarios · NEXA Mortgage LLC · Agente de Bienes Raíces · Autora",
     "title": "Construyendo patrimonio,",
     "titleAccent": "una familia a la vez.",
     "tagline": "Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión.",
@@ -26,16 +38,16 @@
   "stats": {
     "title": "Resultados que hablan",
     "items": [
-      { "value": "TODO", "label": "Familias atendidas" },
-      { "value": "TODO", "label": "Años de experiencia" },
-      { "value": "TODO", "label": "Libros publicados" },
-      { "value": "TODO", "label": "Estados donde opero" }
+      { "value": "197+", "label": "Familias y clientes atendidos" },
+      { "value": "30K+", "label": "Comunidad digital" },
+      { "value": "5+", "label": "Años en hipotecas y bienes raíces" },
+      { "value": "3", "label": "Regiones: EE.UU., Puerto Rico, LATAM" }
     ]
   },
   "about": {
     "title": "Sobre Annelis",
-    "lead": "Soy Mortgage Loan Officer y Agente de Bienes Raíces, pero antes que nada soy alguien que cree que la propiedad es la herramienta más poderosa para crear patrimonio generacional.",
-    "body": "TODO: Annelis va a llenar esto con su bio completa (3-4 párrafos). Mientras tanto sirve como placeholder estructural.",
+    "lead": "Originadora de Préstamos Hipotecarios en NEXA Mortgage LLC y Agente de Bienes Raíces — combino estrategia financiera, educación y un enfoque humano en cada etapa del proceso de compra e inversión.",
+    "body": "Con formación universitaria en contabilidad y más de cinco años de experiencia en la industria hipotecaria y de bienes raíces en Estados Unidos, he ayudado a más de 197 familias y compradores a prepararse financieramente, organizar su crédito y tomar decisiones inteligentes para construir patrimonio a través de bienes raíces. Más allá del financiamiento, me enfoco en brindar orientación estratégica y personalizada — adaptando cada solución a las metas reales de cada familia. Esposa y madre de cuatro hijos, mi misión es ayudar a otras personas a alcanzar estabilidad, seguridad y crecimiento financiero a largo plazo.",
     "cta": "Leer mi historia completa"
   },
   "philosophy": {
@@ -43,48 +55,51 @@
     "items": [
       {
         "title": "Educar antes que vender",
-        "body": "Antes de hablar de un préstamo o una propiedad, te enseño cómo funciona el sistema para que tomes la mejor decisión."
+        "body": "Antes de hablar de un préstamo o una propiedad, te enseño cómo funciona el sistema para que tomes la mejor decisión — con claridad y honestidad."
       },
       {
-        "title": "Familia como primer cliente",
-        "body": "Cada operación se diseña pensando en cómo afecta a tu núcleo familiar — hoy y dentro de 20 años."
+        "title": "Preparación estratégica",
+        "body": "Organizar finanzas, crédito y metas ANTES de comprar. La preparación es el 80% del resultado."
       },
       {
-        "title": "Patrimonio que dura generaciones",
-        "body": "No vendo casas: construyo activos que se quedan en la familia."
+        "title": "Visión a largo plazo",
+        "body": "Cada compra de vivienda es más que una transacción: es la oportunidad de transformar el futuro de tu familia y crear un legado duradero."
       }
     ]
   },
   "speaking": {
     "title": "Conferencias",
-    "lead": "Comparto en eventos corporativos, comunidades hispanas y grupos de inversión.",
+    "lead": "Comparto en eventos corporativos, comunidades hispanas y grupos de inversión sobre preparación financiera, compra inteligente de propiedades y construcción de patrimonio.",
     "cta": "Invitar a mi evento"
   },
   "books": {
-    "title": "Libros",
-    "lead": "Mis publicaciones sobre construcción de patrimonio, mentalidad financiera y bienes raíces.",
-    "cta": "Ver todos los libros"
+    "title": "Mi libro",
+    "lead": "Una guía enfocada en educación financiera, preparación y mentalidad antes de comprar una propiedad.",
+    "cta": "Conoce el libro",
+    "bookTitle": "Antes de Decidir",
+    "bookSubtitle": "Cuando Nadie Te Enseñó a Prepararte",
+    "bookPitch": "El libro que te hubiera ahorrado años de errores: lo que NADIE te enseñó antes de firmar tu primera hipoteca o invertir en bienes raíces."
   },
   "ecosystem": {
     "title": "Mi ecosistema",
-    "lead": "Cada parte de lo que hago se conecta para servir a un solo objetivo: que más familias logren propiedad.",
+    "lead": "Cada parte de lo que hago se conecta para servir a un solo objetivo: que más familias logren propiedad — con claridad, honestidad y visión a largo plazo.",
     "pillars": [
-      { "title": "Financiamiento", "body": "Préstamos hipotecarios que se ajustan a tu realidad." },
-      { "title": "Bienes raíces", "body": "Compra y venta de propiedades principales y de inversión." },
-      { "title": "Educación", "body": "Libros, talleres y mentoría para construir patrimonio." },
-      { "title": "Coaching", "body": "Acompañamiento 1-a-1 para inversionistas." }
+      { "title": "Hipotecas", "body": "Préstamos hipotecarios en NEXA Mortgage LLC, adaptados a tu realidad y tus metas." },
+      { "title": "Bienes raíces", "body": "Compra y venta de propiedades principales y de inversión en Estados Unidos." },
+      { "title": "Educación financiera", "body": "Mi libro \"Antes de Decidir\" y contenido que te prepara antes de cualquier decisión." },
+      { "title": "Preparación estratégica", "body": "Acompañamiento real para organizar finanzas, crédito y metas familiares." }
     ]
   },
   "socialProof": {
     "title": "Confianza ganada",
-    "lead": "Familias, profesionales y medios que reconocen mi trabajo."
+    "lead": "Familias, profesionales y medios que reconocen mi trabajo en EE.UU., Puerto Rico y Latinoamérica."
   },
   "testimonials": {
     "title": "Lo que dicen las familias que serví"
   },
   "contact": {
     "title": "Trabajemos juntos",
-    "lead": "Cuéntame en qué etapa estás y cómo puedo ayudarte.",
+    "lead": "Cuéntame en qué etapa estás y cómo puedo ayudarte. Respondo en menos de 24 horas.",
     "fields": {
       "name": "Nombre completo",
       "email": "Email",
@@ -93,7 +108,15 @@
       "type": "Tipo de consulta",
       "message": "Cuéntame tu situación"
     },
-    "types": ["Préstamo hipotecario", "Compra de propiedad", "Inversión en bienes raíces", "Conferencia / Evento", "Mentoría / Coaching", "Medios / Prensa", "Otro"],
+    "types": [
+      "Préstamo hipotecario",
+      "Compra de propiedad",
+      "Inversión en bienes raíces",
+      "Preparación financiera / crédito",
+      "Conferencia / Evento",
+      "Medios / Prensa",
+      "Otro"
+    ],
     "submit": "Enviar mensaje",
     "submitPending": "Enviando…",
     "success": "Gracias. Recibirás respuesta en menos de 24 horas.",

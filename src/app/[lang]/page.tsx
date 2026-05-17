@@ -5,6 +5,7 @@ import { Stats } from '@/components/sections/Stats'
 import { AboutPreview } from '@/components/sections/AboutPreview'
 import { Philosophy } from '@/components/sections/Philosophy'
 import { Ecosystem } from '@/components/sections/Ecosystem'
+import { BookFeature } from '@/components/sections/BookFeature'
 import { SocialProof } from '@/components/sections/SocialProof'
 import { Contact } from '@/components/sections/Contact'
 
@@ -20,6 +21,7 @@ export default async function HomePage(props: PageProps<'/[lang]'>) {
       <AboutPreview dict={dict} locale={lang} />
       <Philosophy dict={dict} />
       <Ecosystem dict={dict} />
+      <BookFeature dict={dict} locale={lang} />
       <SocialProof dict={dict} />
       <Contact dict={dict} />
     </>
