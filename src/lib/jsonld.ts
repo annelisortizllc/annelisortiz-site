@@ -41,6 +41,13 @@ export function personJsonLd() {
         userInteractionCount: 30000,
       },
     ],
+    identifier: [
+      {
+        '@type': 'PropertyValue',
+        propertyID: 'NMLS',
+        value: business.nmlsLoanOfficer,
+      },
+    ],
     sameAs: [
       social.instagram,
       social.facebook,

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Dictionary } from '@/lib/dictionaries'
 import { social } from '@/lib/site'
+import { NmlsDisclosure } from '@/components/NmlsDisclosure'
 
 export function Footer({ dict }: { dict: Dictionary }) {
   const year = new Date().getFullYear()
@@ -35,6 +36,7 @@ export function Footer({ dict }: { dict: Dictionary }) {
           <a href={social.youtube} target="_blank" rel="noreferrer" className="hover:text-foreground">YouTube</a>
         </div>
       </div>
+      <NmlsDisclosure />
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-muted sm:flex-row">
           <span>© {year} Annelis Ortiz. {dict.footer.rights}</span>

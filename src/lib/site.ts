@@ -16,10 +16,15 @@ export const social = {
 } as const
 
 export const business = {
-  employer: 'NEXA Lending',
+  employer: 'NEXA Lending LLC',
   employerUrl: 'https://nexalending.com',
   role: 'Originadora de Préstamos Hipotecarios',
   alsoRole: 'Agente de Bienes Raíces',
+  // NMLS disclosures — legally required on any LO-facing communication.
+  nmlsLoanOfficer: '1660690', // Annelis
+  nmlsCompany: '2006182', // NEXA Lending LLC
+  nmlsConsumerAccess: 'https://www.nmlsconsumeraccess.org/',
+  equalHousing: true,
 } as const
 
 export const books = [
