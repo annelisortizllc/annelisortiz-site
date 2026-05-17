@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Dictionary } from '@/lib/dictionaries'
+import { MobileNav } from '@/components/MobileNav'
 
 export function Header({ dict }: { dict: Dictionary }) {
   const links = [
@@ -27,10 +28,11 @@ export function Header({ dict }: { dict: Dictionary }) {
         <div className="flex items-center gap-3">
           <Link
             href="/#contacto"
-            className="rounded-full bg-accent px-4 py-1.5 text-sm font-medium text-on-accent transition hover:bg-accent-soft"
+            className="hidden rounded-full bg-accent px-4 py-1.5 text-sm font-medium text-on-accent transition hover:bg-accent-soft md:inline-block"
           >
             {dict.nav.contact}
           </Link>
+          <MobileNav dict={dict} />
         </div>
       </div>
     </header>
