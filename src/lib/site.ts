@@ -21,10 +21,18 @@ export const business = {
   role: 'Originadora de Préstamos Hipotecarios',
   alsoRole: 'Agente de Bienes Raíces',
   // NMLS disclosures — legally required on any LO-facing communication.
-  nmlsLoanOfficer: '1660690', // Annelis
-  nmlsCompany: '2006182', // NEXA Lending LLC
+  // Confirmado por Annelis 2026-05-17.
+  nmlsLoanOfficer: '2006182', // Annelis
+  nmlsCompany: '1660690', // NEXA Lending LLC
   nmlsConsumerAccess: 'https://www.nmlsconsumeraccess.org/',
   equalHousing: true,
+} as const
+
+// Portal profesional donde Annelis recibe aplicaciones formales como Originadora.
+// El sitio annelisortiz.com es marca/autoridad; aortizloans.com es transacción.
+export const applicationPortal = {
+  url: 'https://aortizloans.com',
+  label: 'aortizloans.com',
 } as const
 
 export const books = [
