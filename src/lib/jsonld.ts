@@ -63,6 +63,36 @@ export function websiteJsonLd() {
   }
 }
 
+export function breadcrumbJsonLd(
+  items: { name: string; path: string }[],
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      item: `${site.url}${it.path}`,
+    })),
+  }
+}
+
+export function faqJsonLd(items: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((it) => ({
+      '@type': 'Question',
+      name: it.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: it.answer,
+      },
+    })),
+  }
+}
+
 export function bookJsonLd(slug: string) {
   const book = books.find((b) => b.slug === slug)
   if (!book) return null
