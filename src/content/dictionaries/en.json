@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "lang": "en",
+    "siteName": "Annelis Ortiz",
+    "title": "Annelis Ortiz — Mortgage Loan Officer, Real Estate Agent, Author & Coach",
+    "description": "I help families grow generational wealth through financing and the purchase of primary and investment properties.",
+    "keywords": ["mortgage loan officer", "real estate agent", "home loan", "investment property", "generational wealth", "financial coach", "Annelis Ortiz"]
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "books": "Books",
+    "speaking": "Speaking",
+    "press": "Press",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Mortgage Loan Officer · Real Estate Agent · Author · Coach",
+    "title": "Building generational wealth,",
+    "titleAccent": "one family at a time.",
+    "tagline": "I help families grow generational wealth through financing and the purchase of primary and investment properties.",
+    "ctaPrimary": "Book a consultation",
+    "ctaSecondary": "Read my story"
+  },
+  "stats": {
+    "title": "Results that speak",
+    "items": [
+      { "value": "TODO", "label": "Families served" },
+      { "value": "TODO", "label": "Years of experience" },
+      { "value": "TODO", "label": "Books published" },
+      { "value": "TODO", "label": "States where I operate" }
+    ]
+  },
+  "about": {
+    "title": "About Annelis",
+    "lead": "I'm a Mortgage Loan Officer and Real Estate Agent, but above all I believe property is the most powerful tool to create generational wealth.",
+    "body": "TODO: Annelis will fill in her full bio here (3-4 paragraphs).",
+    "cta": "Read my full story"
+  },
+  "philosophy": {
+    "title": "My philosophy",
+    "items": [
+      {
+        "title": "Educate before you sell",
+        "body": "Before talking about a loan or a property, I teach you how the system works so you can make the best decision."
+      },
+      {
+        "title": "Family as the first client",
+        "body": "Every transaction is designed around how it affects your family — today and 20 years from now."
+      },
+      {
+        "title": "Wealth that lasts generations",
+        "body": "I don't sell houses: I build assets that stay in the family."
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "lead": "I speak at corporate events, Hispanic communities, and investment groups.",
+    "cta": "Invite me to your event"
+  },
+  "books": {
+    "title": "Books",
+    "lead": "My publications on wealth-building, financial mindset, and real estate.",
+    "cta": "See all books"
+  },
+  "ecosystem": {
+    "title": "My ecosystem",
+    "lead": "Every part of what I do connects to serve a single goal: that more families achieve property ownership.",
+    "pillars": [
+      { "title": "Financing", "body": "Mortgage loans tailored to your reality." },
+      { "title": "Real estate", "body": "Buying and selling primary and investment properties." },
+      { "title": "Education", "body": "Books, workshops, and mentorship to build wealth." },
+      { "title": "Coaching", "body": "1-on-1 support for investors." }
+    ]
+  },
+  "socialProof": {
+    "title": "Earned trust",
+    "lead": "Families, professionals, and media who recognize my work."
+  },
+  "testimonials": {
+    "title": "What the families I've served say"
+  },
+  "contact": {
+    "title": "Let's work together",
+    "lead": "Tell me where you are and how I can help.",
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "whatsapp": "WhatsApp (optional)",
+      "company": "Company or organization",
+      "type": "Type of inquiry",
+      "message": "Tell me your situation"
+    },
+    "types": ["Home loan", "Property purchase", "Real estate investment", "Speaking / Event", "Mentorship / Coaching", "Media / Press", "Other"],
+    "submit": "Send message",
+    "submitPending": "Sending…",
+    "success": "Thank you. You'll hear back within 24 hours.",
+    "error": "Something failed. Please WhatsApp me directly."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Building generational wealth, one family at a time."
+  }
+}
