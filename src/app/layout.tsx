@@ -35,13 +35,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title: dict.meta.title,
       description: dict.meta.description,
       locale: 'es_ES',
-      images: [{ url: site.ogImage, width: 1200, height: 630 }],
+      // Image is auto-wired from app/opengraph-image.tsx
     },
     twitter: {
       card: 'summary_large_image',
       title: dict.meta.title,
       description: dict.meta.description,
-      images: [site.ogImage],
+      // Image falls back to the opengraph-image automatically.
     },
     robots: { index: true, follow: true },
   }
