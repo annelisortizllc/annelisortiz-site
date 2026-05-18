@@ -61,5 +61,7 @@ export const books = [
     cover: '/books/antes-de-decidir.jpg',
     inLanguage: 'es',
     author: 'Annelis Ortiz',
+    asin: 'B0GD97JM53',
+    amazonUrl: 'https://www.amazon.com/dp/B0GD97JM53',
   },
 ] as const

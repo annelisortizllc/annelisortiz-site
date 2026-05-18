@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PageHeader } from '@/components/PageHeader'
 import { breadcrumbJsonLd, bookJsonLd, faqJsonLd, jsonLdScript } from '@/lib/jsonld'
-import { books } from '@/lib/site'
+import { books, assets } from '@/lib/site'
 
 const SLUG = 'antes-de-decidir'
 
@@ -92,22 +93,15 @@ export default function BookPage() {
               aria-hidden
               className="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-2xl bg-accent/20 blur-2xl"
             />
-            <div className="aspect-[2/3] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-background-elev-2 via-background-elev-1 to-background shadow-2xl">
-              <div className="flex h-full flex-col items-center justify-center p-10 text-center">
-                <p className="text-xs uppercase tracking-[0.3em] text-accent">
-                  Annelis Ortiz
-                </p>
-                <h2 className="mt-6 font-serif text-3xl leading-tight text-foreground">
-                  Antes de Decidir
-                </h2>
-                <div className="mt-4 h-px w-16 bg-accent" />
-                <p className="mt-4 font-serif text-base italic text-muted">
-                  Cuando Nadie Te Enseñó a Prepararte
-                </p>
-                <p className="mt-auto text-[10px] uppercase tracking-widest text-muted/60">
-                  TODO: subir portada real
-                </p>
-              </div>
+            <div className="aspect-[2/3] overflow-hidden rounded-2xl border border-border bg-background-elev-2 shadow-2xl">
+              <Image
+                src={assets.bookCover}
+                alt='Portada del libro "Antes de Decidir: Cuando Nadie Te Enseñó a Prepararte" por Annelis Ortiz'
+                width={640}
+                height={960}
+                className="h-full w-full object-cover"
+                priority
+              />
             </div>
           </div>
 
@@ -127,12 +121,15 @@ export default function BookPage() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link
-                href="/#contacto"
-                className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)] transition hover:bg-accent-soft"
+              <a
+                href={(books.find((b) => b.slug === SLUG) as { amazonUrl?: string }).amazonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)] transition hover:bg-accent-soft"
               >
-                Quiero ser notificado
-              </Link>
+                Comprar en Amazon
+                <span aria-hidden>↗</span>
+              </a>
               <Link
                 href="/sobre-mi"
                 className="rounded-full border border-border-strong px-6 py-3 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent"
