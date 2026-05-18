@@ -107,7 +107,7 @@ export async function submitContact(
   try {
     const resend = new Resend(apiKey)
     const { error } = await resend.emails.send({
-      from: 'Annelis Ortiz Web <onboarding@resend.dev>',
+      from: 'Annelis Ortiz <hola@annelisortiz.com>',
       to: [to],
       replyTo: data.email,
       subject: `${data.type} — ${data.name}`,
