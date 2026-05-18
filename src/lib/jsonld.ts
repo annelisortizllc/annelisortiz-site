@@ -1,4 +1,4 @@
-import { site, social, business, books, contact, assets } from '@/lib/site'
+import { site, social, business, books, contact, assets, applicationPortal } from '@/lib/site'
 
 export function personJsonLd() {
   return {
@@ -6,7 +6,11 @@ export function personJsonLd() {
     '@type': 'Person',
     '@id': `${site.url}#person`,
     name: 'Annelis Ortiz',
+    givenName: 'Annelis',
+    familyName: 'Ortiz',
+    gender: 'Female',
     url: site.url,
+    mainEntityOfPage: site.url,
     image: `${site.url}${assets.portrait}`,
     email: contact.email,
     telephone: contact.whatsappE164,
@@ -17,6 +21,29 @@ export function personJsonLd() {
       business.alsoRole,
       'Autora',
       'Coach para Originadores de Préstamos',
+    ],
+    hasOccupation: [
+      {
+        '@type': 'Occupation',
+        name: business.role,
+        occupationLocation: { '@type': 'Country', name: 'United States' },
+        skills: 'Mortgage origination, credit preparation, financial strategy',
+      },
+      {
+        '@type': 'Occupation',
+        name: business.alsoRole,
+        occupationLocation: { '@type': 'Country', name: 'United States' },
+      },
+      {
+        '@type': 'Occupation',
+        name: 'Author',
+        skills: 'Financial education writing',
+      },
+      {
+        '@type': 'Occupation',
+        name: 'Coach for Mortgage Loan Originators',
+        skills: 'Mentoring, production growth, Spanish-language coaching',
+      },
     ],
     worksFor: {
       '@type': 'Organization',
@@ -57,12 +84,16 @@ export function personJsonLd() {
         value: business.nmlsLoanOfficer,
       },
     ],
+    // sameAs: enlaces cruzados que IAs y Google usan para resolver identidad.
+    // Cuando Annelis tenga Wikidata Q-ID + Amazon Author URL + Goodreads URL,
+    // agregarlos aquí (ver pr/phase-4-authority-platforms.md).
     sameAs: [
       social.instagram,
       social.facebook,
       social.tiktok,
       social.linkedin,
       social.youtube,
+      applicationPortal.url, // aortizloans.com — portal profesional verificable
     ],
   }
 }
