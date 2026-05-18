@@ -50,9 +50,11 @@ export function personJsonLd() {
       name: business.employer,
       url: business.employerUrl,
     },
+    nationality: { '@type': 'Country', name: 'United States' },
     alumniOf: {
-      '@type': 'EducationalOrganization',
-      name: 'Formación universitaria en Contabilidad',
+      '@type': 'CollegeOrUniversity',
+      name: 'Universidad de Puerto Rico, Recinto de Río Piedras',
+      sameAs: 'https://www.uprrp.edu/',
     },
     knowsLanguage: ['es', 'en'],
     knowsAbout: [
@@ -143,6 +145,10 @@ export function faqJsonLd(items: { question: string; answer: string }[]) {
 export function bookJsonLd(slug: string) {
   const book = books.find((b) => b.slug === slug)
   if (!book) return null
+  // ASIN/amazonUrl are optional on the type but present for "antes-de-decidir";
+  // include them only when defined so future books without an Amazon listing
+  // still produce valid Schema.org Book entries.
+  const b = book as typeof book & { asin?: string; amazonUrl?: string }
   return {
     '@context': 'https://schema.org',
     '@type': 'Book',
@@ -153,6 +159,14 @@ export function bookJsonLd(slug: string) {
     description: book.description,
     image: `${site.url}${book.cover}`,
     bookFormat: 'https://schema.org/Paperback',
+    ...(b.amazonUrl ? { url: b.amazonUrl, sameAs: [b.amazonUrl] } : {}),
+    ...(b.asin
+      ? {
+          identifier: [
+            { '@type': 'PropertyValue', propertyID: 'ASIN', value: b.asin },
+          ],
+        }
+      : {}),
   }
 }
 
