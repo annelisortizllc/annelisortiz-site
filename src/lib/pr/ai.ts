@@ -105,7 +105,7 @@ export async function scoreAndDraft(
       messages: [{ role: 'user', content: userMsg }],
     })
 
-    // Find the first text block, strip code fences if any, parse JSON.
+    // Find the first text block, strip code fences if any.
     const text = res.content
       .map((b) => (b.type === 'text' ? b.text : ''))
       .join('')
@@ -116,7 +116,7 @@ export async function scoreAndDraft(
       .replace(/\s*```$/, '')
       .trim()
 
-    const parsed = JSON.parse(jsonStr) as AiScoringResult
+    const parsed = parseLooseJson(jsonStr) as AiScoringResult
     // Defensive clamps
     parsed.score = Math.max(0, Math.min(100, Math.round(parsed.score)))
     parsed.language = 'es'
@@ -125,4 +125,49 @@ export async function scoreAndDraft(
     console.error('[pr-autopilot/ai] scoreAndDraft failed', err)
     return null
   }
+}
+
+/**
+ * Tolerant JSON parser. Claude (and other LLMs) sometimes emit JSON where
+ * multi-line string values contain literal `\n`/`\r`/`\t` instead of escaped
+ * versions — strict JSON.parse rejects this. We try strict first, then walk
+ * the text escaping control chars only when they sit inside a string.
+ */
+function parseLooseJson(text: string): unknown {
+  try {
+    return JSON.parse(text)
+  } catch {
+    // fall through to repair
+  }
+
+  let out = ''
+  let inString = false
+  let escaped = false
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i]
+    if (escaped) {
+      out += c
+      escaped = false
+      continue
+    }
+    if (c === '\\') {
+      out += c
+      escaped = true
+      continue
+    }
+    if (c === '"') {
+      inString = !inString
+      out += c
+      continue
+    }
+    if (inString) {
+      if (c === '\n') out += '\\n'
+      else if (c === '\r') out += '\\r'
+      else if (c === '\t') out += '\\t'
+      else out += c
+    } else {
+      out += c
+    }
+  }
+  return JSON.parse(out)
 }
