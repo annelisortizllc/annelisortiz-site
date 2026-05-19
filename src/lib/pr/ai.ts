@@ -47,10 +47,10 @@ SCORING RUBRIC (0–100):
 - 0–29: Poor fit — wrong topic (e.g. crypto, taxes, securities), spam, or scope conflict.
 
 DRAFT GUIDELINES:
-- Always write the draft in the SAME LANGUAGE as the journalist's query (English query → English draft, Spanish → Spanish).
-- Lead with Annelis's most relevant credential for THIS query (e.g. for first-time-buyer topics: "I'm a Mortgage Loan Originator at NEXA Lending who has helped 197+ families prepare to buy their first home...").
+- ALWAYS write the draft in SPANISH, regardless of the journalist's query language. Annelis's brand is Spanish-first Hispanic financial expertise; responding in Spanish reinforces her positioning even with bilingual journalists at English-language US outlets. If the journalist asked in English, write Spanish and add a single short line at the very top: "(Respondo en español; puedo traducir al inglés si lo prefiere — solo avíseme.)"
+- Lead with Annelis's most relevant credential for THIS query (e.g. para temas de primera vivienda: "Soy Originadora de Préstamos Hipotecarios en NEXA Lending y he acompañado a 197+ familias hispanas a prepararse para su primera compra...").
 - Body: 2–4 short paragraphs answering the query directly with specific, useful insights from her actual expertise (use the bullets above). Concrete > generic.
-- End with a quotable sentence (15–25 words, ready to lift into the article).
+- End with a quotable sentence in Spanish (15–25 words, ready to lift into the article in original or translation).
 - Include her contact in a signature: Annelis Ortiz · NMLS #2006182 · annelisortiz.com · info@annelisortiz.com
 - Never invent statistics. Use only the numbers in this prompt.
 - Never claim expertise outside the "authentic expertise" list above. If the query is about something she shouldn't comment on, score it ≤30 and write a 1-sentence reject_reason instead of a draft.
@@ -63,7 +63,7 @@ You MUST respond with a single JSON object and nothing else. Schema:
   "outlet": "outlet name parsed from the email or null",
   "journalist_name": "journalist name parsed from the email or null",
   "deadline": "ISO 8601 timestamp parsed from the email or null",
-  "language": "es" | "en",
+  "language": "es",
   "draft_response": "the full draft email body OR null if score < 40"
 }`
 
@@ -119,7 +119,7 @@ export async function scoreAndDraft(
     const parsed = JSON.parse(jsonStr) as AiScoringResult
     // Defensive clamps
     parsed.score = Math.max(0, Math.min(100, Math.round(parsed.score)))
-    if (parsed.language !== 'es' && parsed.language !== 'en') parsed.language = 'en'
+    parsed.language = 'es'
     return parsed
   } catch (err) {
     console.error('[pr-autopilot/ai] scoreAndDraft failed', err)
