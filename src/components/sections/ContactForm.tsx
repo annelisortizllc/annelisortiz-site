@@ -1,7 +1,8 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useEffect } from 'react'
 import { useFormStatus } from 'react-dom'
+import { track } from '@vercel/analytics'
 import { submitContact, type ContactState } from '@/lib/actions/contact'
 import type { Dictionary } from '@/lib/dictionaries'
 
@@ -23,6 +24,12 @@ function SubmitButton({ pendingLabel, label }: { pendingLabel: string; label: st
 export function ContactForm({ dict }: { dict: Dictionary }) {
   const [state, formAction] = useActionState(submitContact, initialState)
   const f = dict.contact.fields
+
+  useEffect(() => {
+    if (state.ok && state.message) {
+      track('contact_form_submit')
+    }
+  }, [state.ok, state.message])
 
   return (
     <form action={formAction} className="space-y-5">

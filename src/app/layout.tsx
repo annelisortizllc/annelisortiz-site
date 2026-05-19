@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Cormorant_Garamond } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -64,6 +66,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Header dict={dict} />
         <main className="flex-1">{children}</main>
         <Footer dict={dict} />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
