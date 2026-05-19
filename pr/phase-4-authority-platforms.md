@@ -47,7 +47,7 @@ Combino estrategia financiera, educación y un enfoque humano en cada etapa del 
 
 📚 Autora: "Antes de Decidir — Cuando Nadie Te Enseñó a Prepararte" — una guía honesta sobre educación financiera, preparación crediticia y mentalidad antes de comprar una propiedad.
 
-🎤 Speaker: conferencias en eventos corporativos, asociaciones hispanas (NAHREP), grupos de inversión, podcasts y medios. Disponible en español y bajo solicitud en inglés.
+🎤 Speaker: conferencias en eventos corporativos, asociaciones hispanas, grupos de inversión, podcasts y medios. Disponible en español y bajo solicitud en inglés.
 
 Mi misión: ayudar a más familias hispanas a alcanzar estabilidad, seguridad y crecimiento financiero a largo plazo. Cada compra de vivienda representa la oportunidad de transformar el futuro de una familia y crear un legado duradero.
 
