@@ -87,15 +87,17 @@ export function personJsonLd() {
       },
     ],
     // sameAs: enlaces cruzados que IAs y Google usan para resolver identidad.
-    // Cuando Annelis tenga Wikidata Q-ID + Amazon Author URL + Goodreads URL,
-    // agregarlos aquí (ver pr/phase-4-authority-platforms.md).
+    // Goal: 10+ verifiable entries (DAB v2.0 Fase 6 checklist).
+    // Faltan: Amazon Author page (post-verify), Goodreads (when listed).
     sameAs: [
+      'https://www.wikidata.org/wiki/Q139845552', // Wikidata entity — fuente #1 para IAs
       social.instagram,
       social.facebook,
       social.tiktok,
       social.linkedin,
       social.youtube,
-      applicationPortal.url, // aortizloans.com — portal profesional verificable
+      'https://www.amazon.com/dp/B0GD97JM53', // libro "Antes de Decidir"
+      applicationPortal.url, // aortizloans.com — portal profesional regulado
     ],
   }
 }
