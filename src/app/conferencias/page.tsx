@@ -36,7 +36,7 @@ const topics = [
 
 const audiences = [
   'Eventos corporativos y conferencias de la industria',
-  'Asociaciones profesionales hispanas (NAHREP, cámaras locales)',
+  'Asociaciones profesionales hispanas y cámaras locales',
   'Grupos de inversión y bienes raíces',
   'Comunidades religiosas y de mujeres',
   'Universidades y programas de educación financiera',

@@ -1,8 +1,8 @@
 import type { Dictionary } from '@/lib/dictionaries'
 
 const placeholderLogos = [
+  'NEXA Lending',
   'NAR',
-  'NAHREP',
   'Univision',
   'Telemundo',
   'Bloomberg LATAM',
