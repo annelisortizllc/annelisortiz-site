@@ -2,11 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHeader } from '@/components/PageHeader'
 import { breadcrumbJsonLd, jsonLdScript } from '@/lib/jsonld'
+import { listBlogPosts } from '@/content/blog'
 
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'Artículos de Annelis Ortiz sobre hipotecas, bienes raíces, preparación financiera y construcción de patrimonio para familias hispanas en Estados Unidos.',
+    'Artículos honestos sobre hipotecas, bienes raíces, preparación financiera y construcción de patrimonio para familias hispanas en EE.UU. Por Annelis Ortiz.',
   alternates: { canonical: 'https://annelisortiz.com/blog' },
 }
 
@@ -15,26 +16,9 @@ const crumbs = [
   { name: 'Blog', path: '/blog' },
 ]
 
-// TODO: reemplazar con artículos reales (15-20 artículos SEO long-tail por DAB Fase 1).
-const upcomingTopics = [
-  'FHA vs convencional: cuál te conviene en 2026',
-  'Cómo subir tu credit score en 90 días antes de comprar',
-  'Down payment: cuánto necesitas realmente',
-  'DSCR loans para inversión en propiedades',
-  'Primera vivienda en Florida: lo que debes saber',
-  'Refinanciamiento: cuándo sí y cuándo no',
-  'Inversión en alquileres a corto plazo',
-  'Crédito para inmigrantes recién llegados',
-  'Comprar casa siendo trabajador 1099',
-  'Reservas, PMI y otros costos ocultos',
-  'Equity: cómo usar el patrimonio de tu casa',
-  'Estrategias de inversión con casas multifamiliares',
-  'Errores caros al comprar con un amigo o familiar',
-  'Cómo elegir un agente de bienes raíces',
-  'Preparación financiera para construir patrimonio generacional',
-]
+export default function BlogIndexPage() {
+  const posts = listBlogPosts()
 
-export default function BlogPage() {
   return (
     <>
       <script
@@ -45,45 +29,45 @@ export default function BlogPage() {
       <PageHeader
         eyebrow="Blog"
         title="Educación honesta sobre hipotecas y bienes raíces."
-        lead="Artículos para personas que quieren entender el sistema ANTES de firmar. Próximamente: guías paso a paso, casos reales y respuestas a las preguntas que recibo todos los días."
+        lead="Lo que de verdad necesitas saber antes de firmar — sin marketing, sin fórmulas mágicas, con números reales."
         crumbs={crumbs}
       />
 
-      <section className="mx-auto max-w-4xl px-6 py-20">
-        <div className="rounded-2xl border border-dashed border-border bg-background-elev-1/40 p-10 text-center">
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">
-            Próximos artículos
-          </p>
-          <h2 className="mt-4 font-serif text-2xl leading-tight text-foreground md:text-3xl">
-            15+ guías long-form en camino.
-          </h2>
-          <p className="mt-4 text-sm text-muted">
-            El blog se publica como parte de la Fase 1 del Digital Authority Blueprint. Aquí va la
-            lista preliminar de temas que estamos preparando.
-          </p>
-        </div>
-
-        <ul className="mt-12 grid gap-3 sm:grid-cols-2">
-          {upcomingTopics.map((t) => (
-            <li
-              key={t}
-              className="flex items-start gap-3 rounded-xl border border-border bg-background-elev-1 p-4 text-sm text-muted transition hover:border-accent/60 hover:text-foreground"
+      <section className="mx-auto max-w-4xl px-6 py-16">
+        <div className="space-y-6">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group block rounded-2xl border border-border bg-background-elev-1 p-7 transition hover:border-accent/60"
             >
-              <span aria-hidden className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-              {t}
-            </li>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
+                <span className="uppercase tracking-[0.18em] text-accent">{post.category}</span>
+                <span aria-hidden>·</span>
+                <span>{formatDate(post.publishedAt)}</span>
+                <span aria-hidden>·</span>
+                <span>{post.readingTimeMin} min de lectura</span>
+              </div>
+              <h2 className="mt-3 font-serif text-2xl leading-tight text-foreground transition group-hover:text-accent md:text-3xl">
+                {post.title}
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-muted">{post.description}</p>
+              <span className="mt-5 inline-flex items-center gap-2 text-xs font-medium text-accent">
+                Leer artículo <span aria-hidden>→</span>
+              </span>
+            </Link>
           ))}
-        </ul>
-
-        <div className="mt-16 text-center">
-          <Link
-            href="/#contacto"
-            className="inline-flex rounded-full border border-border-strong px-6 py-3 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent"
-          >
-            Sugerir un tema
-          </Link>
         </div>
       </section>
     </>
   )
+}
+
+function formatDate(iso: string): string {
+  return new Date(iso + 'T00:00:00Z').toLocaleDateString('es', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  })
 }

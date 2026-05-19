@@ -144,6 +144,31 @@ export function faqJsonLd(items: { question: string; answer: string }[]) {
   }
 }
 
+export function articleJsonLd(article: {
+  slug: string
+  title: string
+  description: string
+  publishedAt: string
+  updatedAt?: string
+  keywords: string[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${site.url}/blog/${article.slug}`,
+    headline: article.title,
+    description: article.description,
+    inLanguage: 'es',
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt ?? article.publishedAt,
+    author: { '@id': `${site.url}#person` },
+    publisher: { '@id': `${site.url}#person` },
+    mainEntityOfPage: `${site.url}/blog/${article.slug}`,
+    image: `${site.url}/opengraph-image`,
+    keywords: article.keywords,
+  }
+}
+
 export function bookJsonLd(slug: string) {
   const book = books.find((b) => b.slug === slug)
   if (!book) return null
