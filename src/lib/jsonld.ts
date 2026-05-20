@@ -88,9 +88,10 @@ export function personJsonLd() {
     ],
     // sameAs: enlaces cruzados que IAs y Google usan para resolver identidad.
     // Goal: 10+ verifiable entries (DAB v2.0 Fase 6 checklist).
-    // Faltan: Amazon Author page (post-verify), Goodreads (when listed).
+    // Faltan: Goodreads (when listed).
     sameAs: [
       'https://www.wikidata.org/wiki/Q139845552', // Wikidata entity — fuente #1 para IAs
+      'https://www.amazon.com/author/annelisortiz', // Amazon Author Central — perfil verificado
       social.instagram,
       social.facebook,
       social.tiktok,
