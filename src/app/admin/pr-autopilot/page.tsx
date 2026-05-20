@@ -53,22 +53,22 @@ export default async function PrAutoPilotPage() {
   const { queries, today_stats, counts } = await loadData(session.sub)
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-12">
+    <main className="mx-auto max-w-6xl px-6 py-16 md:py-20">
       {/* Header */}
-      <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+      <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">PR Auto-Pilot</p>
-          <h1 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
-            Buenos días, {session.display_name}.
+          <p className="text-xs uppercase tracking-[0.24em] text-accent">PR Auto-Pilot</p>
+          <h1 className="mt-4 font-serif text-4xl leading-tight text-foreground md:text-5xl">
+            Hola, {session.display_name.split(' ')[0]}.
           </h1>
-          <p className="mt-1 text-sm text-muted">
-            Revisa, edita o rechaza las queries pendientes. La IA pre-clasificó por relevancia.
+          <p className="mt-3 max-w-xl text-base text-muted">
+            Revisa, edita o rechaza las queries pendientes. La IA pre-clasificó por relevancia y redactó un draft inicial en español.
           </p>
         </div>
         <form action={logoutAction}>
           <button
             type="submit"
-            className="rounded-full border border-border-strong px-4 py-1.5 text-xs text-muted transition hover:border-accent hover:text-accent"
+            className="rounded-full border border-border-strong px-5 py-2 text-xs text-muted transition hover:border-accent hover:text-accent"
           >
             Salir
           </button>
@@ -76,25 +76,33 @@ export default async function PrAutoPilotPage() {
       </div>
 
       {/* Stats */}
-      <section className="mb-10 grid grid-cols-2 gap-3 md:grid-cols-5">
-        <StatCard label="Hoy recibidas" value={today_stats?.queries_received ?? 0} />
+      <section className="mb-16 grid grid-cols-2 gap-4 md:grid-cols-5 md:gap-5">
+        <StatCard label="Recibidas hoy" value={today_stats?.queries_received ?? 0} />
         <StatCard label="Match alto (≥70)" value={today_stats?.queries_high_match ?? 0} accent />
         <StatCard label="Match medio" value={today_stats?.queries_medium_match ?? 0} />
         <StatCard label="Enviadas hoy" value={today_stats?.responses_sent ?? 0} />
-        <StatCard label="Pendientes totales" value={counts.pending ?? 0} />
+        <StatCard label="Pendientes" value={counts.pending ?? 0} />
       </section>
 
       {/* Queue */}
-      <section className="space-y-4">
-        <h2 className="font-serif text-xl text-foreground">Cola actual ({queries.length})</h2>
+      <section>
+        <div className="mb-8 flex items-baseline justify-between">
+          <h2 className="font-serif text-2xl text-foreground">
+            Cola actual
+          </h2>
+          <span className="text-sm text-muted">{queries.length} {queries.length === 1 ? 'query' : 'queries'}</span>
+        </div>
         {queries.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-border bg-background-elev-1/40 p-12 text-center">
-            <p className="text-sm text-muted">
-              No hay queries pendientes. Cuando el forwarder de Gmail mande nuevas, aparecerán aquí.
+          <div className="rounded-3xl border border-dashed border-border bg-background-elev-1/30 px-8 py-20 text-center">
+            <p className="font-serif text-xl text-foreground">Sin queries pendientes</p>
+            <p className="mt-3 text-sm text-muted">
+              Cuando el forwarder de Gmail mande nuevas, aparecerán aquí con su score y draft.
             </p>
           </div>
         ) : (
-          queries.map((q) => <QueryCard key={q.id} query={q} />)
+          <div className="space-y-5">
+            {queries.map((q) => <QueryCard key={q.id} query={q} />)}
+          </div>
         )}
       </section>
     </main>
@@ -103,10 +111,10 @@ export default async function PrAutoPilotPage() {
 
 function StatCard({ label, value, accent }: { label: string; value: number; accent?: boolean }) {
   return (
-    <div className="rounded-2xl border border-border bg-background-elev-1 p-5">
-      <p className="text-[10px] uppercase tracking-wider text-muted">{label}</p>
+    <div className="rounded-2xl border border-border bg-background-elev-1 px-6 py-7">
+      <p className="text-[10px] uppercase tracking-[0.18em] text-muted">{label}</p>
       <p
-        className={`mt-2 font-serif text-3xl ${accent ? 'text-accent' : 'text-foreground'}`}
+        className={`mt-4 font-serif text-4xl ${accent ? 'text-accent' : 'text-foreground'}`}
       >
         {value}
       </p>
