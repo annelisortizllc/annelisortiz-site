@@ -32,7 +32,11 @@ export default async function PreviewHibridoPage() {
         <Reveal><AboutPreview dict={dict} /></Reveal>
         <Reveal><Philosophy dict={dict} /></Reveal>
         <Reveal><Ecosystem dict={dict} /></Reveal>
+      </div>
+      <div className="bg-background text-foreground">
         <Reveal><BookFeature dict={dict} /></Reveal>
+      </div>
+      <div data-theme="cream" className="bg-background text-foreground">
         <Reveal><SocialProof dict={dict} /></Reveal>
         <Reveal><Testimonials dict={dict} /></Reveal>
         <Reveal><Contact dict={dict} /></Reveal>
