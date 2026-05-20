@@ -95,7 +95,11 @@
     "lead": "Familias, profesionales y medios que reconocen mi trabajo en EE.UU., Puerto Rico y Latinoamérica."
   },
   "testimonials": {
-    "title": "Lo que dicen las familias que serví"
+    "kicker": "Reseñas verificadas",
+    "title": "Lo que dicen las familias que serví",
+    "lead": "Testimonios reales de clientes en Google Business Profile. Cada reseña proviene de una persona que cerró conmigo.",
+    "verifiedBadge": "Verificada en Google",
+    "viewAllCta": "Ver todas en Google"
   },
   "contact": {
     "title": "Trabajemos juntos",
