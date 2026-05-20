@@ -34,6 +34,27 @@
   --on-accent: #1a0a08;
 }
 
+/* Light cream theme — used by sections wrapped in <div data-theme="cream">. */
+[data-theme="cream"] {
+  color-scheme: light;
+  --background: #faf7f0;
+  --background-elev-1: #f3ede0;
+  --background-elev-2: #ebe3d1;
+  --foreground: #1a1612;
+  --muted: #6f6657;
+  --border: rgba(26, 22, 18, 0.10);
+  --border-strong: rgba(26, 22, 18, 0.20);
+  --accent: #a07f3f;
+  --accent-soft: #c9a667;
+  --accent-deep: #7a5e2c;
+  --accent-glow: rgba(160, 127, 63, 0.20);
+  --on-accent: #faf7f0;
+}
+[data-theme="cream"] body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-background-elev-1: var(--background-elev-1);
