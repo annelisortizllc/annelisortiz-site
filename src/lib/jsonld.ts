@@ -1,5 +1,5 @@
 import { site, social, business, books, contact, assets, applicationPortal } from '@/lib/site'
-import { googleReviews, googleReviewsAggregate, googleReviewsMeta } from '@/content/reviews'
+import { googleReviews, googleReviewsAggregate, businessProfiles } from '@/content/reviews'
 
 export function personJsonLd() {
   return {
@@ -92,7 +92,8 @@ export function personJsonLd() {
     // Faltan: Wikidata (re-crear post Fase 5 con press tier-1), Goodreads (when listed).
     sameAs: [
       'https://www.amazon.com/author/annelisortiz', // Amazon Author Central — perfil verificado
-      googleReviewsMeta.profileUrl, // Google Business Profile (KG entity /g/11rxnxcsv2)
+      businessProfiles.nexa.profileUrl, // GBP NEXA Lending (Mortgage Loan Originator)
+      businessProfiles.kw.profileUrl, // GBP Keller Williams Advantage III (Real Estate Agent)
       social.instagram,
       social.facebook,
       social.tiktok,
@@ -108,21 +109,30 @@ export function personJsonLd() {
       bestRating: googleReviewsAggregate.bestRating,
       worstRating: googleReviewsAggregate.worstRating,
     },
-    review: googleReviews.map((r) => ({
-      '@type': 'Review',
-      '@id': `${site.url}#review-${r.id}`,
-      author: { '@type': 'Person', name: r.fullName },
-      datePublished: r.datePublished,
-      reviewBody: r.body,
-      inLanguage: 'es',
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: r.rating,
-        bestRating: 5,
-        worstRating: 1,
-      },
-      publisher: { '@type': 'Organization', name: 'Google' },
-    })),
+    review: googleReviews.map((r) => {
+      const profile = businessProfiles[r.source]
+      return {
+        '@type': 'Review',
+        '@id': `${site.url}#review-${r.id}`,
+        author: { '@type': 'Person', name: r.fullName },
+        datePublished: r.datePublished,
+        reviewBody: r.body,
+        inLanguage: 'es',
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: r.rating,
+          bestRating: 5,
+          worstRating: 1,
+        },
+        publisher: { '@type': 'Organization', name: 'Google' },
+        // Where this review was originally left (the GBP entity hosting it).
+        sourceOrganization: {
+          '@type': 'Organization',
+          name: profile.legalName,
+          url: profile.profileUrl,
+        },
+      }
+    }),
   }
 }
 
