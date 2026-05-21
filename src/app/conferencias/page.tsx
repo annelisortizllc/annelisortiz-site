@@ -85,6 +85,8 @@ export default function ConferenciasPage() {
         crumbs={crumbs}
       />
 
+      <div data-theme="cream" className="bg-background text-foreground">
+
       {/* Temas */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <p className="text-xs uppercase tracking-[0.22em] text-accent">Temas</p>
@@ -163,6 +165,8 @@ export default function ConferenciasPage() {
           </Link>
         </div>
       </section>
+
+      </div>
     </>
   )
 }
