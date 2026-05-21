@@ -1,5 +1,10 @@
 import type { Dictionary } from '@/lib/dictionaries'
-import { googleReviews, googleReviewsAggregate, googleReviewsMeta } from '@/content/reviews'
+import {
+  googleReviews,
+  googleReviewsAggregate,
+  businessProfiles,
+  reviewCountsBySource,
+} from '@/content/reviews'
 
 function Star({ filled }: { filled: boolean }) {
   return (
@@ -44,17 +49,27 @@ export function Testimonials({ dict }: { dict: Dictionary }) {
               {ratingValue.toFixed(1)}
             </span>
             <span className="text-sm text-muted">
-              ({reviewCount} reseñas en Google)
+              ({reviewCount} reseñas en Google · {reviewCountsBySource.nexa} NEXA Lending + {reviewCountsBySource.kw} Keller Williams)
             </span>
           </div>
-          <a
-            href={googleReviewsMeta.profileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-accent underline-offset-4 hover:underline"
-          >
-            {t.viewAllCta} →
-          </a>
+          <div className="flex items-center gap-4 text-sm">
+            <a
+              href={businessProfiles.nexa.profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              Ver en NEXA Lending →
+            </a>
+            <a
+              href={businessProfiles.kw.profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              Ver en Keller Williams →
+            </a>
+          </div>
         </div>
 
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">{t.lead}</p>
@@ -87,6 +102,9 @@ export function Testimonials({ dict }: { dict: Dictionary }) {
                   {formatDate(r.datePublished)}
                 </time>
               </div>
+              <p className="mt-2 text-[10px] uppercase tracking-wider text-muted/80">
+                Reseña en {businessProfiles[r.source].label}
+              </p>
             </li>
           ))}
         </ul>
