@@ -40,6 +40,7 @@ export default function PrensaPage() {
         crumbs={crumbs}
       />
 
+      <div data-theme="cream" className="bg-background text-foreground">
       <section className="mx-auto max-w-4xl px-6 py-20">
         <p className="text-xs uppercase tracking-[0.22em] text-accent">Menciones recientes</p>
         <div className="mt-10 space-y-4">
@@ -76,6 +77,7 @@ export default function PrensaPage() {
           </Link>
         </div>
       </section>
+      </div>
     </>
   )
 }

@@ -31,6 +31,7 @@ export default function LibrosPage() {
         crumbs={crumbs}
       />
 
+      <div data-theme="cream" className="bg-background text-foreground">
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-10 md:grid-cols-2">
           {books.map((book) => (
@@ -71,6 +72,7 @@ export default function LibrosPage() {
           ))}
         </div>
       </section>
+      </div>
     </>
   )
 }

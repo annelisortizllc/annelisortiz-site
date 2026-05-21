@@ -33,6 +33,7 @@ export default function BlogIndexPage() {
         crumbs={crumbs}
       />
 
+      <div data-theme="cream" className="bg-background text-foreground">
       <section className="mx-auto max-w-4xl px-6 py-16">
         <div className="space-y-6">
           {posts.map((post) => (
@@ -59,6 +60,7 @@ export default function BlogIndexPage() {
           ))}
         </div>
       </section>
+      </div>
     </>
   )
 }

@@ -77,6 +77,8 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         crumbs={crumbs}
       />
 
+      <div data-theme="cream" className="bg-background text-foreground">
+
       <article className="mx-auto max-w-3xl px-6 pt-12 pb-20">
         <PostBody sections={post.sections} />
       </article>
@@ -146,6 +148,8 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
           </Link>
         </div>
       </section>
+
+      </div>
     </>
   )
 }

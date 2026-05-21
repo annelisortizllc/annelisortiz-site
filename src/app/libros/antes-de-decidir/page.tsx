@@ -85,6 +85,8 @@ export default function BookPage() {
         crumbs={crumbs}
       />
 
+      <div data-theme="cream" className="bg-background text-foreground">
+
       {/* Cover + pitch */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid items-start gap-12 md:grid-cols-2">
@@ -198,6 +200,8 @@ export default function BookPage() {
           ))}
         </div>
       </section>
+
+      </div>
     </>
   )
 }

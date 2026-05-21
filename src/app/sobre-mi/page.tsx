@@ -62,6 +62,8 @@ export default function SobreMiPage() {
         crumbs={crumbs}
       />
 
+      <div data-theme="cream" className="bg-background text-foreground">
+
       {/* Stats */}
       <section className="border-b border-border bg-background-elev-1/40">
         <div className="mx-auto max-w-6xl px-6 py-14">
@@ -211,6 +213,8 @@ export default function SobreMiPage() {
           <a href={social.youtube} target="_blank" rel="noreferrer" className="hover:text-foreground">YouTube</a>
         </div>
       </section>
+
+      </div>
     </>
   )
 }
