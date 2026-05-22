@@ -1,10 +1,48 @@
+'use client'
+
 import Link from 'next/link'
-import type { Dictionary } from '@/lib/dictionaries'
+import { usePathname } from 'next/navigation'
 import { social } from '@/lib/site'
 import { NmlsDisclosure } from '@/components/NmlsDisclosure'
 
-export function Footer({ dict }: { dict: Dictionary }) {
+const labels = {
+  es: {
+    home: 'Inicio',
+    about: 'Sobre mí',
+    books: 'Libro',
+    speaking: 'Conferencias',
+    press: 'Prensa',
+    blog: 'Blog',
+    followMe: 'Sígueme',
+    rights: 'Todos los derechos reservados.',
+    tagline: 'Construyendo patrimonio, una familia a la vez.',
+  },
+  en: {
+    home: 'Home',
+    about: 'About',
+    books: 'Book',
+    speaking: 'Speaking',
+    press: 'Press',
+    blog: 'Blog',
+    followMe: 'Follow me',
+    rights: 'All rights reserved.',
+    tagline: 'Building wealth, one family at a time.',
+  },
+} as const
+
+type Locale = keyof typeof labels
+
+function detectLocale(pathname: string | null): Locale {
+  return pathname?.startsWith('/en') ? 'en' : 'es'
+}
+
+export function Footer() {
+  const pathname = usePathname()
+  const locale = detectLocale(pathname)
+  const prefix = locale === 'en' ? '/en' : ''
+  const t = labels[locale]
   const year = new Date().getFullYear()
+
   return (
     <footer className="border-t border-border bg-background-elev-1/40">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-3">
@@ -13,22 +51,22 @@ export function Footer({ dict }: { dict: Dictionary }) {
             <span className="inline-block h-2 w-2 rounded-full bg-accent" />
             Annelis Ortiz
           </div>
-          <p className="mt-3 max-w-xs text-sm text-muted">{dict.footer.tagline}</p>
+          <p className="mt-3 max-w-xs text-sm text-muted">{t.tagline}</p>
         </div>
 
         <nav className="flex flex-col gap-2 text-sm text-muted">
           <span className="mb-1 text-xs uppercase tracking-widest text-foreground/60">
-            {dict.nav.home}
+            {t.home}
           </span>
-          <Link href="/sobre-mi" className="hover:text-foreground">{dict.nav.about}</Link>
-          <Link href="/libros" className="hover:text-foreground">{dict.nav.books}</Link>
-          <Link href="/conferencias" className="hover:text-foreground">{dict.nav.speaking}</Link>
-          <Link href="/prensa" className="hover:text-foreground">{dict.nav.press}</Link>
-          <Link href="/blog" className="hover:text-foreground">{dict.nav.blog}</Link>
+          <Link href={`${prefix}/sobre-mi`} className="hover:text-foreground">{t.about}</Link>
+          <Link href={`${prefix}/libros`} className="hover:text-foreground">{t.books}</Link>
+          <Link href={`${prefix}/conferencias`} className="hover:text-foreground">{t.speaking}</Link>
+          <Link href={`${prefix}/prensa`} className="hover:text-foreground">{t.press}</Link>
+          <Link href={`${prefix}/blog`} className="hover:text-foreground">{t.blog}</Link>
         </nav>
 
         <div className="flex flex-col gap-2 text-sm text-muted">
-          <span className="mb-1 text-xs uppercase tracking-widest text-foreground/60">Sígueme</span>
+          <span className="mb-1 text-xs uppercase tracking-widest text-foreground/60">{t.followMe}</span>
           <a href={social.instagram} target="_blank" rel="noreferrer" className="hover:text-foreground">Instagram</a>
           <a href={social.facebook} target="_blank" rel="noreferrer" className="hover:text-foreground">Facebook</a>
           <a href={social.tiktok} target="_blank" rel="noreferrer" className="hover:text-foreground">TikTok</a>
@@ -39,7 +77,7 @@ export function Footer({ dict }: { dict: Dictionary }) {
       <NmlsDisclosure />
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-muted sm:flex-row">
-          <span>© {year} Annelis Ortiz. {dict.footer.rights}</span>
+          <span>© {year} Annelis Ortiz. {t.rights}</span>
           <span>annelisortiz.com</span>
         </div>
       </div>

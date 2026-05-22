@@ -2,27 +2,27 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHeader } from '@/components/PageHeader'
 import { breadcrumbJsonLd, jsonLdScript } from '@/lib/jsonld'
-import { books } from '@/lib/site'
+import { books, site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Libros',
+  title: 'Books',
   description:
-    'Libros de Annelis Ortiz sobre educación financiera, preparación crediticia y compra inteligente de propiedades.',
+    'Books by Annelis Ortiz on financial education, credit preparation, and smart property purchasing.',
   alternates: {
-    canonical: 'https://annelisortiz.com/libros',
+    canonical: `${site.url}/en/libros`,
     languages: {
-      'es-ES': 'https://annelisortiz.com/libros',
-      'en-US': 'https://annelisortiz.com/en/libros',
+      'es-ES': `${site.url}/libros`,
+      'en-US': `${site.url}/en/libros`,
     },
   },
 }
 
 const crumbs = [
-  { name: 'Inicio', path: '/' },
-  { name: 'Libros', path: '/libros' },
+  { name: 'Home', path: '/en' },
+  { name: 'Books', path: '/en/libros' },
 ]
 
-export default function LibrosPage() {
+export default function BooksPageEN() {
   return (
     <>
       <script
@@ -31,9 +31,9 @@ export default function LibrosPage() {
       />
 
       <PageHeader
-        eyebrow="Libros"
-        title="Lo que NADIE te enseñó antes de firmar."
-        lead="Mis publicaciones sobre construcción de patrimonio, preparación financiera y la mentalidad correcta para tomar decisiones inteligentes en bienes raíces."
+        eyebrow="Books"
+        title="What NOBODY taught you before signing."
+        lead="My publications on wealth-building, financial preparation, and the right mindset to make smart real estate decisions."
         crumbs={crumbs}
       />
 
@@ -43,7 +43,7 @@ export default function LibrosPage() {
           {books.map((book) => (
             <Link
               key={book.slug}
-              href={`/libros/${book.slug}`}
+              href={`/en/libros/${book.slug}`}
               className="group relative flex gap-6 rounded-2xl border border-border bg-background-elev-1 p-6 transition hover:border-accent/60"
             >
               <div className="relative aspect-[2/3] w-32 shrink-0 overflow-hidden rounded-xl border border-border bg-gradient-to-br from-background-elev-2 via-background-elev-1 to-background">
@@ -56,7 +56,7 @@ export default function LibrosPage() {
                   </h3>
                   <div className="mt-2 h-px w-8 bg-accent" />
                   <p className="mt-2 font-serif text-[10px] italic text-muted">
-                    Cuando Nadie Te Enseñó a Prepararte
+                    When No One Taught You How to Prepare
                   </p>
                 </div>
               </div>
@@ -65,13 +65,15 @@ export default function LibrosPage() {
                   {book.title.split(':')[0]}
                 </h2>
                 <p className="mt-1 font-serif text-sm italic text-muted">
-                  {book.title.split(':')[1]?.trim()}
+                  When No One Taught You How to Prepare
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted">
-                  {book.description}
+                  The honest guide on financial education, credit preparation, and the right
+                  mindset before buying property. The book that would have saved you years of
+                  mistakes.
                 </p>
                 <span className="mt-6 inline-flex items-center gap-2 text-xs font-medium text-accent">
-                  Conoce el libro <span aria-hidden>→</span>
+                  Learn more <span aria-hidden>→</span>
                 </span>
               </div>
             </Link>

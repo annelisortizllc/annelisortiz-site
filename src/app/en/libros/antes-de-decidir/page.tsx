@@ -4,64 +4,64 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PageHeader } from '@/components/PageHeader'
 import { breadcrumbJsonLd, bookJsonLd, faqJsonLd, jsonLdScript } from '@/lib/jsonld'
-import { books, assets } from '@/lib/site'
+import { books, assets, site } from '@/lib/site'
 
 const SLUG = 'antes-de-decidir'
 
 export const metadata: Metadata = {
-  title: 'Antes de Decidir — el libro',
+  title: 'Antes de Decidir — the book',
   description:
-    'Educación financiera, preparación crediticia y mentalidad antes de comprar una propiedad. El libro de Annelis Ortiz para tomar decisiones inteligentes en bienes raíces.',
+    'Financial education, credit preparation, and the right mindset before buying property. Annelis Ortiz\'s book for smart real estate decisions.',
   alternates: {
-    canonical: `https://annelisortiz.com/libros/${SLUG}`,
+    canonical: `${site.url}/en/libros/${SLUG}`,
     languages: {
-      'es-ES': `https://annelisortiz.com/libros/${SLUG}`,
-      'en-US': `https://annelisortiz.com/en/libros/${SLUG}`,
+      'es-ES': `${site.url}/libros/${SLUG}`,
+      'en-US': `${site.url}/en/libros/${SLUG}`,
     },
   },
 }
 
 const crumbs = [
-  { name: 'Inicio', path: '/' },
-  { name: 'Libros', path: '/libros' },
-  { name: 'Antes de Decidir', path: `/libros/${SLUG}` },
+  { name: 'Home', path: '/en' },
+  { name: 'Books', path: '/en/libros' },
+  { name: 'Antes de Decidir', path: `/en/libros/${SLUG}` },
 ]
 
 const chapters = [
-  'La preparación que NADIE te enseñó',
-  'Crédito: tu activo invisible',
-  'Antes de mirar casas: el orden financiero',
-  'Mentalidad de comprador vs. mentalidad de inversionista',
-  'Errores caros que cometen las familias hispanas',
-  'Cómo elegir la propiedad correcta para tu etapa',
-  'El cierre: lo que firmas en realidad',
-  'Después de la compra: construir patrimonio real',
+  'The preparation NOBODY taught you',
+  'Credit: your invisible asset',
+  'Before looking at houses: financial order',
+  'Buyer mindset vs. investor mindset',
+  'Costly mistakes Hispanic families make',
+  'How to pick the right property for your stage',
+  'Closing: what you are actually signing',
+  'After the purchase: building real wealth',
 ]
 
 const faqs = [
   {
-    question: '¿Para quién es este libro?',
+    question: 'Who is this book for?',
     answer:
-      'Para personas y familias que están considerando comprar una propiedad en Estados Unidos por primera vez, refinanciar, o entrar al mundo de la inversión en bienes raíces — y quieren entender el proceso ANTES de firmar.',
+      'For people and families considering buying property in the United States for the first time, refinancing, or entering real estate investing — and who want to understand the process BEFORE signing.',
   },
   {
-    question: '¿Necesito tener crédito o ahorros para empezar a leerlo?',
+    question: 'Do I need credit or savings to start reading it?',
     answer:
-      'No. El libro está diseñado para empezar desde cero: cómo organizar tu crédito, cómo preparar tus finanzas, y qué hacer en los meses previos a buscar propiedad — incluso si hoy no calificas.',
+      'No. The book is designed to start from zero: how to organize your credit, how to prepare your finances, and what to do in the months before house hunting — even if you do not qualify today.',
   },
   {
-    question: '¿Está en español?',
+    question: 'Is it in Spanish?',
     answer:
-      'Sí. El libro está escrito en español, enfocado en la realidad de la comunidad hispana en Estados Unidos y Latinoamérica.',
+      'Yes. The book is written in Spanish, focused on the reality of the Hispanic community in the United States and Latin America. An English edition is being considered.',
   },
   {
-    question: '¿Dónde lo puedo conseguir?',
+    question: 'Where can I get it?',
     answer:
-      'Disponibilidad próximamente. Si quieres ser notificado cuando esté disponible, escríbeme desde la sección de contacto.',
+      'Available on Amazon. Click "Buy on Amazon" below or message me through the contact section.',
   },
 ]
 
-export default function BookPage() {
+export default function BookPageEN() {
   const book = books.find((b) => b.slug === SLUG)
   if (!book) notFound()
 
@@ -85,9 +85,9 @@ export default function BookPage() {
       />
 
       <PageHeader
-        eyebrow="El libro"
+        eyebrow="The book"
         title="Antes de Decidir."
-        lead='"Cuando Nadie Te Enseñó a Prepararte" — la guía honesta sobre educación financiera, preparación crediticia y mentalidad antes de comprar una propiedad.'
+        lead='"When No One Taught You How to Prepare" — the honest guide on financial education, credit preparation, and the right mindset before buying property.'
         crumbs={crumbs}
       />
 
@@ -104,7 +104,7 @@ export default function BookPage() {
             <div className="aspect-[2/3] overflow-hidden rounded-2xl border border-border bg-background-elev-2 shadow-2xl">
               <Image
                 src={assets.bookCover}
-                alt='Portada del libro "Antes de Decidir: Cuando Nadie Te Enseñó a Prepararte" por Annelis Ortiz'
+                alt='Cover of "Antes de Decidir: When No One Taught You How to Prepare" by Annelis Ortiz'
                 width={640}
                 height={960}
                 className="h-full w-full object-cover"
@@ -115,17 +115,17 @@ export default function BookPage() {
 
           <div>
             <h2 className="font-serif text-3xl leading-tight text-foreground md:text-4xl">
-              El libro que te hubiera ahorrado años de errores.
+              The book that would have saved you years of mistakes.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted">
-              Hay un momento incómodo que casi todos enfrentamos: firmar algo importante sin
-              entender del todo lo que significa. Cuando se trata de una hipoteca o de una
-              propiedad, ese momento puede costar décadas.
+              There is an uncomfortable moment almost all of us face: signing something important
+              without fully understanding what it means. When it comes to a mortgage or a
+              property, that moment can cost you decades.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted">
-              Este libro nace de las conversaciones que tengo todos los días con familias que
-              llegan demasiado tarde — y de las que llegan a tiempo y lo cambian todo. Si nadie
-              te enseñó a prepararte, esto es lo que necesitabas leer primero.
+              This book grew out of the conversations I have every day with families who arrive
+              too late — and from those who arrive on time and change everything. If no one
+              taught you how to prepare, this is what you needed to read first.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
@@ -135,30 +135,30 @@ export default function BookPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)] transition hover:bg-accent-soft"
               >
-                Comprar en Amazon
+                Buy on Amazon
                 <span aria-hidden>↗</span>
               </a>
               <Link
-                href="/sobre-mi"
+                href="/en/sobre-mi"
                 className="rounded-full border border-border-strong px-6 py-3 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent"
               >
-                Sobre la autora
+                About the author
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Capítulos */}
+      {/* Chapters */}
       <section className="border-y border-border bg-background-elev-1/40">
         <div className="mx-auto max-w-4xl px-6 py-20">
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">Contenido</p>
+          <p className="text-xs uppercase tracking-[0.22em] text-accent">Contents</p>
           <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
-            Lo que vas a aprender.
+            What you will learn.
           </h2>
           <p className="mt-4 max-w-2xl text-base text-muted">
-            Una guía paso a paso para llegar al cierre con claridad — y construir patrimonio desde
-            la primera firma.
+            A step-by-step guide to reach closing with clarity — and build wealth from the very
+            first signature.
           </p>
           <ol className="mt-10 space-y-2">
             {chapters.map((ch, i) => (
@@ -174,17 +174,16 @@ export default function BookPage() {
             ))}
           </ol>
           <p className="mt-6 text-xs text-muted">
-            * Los títulos de capítulos son representativos. Actualizar con el índice final del
-            libro cuando esté listo.
+            * Chapter titles are illustrative. Will be updated with the book&apos;s final table of contents.
           </p>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="mx-auto max-w-4xl px-6 py-20">
-        <p className="text-xs uppercase tracking-[0.22em] text-accent">Preguntas frecuentes</p>
+        <p className="text-xs uppercase tracking-[0.22em] text-accent">Frequently asked questions</p>
         <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
-          Lo que más nos preguntan.
+          What people ask most.
         </h2>
         <div className="mt-10 space-y-4">
           {faqs.map((faq) => (

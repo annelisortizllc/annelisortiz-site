@@ -29,7 +29,13 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: dict.meta.title, template: '%s — Annelis Ortiz' },
     description: dict.meta.description,
     keywords: dict.meta.keywords,
-    alternates: { canonical: site.url },
+    alternates: {
+      canonical: site.url,
+      languages: {
+        'es-ES': site.url,
+        'en-US': `${site.url}/en`,
+      },
+    },
     openGraph: {
       type: 'website',
       url: site.url,
@@ -37,6 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: dict.meta.title,
       description: dict.meta.description,
       locale: 'es_ES',
+      alternateLocale: 'en_US',
       // Image is auto-wired from app/opengraph-image.tsx
     },
     twitter: {
@@ -49,9 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const dict = await getDictionary()
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${sans.variable} ${serif.variable}`}>
       <body className="min-h-screen bg-background text-foreground font-sans">
@@ -63,9 +68,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           type="application/ld+json"
           dangerouslySetInnerHTML={jsonLdScript(websiteJsonLd())}
         />
-        <Header dict={dict} />
+        <Header />
         <main className="flex-1">{children}</main>
-        <Footer dict={dict} />
+        <Footer />
         <Analytics />
         <SpeedInsights />
       </body>

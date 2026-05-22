@@ -5,22 +5,68 @@ import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'motion/react'
-import type { Dictionary } from '@/lib/dictionaries'
 
-export function MobileNav({ dict }: { dict: Dictionary }) {
+const labels = {
+  es: {
+    about: 'Sobre mí',
+    books: 'Libro',
+    speaking: 'Conferencias',
+    press: 'Prensa',
+    blog: 'Blog',
+    contact: 'Contacto',
+    closeAria: 'Cerrar menú',
+    openAria: 'Abrir menú',
+    langLabel: 'EN',
+    langAria: 'Switch to English',
+  },
+  en: {
+    about: 'About',
+    books: 'Book',
+    speaking: 'Speaking',
+    press: 'Press',
+    blog: 'Blog',
+    contact: 'Contact',
+    closeAria: 'Close menu',
+    openAria: 'Open menu',
+    langLabel: 'ES',
+    langAria: 'Cambiar a español',
+  },
+} as const
+
+type Locale = keyof typeof labels
+
+function detectLocale(pathname: string | null): Locale {
+  return pathname?.startsWith('/en') ? 'en' : 'es'
+}
+
+function swapLocale(pathname: string | null, target: Locale): string {
+  const p = pathname ?? '/'
+  if (target === 'en') {
+    if (p === '/' || p === '') return '/en'
+    if (p.startsWith('/en')) return p
+    return `/en${p}`
+  }
+  if (p === '/en' || p === '/en/') return '/'
+  if (p.startsWith('/en/')) return p.slice(3)
+  return p
+}
+
+export function MobileNav() {
   const [open, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
+  const locale = detectLocale(pathname)
+  const prefix = locale === 'en' ? '/en' : ''
+  const t = labels[locale]
+  const otherLocale: Locale = locale === 'en' ? 'es' : 'en'
+  const otherHref = swapLocale(pathname, otherLocale)
 
-  // Wait until mount before using portal (avoids SSR mismatch)
   useEffect(() => setMounted(true), [])
 
-  // Close on route change
   useEffect(() => {
     setOpen(false)
   }, [pathname])
 
-  // Lock body scroll while open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
@@ -29,12 +75,14 @@ export function MobileNav({ dict }: { dict: Dictionary }) {
   }, [open])
 
   const links = [
-    { href: '/sobre-mi', label: dict.nav.about },
-    { href: '/libros', label: dict.nav.books },
-    { href: '/conferencias', label: dict.nav.speaking },
-    { href: '/prensa', label: dict.nav.press },
-    { href: '/blog', label: dict.nav.blog },
+    { href: `${prefix}/sobre-mi`, label: t.about },
+    { href: `${prefix}/libros`, label: t.books },
+    { href: `${prefix}/conferencias`, label: t.speaking },
+    { href: `${prefix}/prensa`, label: t.press },
+    { href: `${prefix}/blog`, label: t.blog },
   ]
+
+  const homeHref = locale === 'en' ? '/en' : '/'
 
   const overlay = (
     <AnimatePresence>
@@ -49,7 +97,7 @@ export function MobileNav({ dict }: { dict: Dictionary }) {
         >
           <button
             type="button"
-            aria-label="Cerrar menú"
+            aria-label={t.closeAria}
             onClick={() => setOpen(false)}
             className="absolute right-5 top-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background-elev-1/60 text-foreground"
           >
@@ -81,12 +129,21 @@ export function MobileNav({ dict }: { dict: Dictionary }) {
                 </motion.li>
               ))}
             </ul>
-            <Link
-              href="/#contacto"
-              className="mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)]"
-            >
-              {dict.nav.contact} <span aria-hidden>→</span>
-            </Link>
+            <div className="mt-10 flex items-center gap-4">
+              <Link
+                href={`${homeHref === '/' ? '' : homeHref}/#contacto`}
+                className="inline-flex w-fit items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)]"
+              >
+                {t.contact} <span aria-hidden>→</span>
+              </Link>
+              <Link
+                href={otherHref}
+                aria-label={t.langAria}
+                className="inline-flex rounded-full border border-border px-4 py-2 text-xs uppercase tracking-wider text-muted hover:border-accent hover:text-foreground"
+              >
+                {t.langLabel}
+              </Link>
+            </div>
           </motion.nav>
         </motion.div>
       ) : null}
@@ -97,7 +154,7 @@ export function MobileNav({ dict }: { dict: Dictionary }) {
     <>
       <button
         type="button"
-        aria-label="Abrir menú"
+        aria-label={t.openAria}
         aria-expanded={open}
         onClick={() => setOpen(true)}
         className="relative z-40 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background-elev-1/60 text-foreground md:hidden"
