@@ -9,7 +9,13 @@ export const metadata: Metadata = {
   title: 'Sobre mí',
   description:
     'Originadora de Préstamos Hipotecarios en NEXA Lending y Agente de Bienes Raíces. 5+ años de experiencia, 197+ familias atendidas, autora de "Antes de Decidir".',
-  alternates: { canonical: 'https://annelisortiz.com/sobre-mi' },
+  alternates: {
+    canonical: 'https://annelisortiz.com/sobre-mi',
+    languages: {
+      'es-ES': 'https://annelisortiz.com/sobre-mi',
+      'en-US': 'https://annelisortiz.com/en/sobre-mi',
+    },
+  },
 }
 
 const crumbs = [

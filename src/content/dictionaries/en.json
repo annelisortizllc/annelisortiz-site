@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "lang": "en",
+    "siteName": "Annelis Ortiz",
+    "title": "Annelis Ortiz — Mortgage Loan Originator · Real Estate Agent · Author · Coach",
+    "description": "I help families grow their wealth through financing and the purchase of primary and investment properties. NEXA Lending. Author of \"Antes de Decidir\".",
+    "keywords": [
+      "Annelis Ortiz",
+      "mortgage loan originator",
+      "Spanish-speaking mortgage officer",
+      "real estate agent",
+      "home loan",
+      "buy a house in the US",
+      "investment property",
+      "generational wealth",
+      "financial education",
+      "NEXA Lending",
+      "Antes de Decidir book"
+    ]
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "books": "Book",
+    "speaking": "Speaking",
+    "press": "Press",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Mortgage Loan Originator · Real Estate · Author · Coach for Loan Originators · Entrepreneur",
+    "title": "Building wealth,",
+    "titleAccent": "one family at a time.",
+    "tagline": "I help families grow their wealth through financing and the purchase of primary and investment properties.",
+    "ctaPrimary": "Book a consultation",
+    "ctaSecondary": "Read my story"
+  },
+  "stats": {
+    "title": "Results that speak",
+    "items": [
+      { "value": "197+", "label": "Families and clients served" },
+      { "value": "30K+", "label": "Digital community" },
+      { "value": "5+", "label": "Years in mortgage and real estate" },
+      { "value": "3", "label": "Regions: US, Puerto Rico, LATAM" }
+    ]
+  },
+  "about": {
+    "title": "About Annelis",
+    "lead": "Mortgage Loan Originator at NEXA Lending and Real Estate Agent — I combine financial strategy, education, and a human approach at every stage of the buying and investment process.",
+    "body": "With a university background in accounting and more than five years of experience in the US mortgage and real estate industry, I've helped 197+ families and buyers prepare financially, organize their credit, and make smart decisions to build wealth through real estate. Beyond financing, I focus on strategic, personalized guidance — adapting every solution to each family's real goals. Wife and mother of four, my mission is to help others reach long-term stability, security, and financial growth.",
+    "cta": "Read my full story"
+  },
+  "philosophy": {
+    "title": "My philosophy",
+    "items": [
+      {
+        "title": "Educate before selling",
+        "body": "Before talking about a loan or a property, I teach you how the system works so you can make the best decision — with clarity and honesty."
+      },
+      {
+        "title": "Strategic preparation",
+        "body": "Organize finances, credit, and goals BEFORE buying. Preparation is 80% of the result."
+      },
+      {
+        "title": "Long-term vision",
+        "body": "Every home purchase is more than a transaction: it is the opportunity to transform your family's future and create a lasting legacy."
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "lead": "I share at corporate events, Hispanic communities, and investment groups on financial preparation, smart property purchasing, and building generational wealth.",
+    "cta": "Invite me to your event"
+  },
+  "books": {
+    "title": "My book",
+    "lead": "A guide focused on financial education, preparation, and mindset before buying a property.",
+    "cta": "Learn about the book",
+    "bookTitle": "Antes de Decidir",
+    "bookSubtitle": "When No One Taught You How to Prepare",
+    "bookPitch": "The book that would have saved you years of mistakes: what NOBODY taught you before signing your first mortgage or investing in real estate."
+  },
+  "ecosystem": {
+    "title": "My ecosystem",
+    "lead": "Every part of what I do connects to serve two goals: helping more families achieve homeownership — and helping more Hispanic Loan Originators grow in their careers.",
+    "pillars": [
+      { "title": "Mortgages", "body": "Mortgage loans at NEXA Lending, tailored to your reality and your goals." },
+      { "title": "Real estate", "body": "Buying and selling primary and investment properties in the United States." },
+      { "title": "Financial education", "body": "My book \"Antes de Decidir\" and content that prepares you before any decision." },
+      { "title": "Coach for Loan Originators", "body": "Spanish-language mentoring for Loan Originators who want to grow their production and career." }
+    ]
+  },
+  "socialProof": {
+    "title": "Trust earned",
+    "lead": "Families, professionals, and media that recognize my work across the US, Puerto Rico, and Latin America."
+  },
+  "testimonials": {
+    "kicker": "Verified reviews",
+    "title": "What the families I served say",
+    "lead": "Real testimonials from clients on Google Business Profile. Every review is from someone who closed with me.",
+    "verifiedBadge": "Verified on Google",
+    "viewAllCta": "View all on Google"
+  },
+  "contact": {
+    "title": "Let's work together",
+    "lead": "Tell me where you are in your journey and how I can help. I respond in under 24 hours.",
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "whatsapp": "WhatsApp (optional)",
+      "company": "Company or organization",
+      "type": "Type of inquiry",
+      "message": "Tell me your situation"
+    },
+    "types": [
+      "Mortgage loan",
+      "Property purchase",
+      "Real estate investment",
+      "Financial preparation / credit",
+      "Coaching for Loan Originators",
+      "Speaking / Event",
+      "Media / Press",
+      "Other"
+    ],
+    "submit": "Send message",
+    "submitPending": "Sending…",
+    "success": "Thank you. You will receive a response in under 24 hours.",
+    "error": "Something went wrong. Please write me directly on WhatsApp."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Building wealth, one family at a time."
+  }
+}

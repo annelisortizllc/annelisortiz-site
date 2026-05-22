@@ -8,7 +8,13 @@ export const metadata: Metadata = {
   title: 'Blog',
   description:
     'Artículos honestos sobre hipotecas, bienes raíces, preparación financiera y construcción de patrimonio para familias hispanas en EE.UU. Por Annelis Ortiz.',
-  alternates: { canonical: 'https://annelisortiz.com/blog' },
+  alternates: {
+    canonical: 'https://annelisortiz.com/blog',
+    languages: {
+      'es-ES': 'https://annelisortiz.com/blog',
+      'en-US': 'https://annelisortiz.com/en/blog',
+    },
+  },
 }
 
 const crumbs = [

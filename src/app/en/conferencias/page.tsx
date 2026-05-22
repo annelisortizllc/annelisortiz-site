@@ -2,77 +2,78 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHeader } from '@/components/PageHeader'
 import { breadcrumbJsonLd, faqJsonLd, jsonLdScript } from '@/lib/jsonld'
+import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Conferencias',
+  title: 'Speaking',
   description:
-    'Annelis Ortiz como conferencista: educación financiera, compra inteligente de propiedades y construcción de patrimonio para familias hispanas y latinoamericanas.',
+    'Annelis Ortiz as a speaker: financial education, smart property purchasing, and wealth-building for Hispanic and Latin American families.',
   alternates: {
-    canonical: 'https://annelisortiz.com/conferencias',
+    canonical: `${site.url}/en/conferencias`,
     languages: {
-      'es-ES': 'https://annelisortiz.com/conferencias',
-      'en-US': 'https://annelisortiz.com/en/conferencias',
+      'es-ES': `${site.url}/conferencias`,
+      'en-US': `${site.url}/en/conferencias`,
     },
   },
 }
 
 const crumbs = [
-  { name: 'Inicio', path: '/' },
-  { name: 'Conferencias', path: '/conferencias' },
+  { name: 'Home', path: '/en' },
+  { name: 'Speaking', path: '/en/conferencias' },
 ]
 
 const topics = [
   {
-    title: 'Antes de Decidir: prepararte para tu primera propiedad',
-    body: 'Una charla diseñada para audiencias hispanas que están considerando comprar su primera casa. Crédito, organización financiera y mentalidad de comprador.',
+    title: 'Antes de Decidir: preparing for your first property',
+    body: 'A talk designed for Hispanic audiences who are considering buying their first home. Credit, financial organization, and buyer mindset.',
   },
   {
-    title: 'Patrimonio en bienes raíces para familias latinas',
-    body: 'Cómo la primera propiedad se convierte en la base de un legado generacional — con estrategia hipotecaria y visión a largo plazo.',
+    title: 'Real estate wealth for Latino families',
+    body: 'How the first property becomes the foundation of a generational legacy — with mortgage strategy and a long-term vision.',
   },
   {
-    title: 'Inversión en propiedades para profesionales hispanos',
-    body: 'Estructura de financiamiento, cálculo de ROI, y cómo dar el salto de propietario a inversionista.',
+    title: 'Property investing for Hispanic professionals',
+    body: 'Financing structure, ROI calculation, and how to make the leap from homeowner to investor.',
   },
   {
-    title: 'Educación financiera para comunidades',
-    body: 'Workshops interactivos para asociaciones, empresas y grupos comunitarios. Adaptable a 45-90 minutos.',
+    title: 'Financial education for communities',
+    body: 'Interactive workshops for associations, companies, and community groups. Adaptable from 45 to 90 minutes.',
   },
 ]
 
 const audiences = [
-  'Eventos corporativos y conferencias de la industria',
-  'Asociaciones profesionales hispanas y cámaras locales',
-  'Grupos de inversión y bienes raíces',
-  'Comunidades religiosas y de mujeres',
-  'Universidades y programas de educación financiera',
-  'Podcasts y medios',
+  'Corporate events and industry conferences',
+  'Hispanic professional associations and local chambers',
+  'Investment and real estate groups',
+  'Faith communities and women\'s groups',
+  'Universities and financial education programs',
+  'Podcasts and media',
 ]
 
 const faqs = [
   {
-    question: '¿En qué idioma das tus conferencias?',
+    question: 'In which language do you give your talks?',
     answer:
-      'Principalmente en español, enfocado en la comunidad hispana en Estados Unidos y Latinoamérica. Inglés disponible bajo solicitud.',
+      'Primarily in Spanish, focused on the Hispanic community in the United States and Latin America. English available upon request.',
   },
   {
-    question: '¿Dónde puedes presentarte?',
+    question: 'Where can you present?',
     answer:
-      'En Estados Unidos (presencial), Puerto Rico y Latinoamérica (presencial o virtual). Para eventos fuera de estas regiones, contáctame para coordinar.',
+      'In the United States (in person), Puerto Rico, and Latin America (in person or virtual). For events outside these regions, contact me to coordinate.',
   },
   {
-    question: '¿Qué duración manejas?',
+    question: 'What duration do you offer?',
     answer:
-      'Charlas de 30-45 minutos, keynotes de 60 minutos y workshops de 90-120 minutos. También paneles y participaciones en podcasts.',
+      '30–45 minute talks, 60-minute keynotes, and 90–120 minute workshops. Also panels and podcast appearances.',
   },
   {
-    question: '¿Cómo solicito tu participación?',
+    question: 'How do I request your participation?',
     answer:
-      'Escríbeme desde la sección de contacto con la fecha tentativa, ubicación, audiencia y tema de interés. Respondo en menos de 24 horas.',
+      'Message me through the contact section with the tentative date, location, audience, and topic of interest. I respond in under 24 hours.',
   },
 ]
 
-export default function ConferenciasPage() {
+export default function SpeakingPageEN() {
   return (
     <>
       <script
@@ -85,19 +86,19 @@ export default function ConferenciasPage() {
       />
 
       <PageHeader
-        eyebrow="Conferencias"
-        title="Educación financiera que se queda con la audiencia."
-        lead="Comparto en eventos corporativos, comunidades hispanas y grupos de inversión sobre preparación financiera, compra inteligente de propiedades y construcción de patrimonio generacional."
+        eyebrow="Speaking"
+        title="Financial education that stays with the audience."
+        lead="I speak at corporate events, Hispanic communities, and investment groups on financial preparation, smart property purchasing, and building generational wealth."
         crumbs={crumbs}
       />
 
       <div data-theme="cream" className="bg-background text-foreground">
 
-      {/* Temas */}
+      {/* Topics */}
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-xs uppercase tracking-[0.22em] text-accent">Temas</p>
+        <p className="text-xs uppercase tracking-[0.22em] text-accent">Topics</p>
         <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
-          Los formatos que más solicitan.
+          The formats most requested.
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {topics.map((t) => (
@@ -113,12 +114,12 @@ export default function ConferenciasPage() {
         </div>
       </section>
 
-      {/* Audiencias */}
+      {/* Audiences */}
       <section className="border-y border-border bg-background-elev-1/40">
         <div className="mx-auto max-w-4xl px-6 py-20">
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">Audiencias</p>
+          <p className="text-xs uppercase tracking-[0.22em] text-accent">Audiences</p>
           <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
-            Dónde he presentado.
+            Where I have presented.
           </h2>
           <ul className="mt-10 grid gap-3 sm:grid-cols-2">
             {audiences.map((a) => (
@@ -133,9 +134,9 @@ export default function ConferenciasPage() {
 
       {/* FAQ */}
       <section className="mx-auto max-w-4xl px-6 py-20">
-        <p className="text-xs uppercase tracking-[0.22em] text-accent">Preguntas frecuentes</p>
+        <p className="text-xs uppercase tracking-[0.22em] text-accent">Frequently asked questions</p>
         <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
-          Lo que los organizadores quieren saber.
+          What organizers want to know.
         </h2>
         <div className="mt-10 space-y-4">
           {faqs.map((faq) => (
@@ -157,17 +158,17 @@ export default function ConferenciasPage() {
       <section className="border-t border-border bg-background-elev-1/40">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center">
           <h2 className="font-serif text-3xl leading-tight text-foreground md:text-4xl">
-            ¿Quieres invitarme a tu evento?
+            Want to invite me to your event?
           </h2>
           <p className="mt-6 text-base text-muted">
-            Escríbeme con la fecha, audiencia y tema. Te respondo con disponibilidad y propuesta
-            en menos de 24 horas.
+            Send me the date, audience, and topic. I respond with availability and a proposal in
+            under 24 hours.
           </p>
           <Link
-            href="/#contacto"
+            href="/en/#contacto"
             className="mt-8 inline-flex rounded-full bg-accent px-6 py-3 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)] transition hover:bg-accent-soft"
           >
-            Invitar a mi evento
+            Invite me to your event
           </Link>
         </div>
       </section>
