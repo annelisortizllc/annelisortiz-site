@@ -9,9 +9,9 @@ const labels = {
   es: {
     home: 'Inicio',
     about: 'Sobre mí',
+    services: 'Servicios',
     books: 'Libro',
     speaking: 'Conferencias',
-    press: 'Prensa',
     blog: 'Blog',
     followMe: 'Sígueme',
     rights: 'Todos los derechos reservados.',
@@ -20,9 +20,9 @@ const labels = {
   en: {
     home: 'Home',
     about: 'About',
+    services: 'Services',
     books: 'Book',
     speaking: 'Speaking',
-    press: 'Press',
     blog: 'Blog',
     followMe: 'Follow me',
     rights: 'All rights reserved.',
@@ -59,9 +59,9 @@ export function Footer() {
             {t.home}
           </span>
           <Link href={`${prefix}/sobre-mi`} className="hover:text-foreground">{t.about}</Link>
+          <Link href={`${prefix}/servicios`} className="hover:text-foreground">{t.services}</Link>
           <Link href={`${prefix}/libros`} className="hover:text-foreground">{t.books}</Link>
           <Link href={`${prefix}/conferencias`} className="hover:text-foreground">{t.speaking}</Link>
-          <Link href={`${prefix}/prensa`} className="hover:text-foreground">{t.press}</Link>
           <Link href={`${prefix}/blog`} className="hover:text-foreground">{t.blog}</Link>
         </nav>
 
