@@ -30,6 +30,16 @@ function detectLocale(pathname: string | null): Locale {
   return pathname?.startsWith('/en') ? 'en' : 'es'
 }
 
+/**
+ * Persist the user's manual locale choice in a cookie so the proxy honors it
+ * on subsequent visits and won't auto-redirect them away from their pick.
+ */
+function rememberLocale(locale: Locale) {
+  if (typeof document === 'undefined') return
+  // 1 year, root path, lax samesite — Vercel preview + prod both work.
+  document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; samesite=lax`
+}
+
 /** Return the path for the opposite locale, preserving the rest of the URL. */
 function swapLocale(pathname: string | null, target: Locale): string {
   const p = pathname ?? '/'
@@ -79,6 +89,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href={otherHref}
+            onClick={() => rememberLocale(otherLocale)}
             aria-label={otherLocale === 'en' ? 'Switch to English' : 'Cambiar a español'}
             className="hidden rounded-full border border-border px-3 py-1 text-xs uppercase tracking-wider text-muted transition hover:border-accent hover:text-foreground md:inline-flex"
           >
