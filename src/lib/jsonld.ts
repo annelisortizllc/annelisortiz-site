@@ -52,11 +52,41 @@ export function personJsonLd() {
       url: business.employerUrl,
     },
     nationality: { '@type': 'Country', name: 'United States' },
+    birthPlace: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'San Juan',
+        addressRegion: 'PR',
+        addressCountry: 'PR',
+      },
+    },
     alumniOf: {
       '@type': 'CollegeOrUniversity',
       name: 'Universidad de Puerto Rico, Recinto de Río Piedras',
       sameAs: 'https://www.uprrp.edu/',
     },
+    memberOf: [
+      {
+        '@type': 'Organization',
+        name: 'National Association of Realtors',
+        url: 'https://www.nar.realtor/',
+      },
+      {
+        '@type': 'Organization',
+        name: 'Florida Realtors',
+        url: 'https://www.floridarealtors.org/',
+      },
+    ],
+    founder: {
+      '@type': 'Organization',
+      name: 'Annelis Ortiz LLC',
+      foundingDate: '2024',
+    },
+    award: [
+      '2024 Rookie of the Year — Keller Williams Advantage III Realty',
+      '2024 Rising Star — Keller Williams Advantage III Realty',
+    ],
     knowsLanguage: ['es', 'en'],
     knowsAbout: [
       'Financiamiento hipotecario',
