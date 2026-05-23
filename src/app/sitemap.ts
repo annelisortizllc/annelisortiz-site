@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { site } from '@/lib/site'
 import { listBlogPosts } from '@/content/blog'
 
-const staticRoutes = ['', '/sobre-mi', '/libros', '/libros/antes-de-decidir', '/conferencias', '/prensa', '/blog'] as const
+const staticRoutes = ['', '/sobre-mi', '/servicios', '/libros', '/libros/antes-de-decidir', '/conferencias', '/blog'] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

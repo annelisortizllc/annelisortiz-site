@@ -21,9 +21,9 @@
   "nav": {
     "home": "Home",
     "about": "About",
+    "services": "Services",
     "books": "Book",
     "speaking": "Speaking",
-    "press": "Press",
     "blog": "Blog",
     "contact": "Contact"
   },

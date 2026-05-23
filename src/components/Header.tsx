@@ -7,17 +7,17 @@ import { MobileNav } from '@/components/MobileNav'
 const labels = {
   es: {
     about: 'Sobre mí',
+    services: 'Servicios',
     books: 'Libro',
     speaking: 'Conferencias',
-    press: 'Prensa',
     blog: 'Blog',
     contact: 'Contacto',
   },
   en: {
     about: 'About',
+    services: 'Services',
     books: 'Book',
     speaking: 'Speaking',
-    press: 'Press',
     blog: 'Blog',
     contact: 'Contact',
   },
@@ -66,9 +66,9 @@ export function Header() {
 
   const links = [
     { href: `${prefix}/sobre-mi`, label: t.about },
+    { href: `${prefix}/servicios`, label: t.services },
     { href: `${prefix}/libros`, label: t.books },
     { href: `${prefix}/conferencias`, label: t.speaking },
-    { href: `${prefix}/prensa`, label: t.press },
     { href: `${prefix}/blog`, label: t.blog },
   ]
 
