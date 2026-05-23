@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PageHeader } from '@/components/PageHeader'
-import { breadcrumbJsonLd, jsonLdScript } from '@/lib/jsonld'
+import { breadcrumbJsonLd, faqJsonLd, jsonLdScript } from '@/lib/jsonld'
 import { social, assets, site } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -28,6 +28,34 @@ const highlights = [
   { value: '30K+', label: 'Digital community' },
   { value: '5+', label: 'Years in mortgage and real estate' },
   { value: '3', label: 'Regions: US, Puerto Rico, LATAM' },
+]
+
+const faqs = [
+  {
+    question: 'What kind of mortgage loans do you handle?',
+    answer:
+      'As a Mortgage Loan Originator at NEXA Lending, I structure conventional, FHA, VA, jumbo, and investment property loans. I work with first-time buyers, refinances, and second-home buyers.',
+  },
+  {
+    question: 'Do you only serve first-time buyers or also investors?',
+    answer:
+      'Both. I work with families buying their first home and with investors building a rental property portfolio. As a Real Estate Agent I can also help you find the right property.',
+  },
+  {
+    question: 'Do you work with clients who are still preparing their credit?',
+    answer:
+      'Yes. A big part of my work is credit and financial preparation before purchase. If your credit or reserves are not ready yet, we design a step-by-step plan so you get qualified at the best possible rate.',
+  },
+  {
+    question: 'Do you serve clients in English and Spanish?',
+    answer:
+      'Yes, I work with clients in both languages. My main focus is the Hispanic community across the US, Puerto Rico, and Latin America, but I also serve buyers who prefer to do the process in English.',
+  },
+  {
+    question: 'How does your coaching for Mortgage Loan Originators work?',
+    answer:
+      'I coach Spanish-speaking Originators who want to grow their production and build a sustainable career. The coaching combines sales strategy, pipeline organization, personal marketing, and mindset. Reach out if you want to chat.',
+  },
 ]
 
 const trajectory = [
@@ -59,6 +87,10 @@ export default function AboutPageEN() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLdScript(breadcrumbJsonLd(crumbs))}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript(faqJsonLd(faqs))}
       />
 
       <PageHeader
@@ -185,6 +217,27 @@ export default function AboutPageEN() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-4xl px-6 py-24">
+          <p className="text-xs uppercase tracking-[0.22em] text-accent">FAQ</p>
+          <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
+            The questions I hear most before we start.
+          </h2>
+          <dl className="mt-12 space-y-8">
+            {faqs.map((f) => (
+              <div
+                key={f.question}
+                className="rounded-2xl border border-border bg-background-elev-1/40 p-7"
+              >
+                <dt className="font-serif text-xl text-foreground">{f.question}</dt>
+                <dd className="mt-3 text-base leading-relaxed text-muted">{f.answer}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 

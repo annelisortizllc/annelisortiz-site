@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PageHeader } from '@/components/PageHeader'
-import { breadcrumbJsonLd, jsonLdScript } from '@/lib/jsonld'
+import { breadcrumbJsonLd, faqJsonLd, jsonLdScript } from '@/lib/jsonld'
 import { social, assets } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -28,6 +28,34 @@ const highlights = [
   { value: '30K+', label: 'Comunidad digital' },
   { value: '5+', label: 'Años en hipotecas y bienes raíces' },
   { value: '3', label: 'Regiones: EE.UU., Puerto Rico, LATAM' },
+]
+
+const faqs = [
+  {
+    question: '¿Qué tipo de préstamos hipotecarios manejas?',
+    answer:
+      'Como Originadora de Préstamos en NEXA Lending estructuro préstamos convencionales, FHA, VA, jumbo y financiamientos para propiedades de inversión. Trabajo con compradores de primera vivienda, refinanciamientos y compradores en segunda vivienda.',
+  },
+  {
+    question: '¿Atiendes solo a primeros compradores o también a inversionistas?',
+    answer:
+      'Ambos. Acompaño a familias que están comprando su primera casa y también a inversionistas que están construyendo un portafolio de propiedades de renta. Como Agente de Bienes Raíces además te ayudo a encontrar la propiedad correcta.',
+  },
+  {
+    question: '¿Trabajas con clientes que aún están preparando su crédito?',
+    answer:
+      'Sí. Una parte importante de mi trabajo es la preparación crediticia y financiera previa a la compra. Si tu crédito o tus reservas todavía no están listos, diseñamos un plan paso a paso para que llegues calificado y con la mejor tasa posible.',
+  },
+  {
+    question: '¿Atiendes en inglés y en español?',
+    answer:
+      'Sí, trabajo con clientes en ambos idiomas. Mi enfoque principal es la comunidad hispana en Estados Unidos, Puerto Rico y Latinoamérica, pero también acompaño a compradores que prefieren hacer el proceso en inglés.',
+  },
+  {
+    question: '¿Cómo funciona tu coaching para Originadores de Préstamos?',
+    answer:
+      'Acompaño en español a Originadores que quieren crecer su producción y construir una carrera sostenible. El coaching combina estrategia comercial, organización del pipeline, marketing personal y mentalidad. Escríbeme para conversar si te interesa.',
+  },
 ]
 
 const trayectoria = [
@@ -59,6 +87,10 @@ export default function SobreMiPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLdScript(breadcrumbJsonLd(crumbs))}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript(faqJsonLd(faqs))}
       />
 
       <PageHeader
@@ -185,6 +217,27 @@ export default function SobreMiPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Preguntas frecuentes */}
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-4xl px-6 py-24">
+          <p className="text-xs uppercase tracking-[0.22em] text-accent">Preguntas frecuentes</p>
+          <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
+            Lo que más me preguntan antes de empezar.
+          </h2>
+          <dl className="mt-12 space-y-8">
+            {faqs.map((f) => (
+              <div
+                key={f.question}
+                className="rounded-2xl border border-border bg-background-elev-1/40 p-7"
+              >
+                <dt className="font-serif text-xl text-foreground">{f.question}</dt>
+                <dd className="mt-3 text-base leading-relaxed text-muted">{f.answer}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
