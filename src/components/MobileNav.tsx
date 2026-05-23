@@ -39,6 +39,15 @@ function detectLocale(pathname: string | null): Locale {
   return pathname?.startsWith('/en') ? 'en' : 'es'
 }
 
+/**
+ * Persist the user's manual locale choice in a cookie so the proxy honors it
+ * and won't auto-redirect them away from their pick.
+ */
+function rememberLocale(locale: Locale) {
+  if (typeof document === 'undefined') return
+  document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; samesite=lax`
+}
+
 function swapLocale(pathname: string | null, target: Locale): string {
   const p = pathname ?? '/'
   if (target === 'en') {
@@ -138,6 +147,7 @@ export function MobileNav() {
               </Link>
               <Link
                 href={otherHref}
+                onClick={() => rememberLocale(otherLocale)}
                 aria-label={t.langAria}
                 className="inline-flex rounded-full border border-border px-4 py-2 text-xs uppercase tracking-wider text-muted hover:border-accent hover:text-foreground"
               >
