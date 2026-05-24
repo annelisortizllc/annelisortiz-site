@@ -6,7 +6,6 @@ import { AboutPreview } from '@/components/sections/AboutPreview'
 import { Philosophy } from '@/components/sections/Philosophy'
 import { Ecosystem } from '@/components/sections/Ecosystem'
 import { BookFeature } from '@/components/sections/BookFeature'
-import { SocialProof } from '@/components/sections/SocialProof'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { Contact } from '@/components/sections/Contact'
 import { Reveal } from '@/components/Reveal'
@@ -53,7 +52,6 @@ export default async function HomePageEN() {
         <Reveal><BookFeature dict={dict} /></Reveal>
       </div>
       <div data-theme="cream" className="bg-background text-foreground">
-        <Reveal><SocialProof dict={dict} /></Reveal>
         <Reveal><Testimonials dict={dict} /></Reveal>
         <Reveal><Contact dict={dict} /></Reveal>
       </div>
