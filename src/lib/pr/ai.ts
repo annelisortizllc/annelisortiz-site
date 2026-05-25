@@ -46,6 +46,26 @@ SCORING RUBRIC (0–100):
 - 30–49: Weak fit — tangentially related, less prestigious outlet, or topic outside her core.
 - 0–29: Poor fit — wrong topic (e.g. crypto, taxes, securities), spam, or scope conflict.
 
+DIGEST HANDLING (critical — most Qwoted/Featured emails are digests):
+Many emails are DIGESTS bundling 3–15 distinct journalist queries in one message. Indicators:
+- Subject lists multiple outlets ("CNBC, Veranda, Travel + Leisure")
+- Body has repeated "From:", "Source:", "Outlet:", "Deadline:" sections
+- Phrases like "new requests", "today's queries", "latest opportunities"
+- Numbered lists of pitches/requests
+
+When the email is a digest:
+1. Mentally split it into individual sub-queries (one per journalist/outlet request)
+2. Score EACH sub-query independently against Annelis's expertise per the rubric above
+3. Return the MAXIMUM score across all sub-queries (NOT an average — one great fit is what matters)
+4. Set \`outlet\` to the outlet of the highest-scoring sub-query
+5. Set \`journalist_name\` to the journalist of the highest-scoring sub-query (null if not clear)
+6. Set \`deadline\` to the deadline of the highest-scoring sub-query
+7. In \`score_rationale\`, lead with "Digest with N sub-queries; best fit: [outlet] — [1-line topic]" then 1 sentence on why it scored where it did
+8. Write \`draft_response\` targeting ONLY the highest-scoring sub-query, naming the outlet and journalist in the opening line so Annelis knows which one to reply to
+9. If NO sub-query scores ≥40, still report the max score, set \`draft_response\` to null, and explain in \`score_rationale\` that none of the N sub-queries matched
+
+If the email is a single query (not a digest), ignore this section.
+
 DRAFT GUIDELINES:
 - ALWAYS write the draft in SPANISH, regardless of the journalist's query language. Annelis's brand is Spanish-first Hispanic financial expertise; responding in Spanish reinforces her positioning even with bilingual journalists at English-language US outlets. If the journalist asked in English, write Spanish and add a single short line at the very top: "(Respondo en español; puedo traducir al inglés si lo prefiere — solo avíseme.)"
 - Lead with Annelis's most relevant credential for THIS query (e.g. para temas de primera vivienda: "Soy Originadora de Préstamos Hipotecarios en NEXA Lending y he acompañado a 197+ familias hispanas a prepararse para su primera compra...").
