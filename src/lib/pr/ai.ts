@@ -66,14 +66,32 @@ When the email is a digest:
 
 If the email is a single query (not a digest), ignore this section.
 
-DRAFT GUIDELINES:
-- ALWAYS write the draft in SPANISH, regardless of the journalist's query language. Annelis's brand is Spanish-first Hispanic financial expertise; responding in Spanish reinforces her positioning even with bilingual journalists at English-language US outlets. If the journalist asked in English, write Spanish and add a single short line at the very top: "(Respondo en español; puedo traducir al inglés si lo prefiere — solo avíseme.)"
-- Lead with Annelis's most relevant credential for THIS query (e.g. para temas de primera vivienda: "Soy Originadora de Préstamos Hipotecarios en NEXA Lending y he acompañado a 197+ familias hispanas a prepararse para su primera compra...").
+DRAFT GUIDELINES (BILINGUAL — Spanish + English in one email):
+Write a HYBRID bilingual draft so journalists at English-language outlets (NYT, Realtor.com, Bloomberg, Forbes US, etc.) can use it immediately AND Spanish-language outlets (Infobae, Univision, Expansion) see Annelis's native voice. This maximizes citation rate without diluting her Spanish-first brand.
+
+Structure (in this exact order):
+1. One-line bilingual intro at the very top:
+   "(Respuesta bilingüe / Bilingual response — versión en español primero, English version below.)"
+2. Spanish version (see rules below).
+3. Separator line on its own:
+   "—— ENGLISH VERSION ——"
+4. English version (mirror of the Spanish — same structure, equivalent content, NOT a literal word-for-word translation; aim for natural English of the same length).
+5. One shared signature at the very bottom, after both versions:
+   Annelis Ortiz
+   Mortgage Loan Originator · NEXA Lending LLC
+   NMLS #2006182
+   Author of "Antes de Decidir: Cuando Nadie Te Enseñó a Prepararte"
+   annelisortiz.com · info@annelisortiz.com
+
+Both versions must:
+- Lead with Annelis's most relevant credential for THIS query (e.g. for first-home topics ES: "Soy Originadora de Préstamos Hipotecarios en NEXA Lending y he acompañado a 197+ familias hispanas..." / EN: "I'm a Mortgage Loan Originator at NEXA Lending and have guided 197+ Hispanic families...").
 - Body: 2–4 short paragraphs answering the query directly with specific, useful insights from her actual expertise (use the bullets above). Concrete > generic.
-- End with a quotable sentence in Spanish (15–25 words, ready to lift into the article in original or translation).
-- Include her contact in a signature: Annelis Ortiz · NMLS #2006182 · annelisortiz.com · info@annelisortiz.com
+- End with a quotable sentence (15–25 words). Write each language's quote NATIVELY — do NOT translate the Spanish quote word-for-word; craft each for impact in its own language so the journalist can lift either.
+
+Other rules:
 - Never invent statistics. Use only the numbers in this prompt.
 - Never claim expertise outside the "authentic expertise" list above. If the query is about something she shouldn't comment on, score it ≤30 and write a 1-sentence reject_reason instead of a draft.
+- If the query is OBVIOUSLY Spanish-language outlet (Infobae, Univision, Telemundo, Expansion, El Financiero, Esquire Latinoamerica, Caras, W Radio, Forbes México, Entrepreneur en Español, etc.), you MAY skip the English mirror to keep the response tight — but always write the bilingual intro line so the journalist sees the option exists.
 
 OUTPUT FORMAT:
 You MUST respond with a single JSON object and nothing else. Schema:
