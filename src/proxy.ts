@@ -22,6 +22,48 @@ import type { NextRequest } from 'next/server'
 
 const PREFERRED_COOKIE = 'NEXT_LOCALE'
 
+/**
+ * Match search engine and AI crawlers so we never auto-redirect them based on
+ * Accept-Language. Bots typically send `Accept-Language: en`, which previously
+ * caused Googlebot crawling `/sobre-mi` to be 30x'd to `/en/sobre-mi` — the
+ * ES versions then surfaced in Google Search Console as "Page with redirect"
+ * and never got indexed. Letting bots see each URL as-is means Google indexes
+ * both languages independently and uses our hreflang tags to relate them.
+ *
+ * Patterns are lowercased and matched against the UA's lowercase form.
+ */
+const BOT_UA_PATTERNS = [
+  'googlebot',        // Google Search
+  'bingbot',          // Bing
+  'duckduckbot',      // DuckDuckGo
+  'yandexbot',        // Yandex
+  'baiduspider',      // Baidu
+  'applebot',         // Apple/Siri
+  'gptbot',           // OpenAI training crawler
+  'chatgpt-user',     // ChatGPT browsing
+  'oai-searchbot',    // OpenAI SearchGPT
+  'claudebot',        // Anthropic training crawler
+  'claude-user',      // Claude tool-using crawler
+  'claude-searchbot', // Claude search
+  'anthropic-ai',     // Anthropic generic
+  'perplexitybot',    // Perplexity training
+  'perplexity-user',  // Perplexity browsing
+  'cohere-ai',        // Cohere
+  'ccbot',            // Common Crawl
+  'bytespider',       // ByteDance / TikTok
+  'meta-externalagent', // Meta
+] as const
+
+function isBot(userAgent: string | null): boolean {
+  if (!userAgent) return false
+  const ua = userAgent.toLowerCase()
+  for (const pattern of BOT_UA_PATTERNS) {
+    if (ua.includes(pattern)) return true
+  }
+  // Generic fallback for anything self-identifying as a bot/crawler/spider.
+  return /\b(bot|crawler|spider)\b/.test(ua)
+}
+
 /** Pull the best-matching locale from an Accept-Language header. */
 function preferredLocale(acceptLanguage: string | null): 'es' | 'en' {
   if (!acceptLanguage) return 'es'
@@ -32,6 +74,14 @@ function preferredLocale(acceptLanguage: string | null): 'es' | 'en' {
 }
 
 export function proxy(request: NextRequest) {
+  // Bots: never auto-redirect. They get whatever URL they asked for and we
+  // rely on hreflang tags in the page metadata to relate ES ↔ EN versions.
+  // This is critical for SEO — Googlebot's default Accept-Language is `en`,
+  // so without this check Google sees every Spanish URL as a 30x redirect.
+  if (isBot(request.headers.get('user-agent'))) {
+    return NextResponse.next()
+  }
+
   const { pathname, search } = request.nextUrl
   const cookieLocale = request.cookies.get(PREFERRED_COOKIE)?.value as
     | 'es'
