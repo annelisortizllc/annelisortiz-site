@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MobileNav } from '@/components/MobileNav'
+import { contact } from '@/lib/site'
 
 const labels = {
   es: {
@@ -12,6 +13,7 @@ const labels = {
     speaking: 'Conferencias',
     blog: 'Blog',
     contact: 'Contacto',
+    book: 'Agendar consulta',
   },
   en: {
     about: 'About',
@@ -20,6 +22,7 @@ const labels = {
     speaking: 'Speaking',
     blog: 'Blog',
     contact: 'Contact',
+    book: 'Book a consultation',
   },
 } as const
 
@@ -64,12 +67,14 @@ export function Header() {
   const otherLocale: Locale = locale === 'en' ? 'es' : 'en'
   const otherHref = swapLocale(pathname, otherLocale)
 
+  const contactHref = `${homeHref === '/' ? '' : homeHref}/#contacto`
   const links = [
     { href: `${prefix}/sobre-mi`, label: t.about },
     { href: `${prefix}/servicios`, label: t.services },
     { href: `${prefix}/libros`, label: t.books },
     { href: `${prefix}/conferencias`, label: t.speaking },
     { href: `${prefix}/blog`, label: t.blog },
+    { href: contactHref, label: t.contact },
   ]
 
   return (
@@ -95,12 +100,14 @@ export function Header() {
           >
             {otherLocale.toUpperCase()}
           </Link>
-          <Link
-            href={`${homeHref === '/' ? '' : homeHref}/#contacto`}
+          <a
+            href={contact.bookingUrl}
+            target="_blank"
+            rel="noreferrer"
             className="hidden rounded-full bg-accent px-4 py-1.5 text-sm font-medium text-on-accent transition hover:bg-accent-soft md:inline-block"
           >
-            {t.contact}
-          </Link>
+            {t.book}
+          </a>
           <MobileNav />
         </div>
       </div>

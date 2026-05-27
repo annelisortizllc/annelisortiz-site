@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'motion/react'
+import { contact } from '@/lib/site'
 
 const labels = {
   es: {
@@ -14,6 +15,7 @@ const labels = {
     speaking: 'Conferencias',
     blog: 'Blog',
     contact: 'Contacto',
+    book: 'Agendar consulta',
     closeAria: 'Cerrar menú',
     openAria: 'Abrir menú',
     langLabel: 'EN',
@@ -26,6 +28,7 @@ const labels = {
     speaking: 'Speaking',
     blog: 'Blog',
     contact: 'Contact',
+    book: 'Book a consultation',
     closeAria: 'Close menu',
     openAria: 'Open menu',
     langLabel: 'ES',
@@ -83,15 +86,17 @@ export function MobileNav() {
     }
   }, [open])
 
+  const homeHref = locale === 'en' ? '/en' : '/'
+  const contactHref = `${homeHref === '/' ? '' : homeHref}/#contacto`
+
   const links = [
     { href: `${prefix}/sobre-mi`, label: t.about },
     { href: `${prefix}/servicios`, label: t.services },
     { href: `${prefix}/libros`, label: t.books },
     { href: `${prefix}/conferencias`, label: t.speaking },
     { href: `${prefix}/blog`, label: t.blog },
+    { href: contactHref, label: t.contact },
   ]
-
-  const homeHref = locale === 'en' ? '/en' : '/'
 
   const overlay = (
     <AnimatePresence>
@@ -139,12 +144,14 @@ export function MobileNav() {
               ))}
             </ul>
             <div className="mt-10 flex items-center gap-4">
-              <Link
-                href={`${homeHref === '/' ? '' : homeHref}/#contacto`}
+              <a
+                href={contact.bookingUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)]"
               >
-                {t.contact} <span aria-hidden>→</span>
-              </Link>
+                {t.book} <span aria-hidden>→</span>
+              </a>
               <Link
                 href={otherHref}
                 onClick={() => rememberLocale(otherLocale)}
