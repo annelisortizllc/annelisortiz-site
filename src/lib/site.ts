@@ -13,6 +13,10 @@ export const contact = {
   whatsappPretty: '+1 (407) 307-6493',
   whatsappUrl: 'https://wa.me/14073076493',
   mailto: 'mailto:info@annelisortiz.com',
+  // Booking widget para consultas iniciales de hipoteca / bienes raíces.
+  // Vive en el portal profesional (aortizloans.com) donde Annelis ya tiene su
+  // calendar set up. Abre en nueva pestaña; no se embebe en iframe en el sitio.
+  bookingUrl: 'https://app.aortizloans.com/widget/bookings/calendario-consulta-inicial',
 } as const
 
 // Redes sociales verificadas. OJO: TikTok handle es @annelis.7 (no @annelisortiz).
