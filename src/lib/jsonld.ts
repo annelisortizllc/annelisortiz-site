@@ -1,5 +1,5 @@
 import { site, social, business, books, contact, assets, applicationPortal } from '@/lib/site'
-import { googleReviews, googleReviewsAggregate, businessProfiles } from '@/content/reviews'
+import { businessProfiles } from '@/content/reviews'
 
 export function personJsonLd() {
   return {
@@ -132,37 +132,15 @@ export function personJsonLd() {
       'https://www.amazon.com/dp/B0GD97JM53', // libro "Antes de Decidir"
       applicationPortal.url, // aortizloans.com — portal profesional regulado
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: googleReviewsAggregate.ratingValue,
-      reviewCount: googleReviewsAggregate.reviewCount,
-      bestRating: googleReviewsAggregate.bestRating,
-      worstRating: googleReviewsAggregate.worstRating,
-    },
-    review: googleReviews.map((r) => {
-      const profile = businessProfiles[r.source]
-      return {
-        '@type': 'Review',
-        '@id': `${site.url}#review-${r.id}`,
-        author: { '@type': 'Person', name: r.fullName },
-        datePublished: r.datePublished,
-        reviewBody: r.body,
-        inLanguage: 'es',
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: r.rating,
-          bestRating: 5,
-          worstRating: 1,
-        },
-        publisher: { '@type': 'Organization', name: 'Google' },
-        // Where this review was originally left (the GBP entity hosting it).
-        sourceOrganization: {
-          '@type': 'Organization',
-          name: profile.legalName,
-          url: profile.profileUrl,
-        },
-      }
-    }),
+    // NOTE: aggregateRating + review[] previously lived here but Google
+    // Search Console flagged them with "Invalid object type for field
+    // '<parent_node>'" — Person is not in Google's eligible parent types for
+    // Review snippets (LocalBusiness, Product, Book, Recipe, etc. are). The
+    // visual testimonials section on the homepage continues to render from
+    // src/content/reviews.ts directly, so this only removes the structured
+    // data, not the user-facing UI. If we ever want rich review snippets in
+    // search results, we'll need to create a separate ProfessionalService
+    // schema with the reviews attached there.
   }
 }
 
