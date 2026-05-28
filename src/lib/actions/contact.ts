@@ -1,7 +1,9 @@
 'use server'
 
+import { headers } from 'next/headers'
 import { z } from 'zod'
 import { Resend } from 'resend'
+import { createClient } from '@supabase/supabase-js'
 import { contact as siteContact } from '@/lib/site'
 
 const ContactSchema = z.object({
@@ -14,6 +16,83 @@ const ContactSchema = z.object({
   // Honeypot — must stay empty
   website: z.string().max(0).optional(),
 })
+
+type LeadInsertContext = {
+  locale: string | null
+  source_path: string | null
+  user_agent: string | null
+  referrer: string | null
+}
+
+// Persiste el lead en Supabase ANTES de intentar Resend para no perderlo si el
+// envío de email falla. Devuelve el lead id o null si Supabase no está
+// configurado (dev sin env) o si el insert falla.
+async function persistLead(
+  data: z.infer<typeof ContactSchema>,
+  ctx: LeadInsertContext,
+): Promise<string | null> {
+  const url = process.env.SUPABASE_URL
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!url || !serviceKey) {
+    console.warn('[contact] Supabase env missing — lead not persisted')
+    return null
+  }
+
+  try {
+    const supabase = createClient(url, serviceKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+      global: { headers: { 'x-application-name': 'annelisortiz-leads' } },
+    })
+    const { data: row, error } = await supabase
+      .from('leads')
+      .insert({
+        name: data.name,
+        email: data.email,
+        whatsapp: data.whatsapp || null,
+        company: data.company || null,
+        inquiry_type: data.type,
+        message: data.message,
+        locale: ctx.locale,
+        source_path: ctx.source_path,
+        user_agent: ctx.user_agent,
+        referrer: ctx.referrer,
+        email_status: 'pending',
+      })
+      .select('id')
+      .single()
+    if (error) {
+      console.error('[contact] Supabase insert failed', error)
+      return null
+    }
+    return row?.id ?? null
+  } catch (err) {
+    console.error('[contact] Supabase unexpected error', err)
+    return null
+  }
+}
+
+async function updateLeadEmailStatus(
+  leadId: string,
+  patch: { email_status: string; resend_email_id?: string | null; email_error?: string | null },
+) {
+  const url = process.env.SUPABASE_URL
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!url || !serviceKey) return
+  try {
+    const supabase = createClient(url, serviceKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    })
+    await supabase
+      .from('leads')
+      .update({
+        ...patch,
+        emailed_at: new Date().toISOString(),
+      })
+      .eq('id', leadId)
+  } catch (err) {
+    console.error('[contact] Supabase status update failed', err)
+  }
+}
 
 export type ContactState = {
   ok: boolean
@@ -95,18 +174,30 @@ export async function submitContact(
   }
 
   const data = parsed.data
+  const h = await headers()
+  const ctx: LeadInsertContext = {
+    locale: h.get('x-locale') || (h.get('referer')?.includes('/en/') ? 'en' : 'es'),
+    source_path: h.get('referer') ?? null,
+    user_agent: h.get('user-agent') ?? null,
+    referrer: h.get('referer') ?? null,
+  }
+
+  // 1) Persistimos PRIMERO en Supabase — si Resend falla después, no perdemos el lead.
+  const leadId = await persistLead(data, ctx)
+
   const apiKey = process.env.RESEND_API_KEY
   const to = process.env.CONTACT_EMAIL || siteContact.email
 
-  // If Resend isn't configured (local dev without env), don't lose the lead.
+  // 2) Si Resend no está configurado (dev sin env), igual ya guardamos el lead arriba.
   if (!apiKey) {
-    console.warn('[contact] RESEND_API_KEY missing — logging only', data)
+    console.warn('[contact] RESEND_API_KEY missing — lead persisted only')
+    if (leadId) await updateLeadEmailStatus(leadId, { email_status: 'skipped' })
     return { ok: true, message: 'Gracias. Recibirás respuesta en menos de 24 horas.' }
   }
 
   try {
     const resend = new Resend(apiKey)
-    const { error } = await resend.emails.send({
+    const { data: sent, error } = await resend.emails.send({
       from: 'Annelis Ortiz <hola@annelisortiz.com>',
       to: [to],
       replyTo: data.email,
@@ -117,12 +208,27 @@ export async function submitContact(
 
     if (error) {
       console.error('[contact] Resend error', error)
-      // Still tell the user it went through; we have the lead in logs.
-      // If we lose Resend reliability we'll add a Supabase fallback later.
+      if (leadId)
+        await updateLeadEmailStatus(leadId, {
+          email_status: 'failed',
+          email_error: error.message ?? String(error),
+        })
+      // El lead ya está guardado en Supabase, así que mantenemos UX positivo.
       return { ok: true, message: 'Gracias. Recibirás respuesta en menos de 24 horas.' }
     }
+
+    if (leadId)
+      await updateLeadEmailStatus(leadId, {
+        email_status: 'sent',
+        resend_email_id: sent?.id ?? null,
+      })
   } catch (err) {
     console.error('[contact] unexpected error', err)
+    if (leadId)
+      await updateLeadEmailStatus(leadId, {
+        email_status: 'failed',
+        email_error: err instanceof Error ? err.message : String(err),
+      })
     return { ok: true, message: 'Gracias. Recibirás respuesta en menos de 24 horas.' }
   }
 
