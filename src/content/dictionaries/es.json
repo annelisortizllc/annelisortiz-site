@@ -99,7 +99,7 @@
   },
   "contact": {
     "title": "Trabajemos juntos",
-    "lead": "Cuéntame en qué etapa estás y cómo puedo ayudarte. Respondo en menos de 24 horas.",
+    "lead": "Cuéntame en qué etapa estás y cómo puedo ayudarte. Contesto en menos de 48 horas.",
     "fields": {
       "name": "Nombre completo",
       "email": "Email",
@@ -120,7 +120,7 @@
     ],
     "submit": "Enviar mensaje",
     "submitPending": "Enviando…",
-    "success": "Gracias. Recibirás respuesta en menos de 24 horas.",
+    "success": "Gracias. Te contesto en menos de 48 horas.",
     "error": "Algo falló. Por favor escríbeme directo al WhatsApp."
   },
   "footer": {

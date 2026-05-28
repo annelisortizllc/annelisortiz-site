@@ -4,7 +4,11 @@ import { headers } from 'next/headers'
 import { z } from 'zod'
 import { Resend } from 'resend'
 import { createClient } from '@supabase/supabase-js'
-import { contact as siteContact } from '@/lib/site'
+import {
+  contact as siteContact,
+  applicationPortal,
+  business as siteBusiness,
+} from '@/lib/site'
 
 const ContactSchema = z.object({
   name: z.string().min(2, 'Nombre muy corto'),
@@ -160,6 +164,200 @@ ${data.message}
 `
 }
 
+// ============================================================================
+// Auto-respuesta al lead (Gap B del DAB Fase 2)
+// Confirma recepción + da WhatsApp y booking como atajos mientras Annelis
+// responde personalmente. Bilingüe según locale detectado.
+// ============================================================================
+
+type AutoResponseLocale = 'es' | 'en'
+
+function autoResponseSubject(locale: AutoResponseLocale, name: string) {
+  return locale === 'en'
+    ? `I got your message — Annelis Ortiz`
+    : `Recibí tu mensaje — Annelis Ortiz`
+  void name
+}
+
+function autoResponseHtml(
+  data: z.infer<typeof ContactSchema>,
+  locale: AutoResponseLocale,
+) {
+  const isEn = locale === 'en'
+  const greeting = isEn ? `Hi ${escapeHtml(data.name)},` : `Hola ${escapeHtml(data.name)},`
+  const intro = isEn
+    ? `I just received your message about <strong>${escapeHtml(data.type)}</strong>. I'll reply personally within 48 hours.`
+    : `Acabo de recibir tu mensaje sobre <strong>${escapeHtml(data.type)}</strong>. Te contesto personalmente en menos de 48 horas.`
+  const meanwhileLabel = isEn ? 'In the meantime, two ways to move forward:' : 'Mientras tanto, dos formas de adelantar:'
+  const waLabel = isEn ? 'Direct WhatsApp' : 'WhatsApp directo'
+  const waNote = isEn ? 'for anything urgent' : 'para algo urgente'
+  const bookLabel = isEn ? 'Book a consultation' : 'Agenda una consulta'
+  const bookNote = isEn ? '30 minutes on my calendar' : 'bloquea 30 min en mi calendario'
+  const closing = isEn ? 'Talk soon,' : 'Hablamos pronto,'
+  const role = isEn ? 'Mortgage Loan Originator' : 'Originadora de Préstamos Hipotecarios'
+  const altRole = isEn ? 'Real Estate Agent' : 'Agente de Bienes Raíces'
+  const disclaimer = isEn
+    ? `NMLS #${siteBusiness.nmlsLoanOfficer} (Annelis) · NMLS #${siteBusiness.nmlsCompany} (NEXA Lending LLC) · Equal Housing Lender. This is not a credit offer or guarantee of approval; all applications are subject to qualification.`
+    : `NMLS #${siteBusiness.nmlsLoanOfficer} (Annelis) · NMLS #${siteBusiness.nmlsCompany} (NEXA Lending LLC) · Equal Housing Lender. Esto no es una oferta de crédito ni garantía de aprobación; toda solicitud está sujeta a calificación.`
+
+  return `
+<!doctype html>
+<html lang="${isEn ? 'en' : 'es'}">
+<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:560px;margin:0 auto;padding:32px 16px;color:#0a0a0a;background:#fafafa;">
+  <div style="background:#fff;border:1px solid #eaeaea;border-radius:12px;padding:32px;">
+    <p style="margin:0 0 6px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#a07f3f;">annelisortiz.com</p>
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">${greeting}</p>
+    <p style="margin:0 0 20px;font-size:15px;line-height:1.65;color:#333;">${intro}</p>
+
+    <p style="margin:24px 0 12px;font-size:14px;font-weight:600;color:#0a0a0a;">${meanwhileLabel}</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr>
+        <td style="padding:10px 0;color:#0a0a0a;">
+          💬 <a href="${siteContact.whatsappUrl}" style="color:#a07f3f;text-decoration:none;font-weight:600;">${waLabel}</a>
+          <span style="color:#666;"> — ${waNote}</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:10px 0;color:#0a0a0a;">
+          📅 <a href="${applicationPortal.url}" style="color:#a07f3f;text-decoration:none;font-weight:600;">${bookLabel}</a>
+          <span style="color:#666;"> — ${bookNote}</span>
+        </td>
+      </tr>
+    </table>
+
+    <p style="margin:28px 0 4px;font-size:15px;color:#333;">${closing}</p>
+    <p style="margin:0;font-size:15px;line-height:1.5;">
+      <strong>Annelis Ortiz</strong><br>
+      <span style="color:#666;font-size:13px;">${role} · NEXA Lending LLC</span><br>
+      <span style="color:#666;font-size:13px;">${altRole}</span>
+    </p>
+  </div>
+  <p style="margin:24px auto 0;max-width:560px;text-align:center;font-size:11px;color:#999;line-height:1.5;">
+    ${disclaimer}
+  </p>
+</body>
+</html>`.trim()
+}
+
+function autoResponsePlain(
+  data: z.infer<typeof ContactSchema>,
+  locale: AutoResponseLocale,
+) {
+  const isEn = locale === 'en'
+  if (isEn) {
+    return `Hi ${data.name},
+
+I just received your message about ${data.type}. I'll reply personally within 48 hours.
+
+In the meantime, two ways to move forward:
+
+  Direct WhatsApp — for anything urgent
+  ${siteContact.whatsappPretty}
+  ${siteContact.whatsappUrl}
+
+  Book a consultation — 30 minutes on my calendar
+  ${applicationPortal.url}
+
+Talk soon,
+Annelis Ortiz
+Mortgage Loan Originator · NEXA Lending LLC
+Real Estate Agent
+
+---
+NMLS #${siteBusiness.nmlsLoanOfficer} (Annelis) · NMLS #${siteBusiness.nmlsCompany} (NEXA Lending LLC) · Equal Housing Lender. This is not a credit offer or guarantee of approval; all applications are subject to qualification.
+`
+  }
+  return `Hola ${data.name},
+
+Acabo de recibir tu mensaje sobre ${data.type}. Te contesto personalmente en menos de 48 horas.
+
+Mientras tanto, dos formas de adelantar:
+
+  WhatsApp directo — para algo urgente
+  ${siteContact.whatsappPretty}
+  ${siteContact.whatsappUrl}
+
+  Agenda una consulta — bloquea 30 min en mi calendario
+  ${applicationPortal.url}
+
+Hablamos pronto,
+Annelis Ortiz
+Originadora de Préstamos Hipotecarios · NEXA Lending LLC
+Agente de Bienes Raíces
+
+---
+NMLS #${siteBusiness.nmlsLoanOfficer} (Annelis) · NMLS #${siteBusiness.nmlsCompany} (NEXA Lending LLC) · Equal Housing Lender. Esto no es una oferta de crédito ni garantía de aprobación; toda solicitud está sujeta a calificación.
+`
+}
+
+async function updateLeadAutoResponseStatus(
+  leadId: string,
+  patch: {
+    auto_response_status: string
+    auto_response_id?: string | null
+    auto_response_error?: string | null
+  },
+) {
+  const url = process.env.SUPABASE_URL
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!url || !serviceKey) return
+  try {
+    const supabase = createClient(url, serviceKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    })
+    await supabase
+      .from('leads')
+      .update({
+        ...patch,
+        auto_responded_at: new Date().toISOString(),
+      })
+      .eq('id', leadId)
+  } catch (err) {
+    console.error('[contact] Supabase auto-response status update failed', err)
+  }
+}
+
+async function sendLeadAutoResponse(
+  resend: Resend,
+  data: z.infer<typeof ContactSchema>,
+  locale: AutoResponseLocale,
+  leadId: string | null,
+): Promise<void> {
+  try {
+    const { data: sent, error } = await resend.emails.send({
+      from: 'Annelis Ortiz <hola@annelisortiz.com>',
+      to: [data.email],
+      replyTo: siteContact.email,
+      subject: autoResponseSubject(locale, data.name),
+      html: autoResponseHtml(data, locale),
+      text: autoResponsePlain(data, locale),
+    })
+
+    if (error) {
+      console.error('[contact] Auto-response Resend error', error)
+      if (leadId)
+        await updateLeadAutoResponseStatus(leadId, {
+          auto_response_status: 'failed',
+          auto_response_error: error.message ?? String(error),
+        })
+      return
+    }
+
+    if (leadId)
+      await updateLeadAutoResponseStatus(leadId, {
+        auto_response_status: 'sent',
+        auto_response_id: sent?.id ?? null,
+      })
+  } catch (err) {
+    console.error('[contact] Auto-response unexpected error', err)
+    if (leadId)
+      await updateLeadAutoResponseStatus(leadId, {
+        auto_response_status: 'failed',
+        auto_response_error: err instanceof Error ? err.message : String(err),
+      })
+  }
+}
+
 export async function submitContact(
   _prev: ContactState,
   formData: FormData,
@@ -192,7 +390,7 @@ export async function submitContact(
   if (!apiKey) {
     console.warn('[contact] RESEND_API_KEY missing — lead persisted only')
     if (leadId) await updateLeadEmailStatus(leadId, { email_status: 'skipped' })
-    return { ok: true, message: 'Gracias. Recibirás respuesta en menos de 24 horas.' }
+    return { ok: true, message: 'Gracias. Te contesto en menos de 48 horas.' }
   }
 
   try {
@@ -214,7 +412,7 @@ export async function submitContact(
           email_error: error.message ?? String(error),
         })
       // El lead ya está guardado en Supabase, así que mantenemos UX positivo.
-      return { ok: true, message: 'Gracias. Recibirás respuesta en menos de 24 horas.' }
+      return { ok: true, message: 'Gracias. Te contesto en menos de 48 horas.' }
     }
 
     if (leadId)
@@ -222,6 +420,10 @@ export async function submitContact(
         email_status: 'sent',
         resend_email_id: sent?.id ?? null,
       })
+
+    // 3) Auto-respuesta al lead (best-effort, no bloquea UX si falla).
+    const autoLocale: AutoResponseLocale = ctx.locale === 'en' ? 'en' : 'es'
+    await sendLeadAutoResponse(resend, data, autoLocale, leadId)
   } catch (err) {
     console.error('[contact] unexpected error', err)
     if (leadId)
@@ -229,8 +431,8 @@ export async function submitContact(
         email_status: 'failed',
         email_error: err instanceof Error ? err.message : String(err),
       })
-    return { ok: true, message: 'Gracias. Recibirás respuesta en menos de 24 horas.' }
+    return { ok: true, message: 'Gracias. Te contesto en menos de 48 horas.' }
   }
 
-  return { ok: true, message: 'Gracias. Recibirás respuesta en menos de 24 horas.' }
+  return { ok: true, message: 'Gracias. Te contesto en menos de 48 horas.' }
 }

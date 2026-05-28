@@ -99,7 +99,7 @@
   },
   "contact": {
     "title": "Let's work together",
-    "lead": "Tell me where you are in your journey and how I can help. I respond in under 24 hours.",
+    "lead": "Tell me where you are in your journey and how I can help. I reply in under 48 hours.",
     "fields": {
       "name": "Full name",
       "email": "Email",
@@ -120,7 +120,7 @@
     ],
     "submit": "Send message",
     "submitPending": "Sending…",
-    "success": "Thank you. You will receive a response in under 24 hours.",
+    "success": "Thank you. I'll reply within 48 hours.",
     "error": "Something went wrong. Please write me directly on WhatsApp."
   },
   "footer": {
