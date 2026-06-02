@@ -45,5 +45,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticEntries, ...blogEntries]
+  // Lead magnet pairs — ES y EN no comparten path, listadas explícitamente.
+  const leadMagnetPairs: { es: string; en: string; priority: number }[] = [
+    { es: '/preparate', en: '/en/get-ready', priority: 0.9 },
+    {
+      es: '/recurso/checklist-preparacion',
+      en: '/en/resource/preparation-checklist',
+      priority: 0.8,
+    },
+  ]
+  const leadMagnetEntries = leadMagnetPairs.flatMap((p) => [
+    {
+      url: `${site.url}${p.es}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: p.priority,
+      alternates: {
+        languages: {
+          'es-ES': `${site.url}${p.es}`,
+          'en-US': `${site.url}${p.en}`,
+        },
+      },
+    },
+    {
+      url: `${site.url}${p.en}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: p.priority,
+      alternates: {
+        languages: {
+          'es-ES': `${site.url}${p.es}`,
+          'en-US': `${site.url}${p.en}`,
+        },
+      },
+    },
+  ])
+
+  return [...staticEntries, ...blogEntries, ...leadMagnetEntries]
 }
