@@ -9,6 +9,7 @@ import {
   applicationPortal,
   business as siteBusiness,
 } from '@/lib/site'
+import { inquiryMeta, tagValue } from '@/lib/inquiry-codes'
 
 const ContactSchema = z.object({
   name: z.string().min(2, 'Nombre muy corto'),
@@ -324,6 +325,7 @@ async function sendLeadAutoResponse(
   leadId: string | null,
 ): Promise<void> {
   try {
+    const meta = inquiryMeta(data.type)
     const { data: sent, error } = await resend.emails.send({
       from: 'Annelis Ortiz <hola@annelisortiz.com>',
       to: [data.email],
@@ -331,6 +333,11 @@ async function sendLeadAutoResponse(
       subject: autoResponseSubject(locale, data.name),
       html: autoResponseHtml(data, locale),
       text: autoResponsePlain(data, locale),
+      tags: [
+        { name: 'source', value: 'contact_form_autoresponse' },
+        { name: 'inquiry_type', value: tagValue(meta.slug) },
+        { name: 'locale', value: locale },
+      ],
     })
 
     if (error) {
@@ -395,13 +402,20 @@ export async function submitContact(
 
   try {
     const resend = new Resend(apiKey)
+    const meta = inquiryMeta(data.type)
+    const localeTag = ctx.locale === 'en' ? 'en' : 'es'
     const { data: sent, error } = await resend.emails.send({
       from: 'Annelis Ortiz <hola@annelisortiz.com>',
       to: [to],
       replyTo: data.email,
-      subject: `${data.type} — ${data.name}`,
+      subject: `[${meta.code}] ${data.name} — ${data.type}`,
       html: htmlBody(data),
       text: plainBody(data),
+      tags: [
+        { name: 'source', value: 'contact_form' },
+        { name: 'inquiry_type', value: tagValue(meta.slug) },
+        { name: 'locale', value: localeTag },
+      ],
     })
 
     if (error) {
