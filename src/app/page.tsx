@@ -5,6 +5,7 @@ import { AboutPreview } from '@/components/sections/AboutPreview'
 import { Philosophy } from '@/components/sections/Philosophy'
 import { Ecosystem } from '@/components/sections/Ecosystem'
 import { BookFeature } from '@/components/sections/BookFeature'
+import { LeadMagnetCTA } from '@/components/sections/LeadMagnetCTA'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { Contact } from '@/components/sections/Contact'
 import { Reveal } from '@/components/Reveal'
@@ -23,6 +24,7 @@ export default async function HomePage() {
       </div>
       <div className="bg-background text-foreground">
         <Reveal><BookFeature dict={dict} /></Reveal>
+        <Reveal><LeadMagnetCTA locale="es" /></Reveal>
       </div>
       <div data-theme="cream" className="bg-background text-foreground">
         <Reveal><Testimonials dict={dict} /></Reveal>
