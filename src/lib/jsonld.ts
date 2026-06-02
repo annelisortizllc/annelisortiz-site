@@ -193,19 +193,22 @@ export function articleJsonLd(article: {
   publishedAt: string
   updatedAt?: string
   keywords: string[]
+  locale?: 'es' | 'en'
 }) {
+  const locale = article.locale ?? 'es'
+  const basePath = locale === 'en' ? '/en/blog' : '/blog'
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    '@id': `${site.url}/blog/${article.slug}`,
+    '@id': `${site.url}${basePath}/${article.slug}`,
     headline: article.title,
     description: article.description,
-    inLanguage: 'es',
+    inLanguage: locale,
     datePublished: article.publishedAt,
     dateModified: article.updatedAt ?? article.publishedAt,
     author: { '@id': `${site.url}#person` },
     publisher: { '@id': `${site.url}#person` },
-    mainEntityOfPage: `${site.url}/blog/${article.slug}`,
+    mainEntityOfPage: `${site.url}${basePath}/${article.slug}`,
     image: `${site.url}/opengraph-image`,
     keywords: article.keywords,
   }

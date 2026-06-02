@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { site } from '@/lib/site'
-import { listBlogPosts } from '@/content/blog'
+import { listBlogPosts, pickContent } from '@/content/blog'
 
 const staticRoutes = ['', '/sobre-mi', '/servicios', '/libros', '/libros/antes-de-decidir', '/conferencias', '/blog'] as const
 
@@ -37,13 +37,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ]
   })
 
-  // Blog posts are Spanish-only for now; /en/blog index links back to /blog.
-  const blogEntries = listBlogPosts().map((post) => ({
-    url: `${site.url}/blog/${post.slug}`,
-    lastModified: new Date(post.updatedAt ?? post.publishedAt),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }))
+  // Blog posts — each post can appear in ES (always) and EN (when translated).
+  // hreflang alternates point to the partner slug per post.
+  const blogEntries = listBlogPosts('es').flatMap((post) => {
+    const es = pickContent(post, 'es')
+    const enSlug = post.en?.slug
+    const lastModified = new Date(post.updatedAt ?? post.publishedAt)
+    const esAlternates = enSlug
+      ? {
+          languages: {
+            'es-ES': `${site.url}/blog/${es.slug}`,
+            'en-US': `${site.url}/en/blog/${enSlug}`,
+          },
+        }
+      : undefined
+    const entries: MetadataRoute.Sitemap = [
+      {
+        url: `${site.url}/blog/${es.slug}`,
+        lastModified,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+        ...(esAlternates ? { alternates: esAlternates } : {}),
+      },
+    ]
+    if (enSlug) {
+      entries.push({
+        url: `${site.url}/en/blog/${enSlug}`,
+        lastModified,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+        alternates: {
+          languages: {
+            'es-ES': `${site.url}/blog/${es.slug}`,
+            'en-US': `${site.url}/en/blog/${enSlug}`,
+          },
+        },
+      })
+    }
+    return entries
+  })
 
   // Lead magnet pairs — ES y EN no comparten path, listadas explícitamente.
   const leadMagnetPairs: { es: string; en: string; priority: number }[] = [

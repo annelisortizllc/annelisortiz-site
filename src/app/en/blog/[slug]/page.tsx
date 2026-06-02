@@ -15,60 +15,65 @@ import {
   getBlogPostByEsSlug,
   pickContent,
 } from '@/content/blog'
+import { site } from '@/lib/site'
 
 export function generateStaticParams() {
-  return blogSlugs('es').map((slug) => ({ slug }))
+  return blogSlugs('en').map((slug) => ({ slug }))
 }
 
 export async function generateMetadata(
-  props: PageProps<'/blog/[slug]'>,
+  props: PageProps<'/en/blog/[slug]'>,
 ): Promise<Metadata> {
   const { slug } = await props.params
-  const post = getBlogPost(slug, 'es')
+  const post = getBlogPost(slug, 'en')
   if (!post) return {}
-  const content = pickContent(post, 'es')
-  const enSlug = post.en?.slug
+  const content = pickContent(post, 'en')
   return {
     title: content.title,
     description: content.description,
     keywords: content.keywords,
     alternates: {
-      canonical: `https://annelisortiz.com/blog/${content.slug}`,
-      languages: enSlug
-        ? {
-            'es-ES': `https://annelisortiz.com/blog/${content.slug}`,
-            'en-US': `https://annelisortiz.com/en/blog/${enSlug}`,
-          }
-        : { 'es-ES': `https://annelisortiz.com/blog/${content.slug}` },
+      canonical: `${site.url}/en/blog/${content.slug}`,
+      languages: {
+        'es-ES': `${site.url}/blog/${post.es.slug}`,
+        'en-US': `${site.url}/en/blog/${content.slug}`,
+      },
     },
     openGraph: {
       type: 'article',
       title: content.title,
       description: content.description,
-      url: `https://annelisortiz.com/blog/${content.slug}`,
+      url: `${site.url}/en/blog/${content.slug}`,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt ?? post.publishedAt,
       authors: ['Annelis Ortiz'],
+      locale: 'en_US',
+      alternateLocale: 'es_ES',
     },
   }
 }
 
-export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
+export default async function BlogPostPageEN(
+  props: PageProps<'/en/blog/[slug]'>,
+) {
   const { slug } = await props.params
-  const post = getBlogPost(slug, 'es')
+  const post = getBlogPost(slug, 'en')
   if (!post) notFound()
-  const content = pickContent(post, 'es')
+  const content = pickContent(post, 'en')
 
   const crumbs = [
-    { name: 'Inicio', path: '/' },
-    { name: 'Blog', path: '/blog' },
-    { name: content.title, path: `/blog/${content.slug}` },
+    { name: 'Home', path: '/en' },
+    { name: 'Blog', path: '/en/blog' },
+    { name: content.title, path: `/en/blog/${content.slug}` },
   ]
 
+  // Related posts are referenced by ES slug; resolve them, then pick the
+  // EN version if available. Posts not yet translated are dropped from
+  // the related list rather than linking to Spanish.
   const related = (post.relatedSlugs ?? [])
     .map((s) => getBlogPostByEsSlug(s))
-    .filter((p): p is NonNullable<typeof p> => !!p)
-    .map((p) => ({ post: p, content: pickContent(p, 'es') }))
+    .filter((p): p is NonNullable<typeof p> => !!p && !!p.en)
+    .map((p) => ({ post: p, content: pickContent(p, 'en') }))
 
   return (
     <>
@@ -82,7 +87,7 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
             publishedAt: post.publishedAt,
             updatedAt: post.updatedAt,
             keywords: content.keywords,
-            locale: 'es',
+            locale: 'en',
           }),
         )}
       />
@@ -110,13 +115,12 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         <PostBody sections={content.sections} />
       </article>
 
-      {/* FAQ */}
       {content.faq.length ? (
         <section className="border-t border-border bg-background-elev-1/40">
           <div className="mx-auto max-w-3xl px-6 py-16">
-            <p className="text-xs uppercase tracking-[0.22em] text-accent">Preguntas frecuentes</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-accent">Frequently asked</p>
             <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground">
-              Lo que más nos preguntan sobre este tema.
+              What readers ask most about this topic.
             </h2>
             <div className="mt-10 space-y-3">
               {content.faq.map((q) => (
@@ -136,16 +140,15 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         </section>
       ) : null}
 
-      {/* Related + CTA */}
       <section className="mx-auto max-w-4xl px-6 py-20">
         {related.length ? (
           <>
-            <p className="text-xs uppercase tracking-[0.22em] text-accent">Sigue leyendo</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-accent">Keep reading</p>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {related.map((r) => (
                 <Link
                   key={r.content.slug}
-                  href={`/blog/${r.content.slug}`}
+                  href={`/en/blog/${r.content.slug}`}
                   className="group rounded-2xl border border-border bg-background-elev-1 p-6 transition hover:border-accent/60"
                 >
                   <span className="text-xs uppercase tracking-[0.18em] text-accent">{r.content.category}</span>
@@ -160,18 +163,18 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         ) : null}
 
         <div className="mt-16 rounded-2xl border border-border bg-background-elev-2/60 p-8 text-center">
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">¿Tienes preguntas específicas?</p>
+          <p className="text-xs uppercase tracking-[0.22em] text-accent">Have specific questions?</p>
           <h3 className="mt-2 font-serif text-2xl text-foreground">
-            Hablemos de tu caso, no de generalidades.
+            Let&apos;s talk about your situation, not generalities.
           </h3>
           <p className="mt-3 text-sm text-muted">
-            Cada situación financiera es distinta. Cuéntame la tuya y te doy una respuesta clara.
+            Every financial situation is different. Share yours and I&apos;ll give you a clear answer.
           </p>
           <Link
-            href="/#contacto"
+            href="/en#contact"
             className="mt-6 inline-flex rounded-full bg-accent px-6 py-3 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)] transition hover:bg-accent-soft"
           >
-            Agendar consulta
+            Book a consultation
           </Link>
         </div>
       </section>
