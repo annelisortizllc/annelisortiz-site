@@ -10,6 +10,7 @@ import {
   applicationPortal,
   business as siteBusiness,
 } from '@/lib/site'
+import { LEAD_MAGNET_META, tagValue } from '@/lib/inquiry-codes'
 
 const LeadMagnetSchema = z.object({
   name: z.string().min(2, 'Nombre muy corto'),
@@ -321,9 +322,14 @@ export async function submitLeadMagnet(
       from: 'Annelis Ortiz <hola@annelisortiz.com>',
       to: [to],
       replyTo: data.email,
-      subject: `Lead magnet — ${data.name} (${data.locale.toUpperCase()})`,
+      subject: `[${LEAD_MAGNET_META.code}] ${data.name} — Checklist (${data.locale.toUpperCase()})`,
       html: internalHtml(data),
       text: `Nuevo lead del magnet:\n\nNombre: ${data.name}\nEmail: ${data.email}\nIdioma: ${data.locale}\n`,
+      tags: [
+        { name: 'source', value: 'lead_magnet' },
+        { name: 'inquiry_type', value: tagValue(LEAD_MAGNET_META.slug) },
+        { name: 'locale', value: data.locale },
+      ],
     })
     if (error) throw new Error(error.message ?? String(error))
     if (leadId)
@@ -351,6 +357,11 @@ export async function submitLeadMagnet(
       subject: leadEmailSubject(data.locale),
       html: leadEmailHtml(data),
       text: leadEmailPlain(data),
+      tags: [
+        { name: 'source', value: 'lead_magnet_delivery' },
+        { name: 'inquiry_type', value: tagValue(LEAD_MAGNET_META.slug) },
+        { name: 'locale', value: data.locale },
+      ],
     })
     if (error) throw new Error(error.message ?? String(error))
     if (leadId)
