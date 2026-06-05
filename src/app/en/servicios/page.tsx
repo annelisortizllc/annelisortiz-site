@@ -7,7 +7,7 @@ import { contact, applicationPortal, site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Mortgage loans (conventional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, Foreign National), real estate buy & sell, coaching for Loan Originators, financial education, and speaking. Annelis Ortiz — NEXA Lending + Keller Williams.',
+    'Mortgage loans (conventional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, Foreign National), real estate buy & sell, coaching, financial education, and speaking. Annelis Ortiz — NEXA Lending + Keller Williams.',
   alternates: {
     canonical: `${site.url}/en/servicios`,
     languages: {
@@ -87,7 +87,7 @@ const services = [
   {
     id: 'coaching',
     eyebrow: 'Professional mentoring',
-    title: 'Coaching for Loan Originators',
+    title: 'Coaching',
     lead: 'A Spanish-language program for Originators who want to grow their production and build a sustainable career. Combines sales strategy, pipeline organization, personal brand, and mindset.',
     groups: [
       {
@@ -190,7 +190,7 @@ export default function ServicesPageEN() {
       <PageHeader
         eyebrow="Services"
         title="Five ways I work with you."
-        lead="Mortgage loans, real estate buy & sell, coaching for Loan Originators, financial education, and speaking. All from the same perspective: strategy, preparation, and a human approach."
+        lead="Mortgage loans, real estate buy & sell, coaching, financial education, and speaking. All from the same perspective: strategy, preparation, and a human approach."
         crumbs={crumbs}
       />
 

@@ -28,7 +28,7 @@
     "contact": "Contacto"
   },
   "hero": {
-    "eyebrow": "Originadora de Préstamos · Bienes Raíces · Autora · Coach para Originadores · Empresaria",
+    "eyebrow": "Originadora de Préstamos · Bienes Raíces · Autora · Coach · Empresaria",
     "title": "Construyendo patrimonio,",
     "titleAccent": "una familia a la vez.",
     "tagline": "Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión.",
@@ -87,7 +87,7 @@
       { "title": "Hipotecas", "body": "Préstamos hipotecarios en NEXA Lending, adaptados a tu realidad y tus metas." },
       { "title": "Bienes raíces", "body": "Compra y venta de propiedades principales y de inversión en Estados Unidos." },
       { "title": "Educación financiera", "body": "Mi libro \"Antes de Decidir\" y contenido que te prepara antes de cualquier decisión." },
-      { "title": "Coach para Originadores", "body": "Mentoría en español para Loan Originators que quieren crecer su producción y carrera." }
+      { "title": "Coach", "body": "Mentoría en español para Loan Originators que quieren crecer su producción y carrera." }
     ]
   },
   "testimonials": {
@@ -113,7 +113,7 @@
       "Compra de propiedad",
       "Inversión en bienes raíces",
       "Preparación financiera / crédito",
-      "Coaching para Originadores",
+      "Coaching",
       "Conferencia / Evento",
       "Medios / Prensa",
       "Otro"

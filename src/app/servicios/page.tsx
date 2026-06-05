@@ -7,7 +7,7 @@ import { contact, applicationPortal, site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Servicios',
   description:
-    'Préstamos hipotecarios (convencional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, préstamos para extranjeros), compraventa de propiedades, coaching para Originadores, educación financiera y conferencias. Annelis Ortiz — NEXA Lending + Keller Williams.',
+    'Préstamos hipotecarios (convencional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, préstamos para extranjeros), compraventa de propiedades, coaching, educación financiera y conferencias. Annelis Ortiz — NEXA Lending + Keller Williams.',
   alternates: {
     canonical: `${site.url}/servicios`,
     languages: {
@@ -87,7 +87,7 @@ const services = [
   {
     id: 'coaching',
     eyebrow: 'Mentoría profesional',
-    title: 'Coaching para Originadores de Préstamos',
+    title: 'Coaching',
     lead: 'Programa en español para Originadores que quieren crecer su producción y construir una carrera sostenible. Combina estrategia comercial, organización del pipeline, marca personal y mentalidad.',
     groups: [
       {
@@ -190,7 +190,7 @@ export default function ServiciosPage() {
       <PageHeader
         eyebrow="Servicios"
         title="Cinco formas en que trabajo contigo."
-        lead="Préstamos hipotecarios, compraventa de propiedades, coaching para Originadores, educación financiera y conferencias. Todo desde la misma perspectiva: estrategia, preparación y un enfoque humano."
+        lead="Préstamos hipotecarios, compraventa de propiedades, coaching, educación financiera y conferencias. Todo desde la misma perspectiva: estrategia, preparación y un enfoque humano."
         crumbs={crumbs}
       />
 

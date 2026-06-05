@@ -52,7 +52,7 @@ const faqs = [
       'Sí, trabajo con clientes en ambos idiomas. Mi enfoque principal es la comunidad hispana en Estados Unidos, Puerto Rico y Latinoamérica, pero también acompaño a compradores que prefieren hacer el proceso en inglés.',
   },
   {
-    question: '¿Cómo funciona tu coaching para Originadores de Préstamos?',
+    question: '¿Cómo funciona tu coaching?',
     answer:
       'Acompaño en español a Originadores que quieren crecer su producción y construir una carrera sostenible. El coaching combina estrategia comercial, organización del pipeline, marketing personal y mentalidad. Escríbeme para conversar si te interesa.',
   },
@@ -189,7 +189,7 @@ export default function SobreMiPage() {
             Hoy, a través de su marca personal, educación financiera y experiencia en hipotecas
             y bienes raíces, continúa guiando a compradores e inversionistas con una visión basada
             en <strong className="text-foreground">confianza, preparación y crecimiento a largo plazo</strong>.
-            También acompaña como <strong className="text-foreground">Coach en español a Originadores de Préstamos</strong> que buscan crecer su producción y carrera.
+            También acompaña como <strong className="text-foreground">Coach</strong> a Originadores que buscan crecer su producción y carrera.
           </p>
         </div>
           </div>
