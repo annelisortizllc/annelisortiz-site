@@ -17,18 +17,18 @@ const map: Record<string, InquiryMeta> = {
   'Compra de propiedad': { code: 'PRP', slug: 'property_purchase' },
   'Inversión en bienes raíces': { code: 'INV', slug: 'real_estate_investment' },
   'Preparación financiera / crédito': { code: 'CRD', slug: 'credit_prep' },
-  'Coaching para Originadores': { code: 'COA', slug: 'coaching' },
+  'Coaching': { code: 'COA', slug: 'coaching' },
   'Conferencia / Evento': { code: 'CON', slug: 'speaking' },
   'Medios / Prensa': { code: 'PRS', slug: 'press' },
   'Otro': { code: 'OTR', slug: 'other' },
 
   // EN (paralelo de los anteriores; mismo code+slug para que las tags
   // agreguen ES+EN bajo una sola categoría en analytics).
+  // Note: 'Coaching' es la misma palabra en ES y EN — una sola entrada arriba cubre ambos.
   'Mortgage loan': { code: 'HIP', slug: 'mortgage' },
   'Property purchase': { code: 'PRP', slug: 'property_purchase' },
   'Real estate investment': { code: 'INV', slug: 'real_estate_investment' },
   'Financial preparation / credit': { code: 'CRD', slug: 'credit_prep' },
-  'Coaching for Loan Originators': { code: 'COA', slug: 'coaching' },
   'Speaking / Event': { code: 'CON', slug: 'speaking' },
   'Media / Press': { code: 'PRS', slug: 'press' },
   'Other': { code: 'OTR', slug: 'other' },

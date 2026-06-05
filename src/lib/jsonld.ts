@@ -16,12 +16,12 @@ export function personJsonLd() {
     email: contact.email,
     telephone: contact.whatsappE164,
     description:
-      'Originadora de Préstamos Hipotecarios en NEXA Lending LLC, Agente de Bienes Raíces, Autora de "Antes de Decidir" y Coach en español para Originadores de Préstamos. Ayudo a familias a construir patrimonio a través de la propiedad, y a Originadores hispanos a crecer en su carrera.',
+      'Originadora de Préstamos Hipotecarios en NEXA Lending LLC, Agente de Bienes Raíces, Autora de "Antes de Decidir" y Coach. Ayudo a familias a construir patrimonio a través de la propiedad, y a Originadores hispanos a crecer en su carrera.',
     jobTitle: [
       business.role,
       business.alsoRole,
       'Autora',
-      'Coach para Originadores de Préstamos',
+      'Coach',
     ],
     hasOccupation: [
       {
@@ -42,7 +42,7 @@ export function personJsonLd() {
       },
       {
         '@type': 'Occupation',
-        name: 'Coach for Mortgage Loan Originators',
+        name: 'Coach',
         skills: 'Mentoring, production growth, Spanish-language coaching',
       },
     ],
@@ -95,7 +95,7 @@ export function personJsonLd() {
       'Preparación crediticia',
       'Construcción de patrimonio familiar',
       'Compra de primera vivienda',
-      'Coaching para Originadores de Préstamos',
+      'Coaching',
       'Crecimiento de producción hipotecaria',
     ],
     areaServed: [

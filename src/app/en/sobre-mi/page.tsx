@@ -52,7 +52,7 @@ const faqs = [
       'Yes, I work with clients in both languages. My main focus is the Hispanic community across the US, Puerto Rico, and Latin America, but I also serve buyers who prefer to do the process in English.',
   },
   {
-    question: 'How does your coaching for Mortgage Loan Originators work?',
+    question: 'How does your coaching work?',
     answer:
       'I coach Spanish-speaking Originators who want to grow their production and build a sustainable career. The coaching combines sales strategy, pipeline organization, personal marketing, and mindset. Reach out if you want to chat.',
   },
@@ -188,8 +188,8 @@ export default function AboutPageEN() {
             and real estate, she continues guiding buyers and investors with a vision based on{' '}
             <strong className="text-foreground">trust, preparation, and long-term growth</strong>.
             She also serves as a{' '}
-            <strong className="text-foreground">Spanish-language Coach to Mortgage Loan Originators</strong>{' '}
-            who want to grow their production and career.
+            <strong className="text-foreground">Coach</strong>{' '}
+            to Mortgage Loan Originators who want to grow their production and career.
           </p>
         </div>
           </div>

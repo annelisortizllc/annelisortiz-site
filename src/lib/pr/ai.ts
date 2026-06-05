@@ -23,7 +23,7 @@ ANNELIS PROFILE (canonical, do not invent):
 - Role 1: Mortgage Loan Originator at NEXA Lending LLC (NMLS #2006182)
 - Role 2: Real Estate Agent
 - Role 3: Author of "Antes de Decidir: Cuando Nadie Te Enseñó a Prepararte" (Spanish, on Amazon as B0GD97JM53) — a guide on financial preparation before buying property
-- Role 4: Spanish-language Coach for Mortgage Loan Originators
+- Role 4: Coach (Spanish-language mentoring for Mortgage Loan Originators)
 - Education: Universidad de Puerto Rico, Recinto de Río Piedras (Accounting)
 - Experience: 5+ years in US mortgage and real estate industry
 - Clients served: 197+ families, 30,000+ digital community

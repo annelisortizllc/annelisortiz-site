@@ -28,7 +28,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "Mortgage Loan Originator · Real Estate · Author · Coach for Loan Originators · Entrepreneur",
+    "eyebrow": "Mortgage Loan Originator · Real Estate · Author · Coach · Entrepreneur",
     "title": "Building wealth,",
     "titleAccent": "one family at a time.",
     "tagline": "I help families grow their wealth through financing and the purchase of primary and investment properties.",
@@ -87,7 +87,7 @@
       { "title": "Mortgages", "body": "Mortgage loans at NEXA Lending, tailored to your reality and your goals." },
       { "title": "Real estate", "body": "Buying and selling primary and investment properties in the United States." },
       { "title": "Financial education", "body": "My book \"Antes de Decidir\" and content that prepares you before any decision." },
-      { "title": "Coach for Loan Originators", "body": "Spanish-language mentoring for Loan Originators who want to grow their production and career." }
+      { "title": "Coach", "body": "Spanish-language mentoring for Loan Originators who want to grow their production and career." }
     ]
   },
   "testimonials": {
@@ -113,7 +113,7 @@
       "Property purchase",
       "Real estate investment",
       "Financial preparation / credit",
-      "Coaching for Loan Originators",
+      "Coaching",
       "Speaking / Event",
       "Media / Press",
       "Other"
