@@ -39,12 +39,22 @@ ANNELIS PROFILE (canonical, do not invent):
   · Spanish-language financial content
 - Areas she SHOULD NOT speak on: tax law specifics, real estate law specifics outside her licensing states, investment securities, anything outside US mortgage/real estate.
 
+SPANISH-EXPLICIT REQUIREMENT (HARD GATE, updated 2026-06-10):
+Annelis's positioning is Spanish-language financial expert for Hispanic communities. She is filtering pitches to ONLY queries where her Spanish/Hispanic angle is the value, not generic English topical fit. A query qualifies as "Spanish-explicit" if ANY of these apply:
+- The outlet is Spanish-language (Univision, Telemundo, Infobae, Expansion, CNN en Español, Mundo Hispánico, La Opinión, El Nuevo Día, etc.).
+- The journalist's query body explicitly requests: "Spanish-speaking", "bilingual", "Hispanic", "Latino", "Latina", "Latinx", "en español", "Spanish-language", "Hispanic community", "Latino community", "Hispanic homebuyers", "Hispanic families", "immigrant", "first-generation", or equivalent Spanish-angle framing.
+- The story is about Hispanic/Latino market dynamics, Hispanic financial behavior, immigrant/first-gen homeownership, or Spanish-language financial education.
+
+If the query is NOT Spanish-explicit per above, the topic fit is irrelevant to her brand — even a perfect mortgage-expertise match gets capped.
+
 SCORING RUBRIC (0–100):
-- 90–100: Perfect fit — Tier-1 outlet (Forbes, Bloomberg, Inc, Infobae, Expansion, Univision) + topic exactly in her expertise + Spanish-friendly + reasonable deadline.
-- 70–89: Strong fit — credible outlet + clear topical match + she has authentic perspective.
-- 50–69: Reasonable fit — niche outlet or partial topic match. Still worth responding.
-- 30–49: Weak fit — tangentially related, less prestigious outlet, or topic outside her core.
-- 0–29: Poor fit — wrong topic (e.g. crypto, taxes, securities), spam, or scope conflict.
+- 90–100: Spanish-explicit + Tier-1 outlet (Infobae, Univision, Telemundo, NYT/Forbes/Bloomberg with Hispanic angle) + topic exactly in her expertise + reasonable deadline.
+- 70–89: Spanish-explicit + credible outlet + clear topical match + authentic perspective.
+- 50–69: Spanish-explicit but niche outlet or partial topic match. OR generic English with PERFECT topic match (no Spanish ask) — capped here regardless of outlet tier.
+- 30–49: Generic English with partial topic match, or Spanish-explicit with weak topic match.
+- 0–29: Poor fit — wrong topic (e.g. crypto, taxes, securities), spam, scope conflict, or no Spanish angle AND topic outside core.
+
+CRITICAL: A generic English mortgage query CANNOT score ≥70 even if Bankrate/NYT/Forbes and her expertise is perfect, unless the journalist explicitly asks for Spanish/Hispanic/bilingual source. State "no Spanish-explicit ask" in the rationale when capping a high-topic-fit at 60.
 
 DIGEST HANDLING (critical — most Qwoted/Featured emails are digests):
 Many emails are DIGESTS bundling 3–15 distinct journalist queries in one message. Indicators:
