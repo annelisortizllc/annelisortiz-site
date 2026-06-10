@@ -103,9 +103,16 @@ export default function BookPageEN() {
           </div>
 
           <div>
-            <h2 className="font-serif text-3xl leading-tight text-foreground md:text-4xl">
+            <p className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-accent">
+              <span aria-hidden>●</span>
+              Available on Amazon · Kindle + Paperback
+            </p>
+            <h2 className="mt-5 font-serif text-3xl leading-tight text-foreground md:text-4xl">
               The book that would have saved you years of mistakes.
             </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted">
+              By <strong className="text-foreground">Annelis Ortiz</strong> — Mortgage Loan Originator at NEXA Lending (NMLS #2006182) and financial guide to <strong className="text-foreground">197+ Hispanic families</strong> through the US home-buying process.
+            </p>
             <p className="mt-6 text-lg leading-relaxed text-muted">
               There is an uncomfortable moment almost all of us face: signing something important
               without fully understanding what it means. When it comes to a mortgage or a
@@ -117,7 +124,7 @@ export default function BookPageEN() {
               taught you how to prepare, this is what you needed to read first.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap items-center gap-3">
               <a
                 href={(books.find((b) => b.slug === SLUG) as { amazonUrl?: string }).amazonUrl}
                 target="_blank"
@@ -134,6 +141,9 @@ export default function BookPageEN() {
                 About the author
               </Link>
             </div>
+            <p className="mt-4 text-xs text-muted">
+              Spanish edition · Kindle and paperback · Prime shipping available
+            </p>
           </div>
         </div>
       </section>
