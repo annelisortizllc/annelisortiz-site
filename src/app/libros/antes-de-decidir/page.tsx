@@ -27,17 +27,6 @@ const crumbs = [
   { name: 'Antes de Decidir', path: `/libros/${SLUG}` },
 ]
 
-const chapters = [
-  'La preparación que NADIE te enseñó',
-  'Crédito: tu activo invisible',
-  'Antes de mirar casas: el orden financiero',
-  'Mentalidad de comprador vs. mentalidad de inversionista',
-  'Errores caros que cometen las familias hispanas',
-  'Cómo elegir la propiedad correcta para tu etapa',
-  'El cierre: lo que firmas en realidad',
-  'Después de la compra: construir patrimonio real',
-]
-
 const faqs = [
   {
     question: '¿Para quién es este libro?',
@@ -57,7 +46,7 @@ const faqs = [
   {
     question: '¿Dónde lo puedo conseguir?',
     answer:
-      'Disponibilidad próximamente. Si quieres ser notificado cuando esté disponible, escríbeme desde la sección de contacto.',
+      'Disponible en Amazon en formato Kindle y paperback. Haz clic en "Comprar en Amazon" arriba, o búscalo como "Antes de Decidir" por Annelis Ortiz en amazon.com.',
   },
 ]
 
@@ -146,37 +135,6 @@ export default function BookPage() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Capítulos */}
-      <section className="border-y border-border bg-background-elev-1/40">
-        <div className="mx-auto max-w-4xl px-6 py-20">
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">Contenido</p>
-          <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
-            Lo que vas a aprender.
-          </h2>
-          <p className="mt-4 max-w-2xl text-base text-muted">
-            Una guía paso a paso para llegar al cierre con claridad — y construir patrimonio desde
-            la primera firma.
-          </p>
-          <ol className="mt-10 space-y-2">
-            {chapters.map((ch, i) => (
-              <li
-                key={ch}
-                className="flex items-baseline gap-4 rounded-lg border border-transparent px-4 py-3 transition hover:border-border hover:bg-background-elev-2/40"
-              >
-                <span className="font-serif text-lg text-accent">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="text-base text-foreground">{ch}</span>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-6 text-xs text-muted">
-            * Los títulos de capítulos son representativos. Actualizar con el índice final del
-            libro cuando esté listo.
-          </p>
         </div>
       </section>
 

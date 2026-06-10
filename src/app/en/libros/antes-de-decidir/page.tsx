@@ -27,17 +27,6 @@ const crumbs = [
   { name: 'Antes de Decidir', path: `/en/libros/${SLUG}` },
 ]
 
-const chapters = [
-  'The preparation NOBODY taught you',
-  'Credit: your invisible asset',
-  'Before looking at houses: financial order',
-  'Buyer mindset vs. investor mindset',
-  'Costly mistakes Hispanic families make',
-  'How to pick the right property for your stage',
-  'Closing: what you are actually signing',
-  'After the purchase: building real wealth',
-]
-
 const faqs = [
   {
     question: 'Who is this book for?',
@@ -57,7 +46,7 @@ const faqs = [
   {
     question: 'Where can I get it?',
     answer:
-      'Available on Amazon. Click "Buy on Amazon" below or message me through the contact section.',
+      'Available on Amazon in Kindle and paperback. Click "Buy on Amazon" above, or search for "Antes de Decidir" by Annelis Ortiz on amazon.com.',
   },
 ]
 
@@ -146,36 +135,6 @@ export default function BookPageEN() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Chapters */}
-      <section className="border-y border-border bg-background-elev-1/40">
-        <div className="mx-auto max-w-4xl px-6 py-20">
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">Contents</p>
-          <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
-            What you will learn.
-          </h2>
-          <p className="mt-4 max-w-2xl text-base text-muted">
-            A step-by-step guide to reach closing with clarity — and build wealth from the very
-            first signature.
-          </p>
-          <ol className="mt-10 space-y-2">
-            {chapters.map((ch, i) => (
-              <li
-                key={ch}
-                className="flex items-baseline gap-4 rounded-lg border border-transparent px-4 py-3 transition hover:border-border hover:bg-background-elev-2/40"
-              >
-                <span className="font-serif text-lg text-accent">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="text-base text-foreground">{ch}</span>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-6 text-xs text-muted">
-            * Chapter titles are illustrative. Will be updated with the book&apos;s final table of contents.
-          </p>
         </div>
       </section>
 
