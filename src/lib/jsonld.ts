@@ -175,6 +175,14 @@ export function faqJsonLd(items: { question: string; answer: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    // SpeakableSpecification — hint to voice assistants (Google Assistant,
+    // Bixby, Siri Suggestions) about which sections of the page work well
+    // when read aloud. CSS selectors target the FAQ <dl> container we
+    // render in /sobre-mi (dt for question, dd for answer).
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['[data-speakable="faq"] dt', '[data-speakable="faq"] dd'],
+    },
     mainEntity: items.map((it) => ({
       '@type': 'Question',
       name: it.question,

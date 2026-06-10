@@ -56,6 +56,41 @@ const faqs = [
     answer:
       'I coach Spanish-speaking Originators who want to grow their production and build a sustainable career. The coaching combines sales strategy, pipeline organization, personal marketing, and mindset. Reach out if you want to chat.',
   },
+  {
+    question: 'Can I buy a home with an ITIN if I do not have a Social Security number?',
+    answer:
+      'Yes. ITIN (Individual Taxpayer Identification Number) loan programs exist for buyers without a Social Security number. Requirements differ from a conventional loan: typically 10–20% down payment, 2 years of documented income history, and 2 years of tax returns filed with the ITIN. I have closed several successful cases under this structure, especially with Hispanic families working in the United States. Document preparation up front is the key.',
+  },
+  {
+    question: 'Do I really need 20% down to buy a home?',
+    answer:
+      'No. It is the most expensive myth out there. FHA allows 3.5% down with a 580 score (and 500 with 10%). Conventional starts at 3% for first-time buyers. VA loans for eligible veterans are 0%. USDA for rural areas is also 0%. State and local down-payment assistance programs exist as well. The real question is not how much to save — it is which program fits your profile.',
+  },
+  {
+    question: 'What credit score do I need to qualify for a mortgage?',
+    answer:
+      'It depends on the program. FHA accepts scores from 580 with 3.5% down (and from 500 with 10%). Conventional typically starts at 620 for standard programs. VA loans have no official minimum but most lenders require 580–620. Reality: lower scores mean higher rates and more expensive costs. That is why I always recommend credit preparation 6–12 months before applying — the difference between a 620 and a 740 score can save you tens of thousands of dollars over the life of the loan.',
+  },
+  {
+    question: 'How long does the process take from pre-approval to closing?',
+    answer:
+      'Under normal conditions, once your offer is accepted, closing typically takes 30–45 days. Timelines vary by program: conventional closes faster (28–35 days on average), FHA and VA usually take 35–45 days due to additional appraisal requirements. What slows the process most is not the bank — it is incomplete buyer documents, job changes during the process, or undocumented cash deposits. My recommendation: organize all documentation BEFORE applying, not during.',
+  },
+  {
+    question: 'What is a DSCR loan and who is it for?',
+    answer:
+      'DSCR (Debt Service Coverage Ratio) is a loan product for real estate investors that qualifies the property —not the borrower— based on whether the rent covers the loan payment (typically a 1.0 to 1.25 ratio). It does not require documenting personal income with W-2s or taxes, which makes it ideal for investors with complex income or multiple properties. Typical down payment: 20–25%. It is one of my most-requested products for Hispanic clients building a rental property portfolio.',
+  },
+  {
+    question: 'Does changing jobs during the buying process affect my approval?',
+    answer:
+      'Yes, and it is one of the most common mistakes I see. The underwriter verifies employment twice: at the start of the process and on closing day. If you change jobs in between —especially W-2 to 1099, or industry changes, or a pay cut— it can kill the final approval. If a change is unavoidable, tell me before making it; in some cases we can structure it so it does not break the deal. Never change jobs between pre-approval and closing without consulting first.',
+  },
+  {
+    question: 'Can I buy US property as a foreigner without living here?',
+    answer:
+      'Yes, through Foreign National loans. These are products designed for people who are not US citizens or legal residents. Typical requirements: 30–40% down payment, proof of income in the home country, and a reference letter from an international bank. Rates are slightly higher than for residents but the process is achievable. I regularly work with Latin American families who invest in Florida, Texas, and Puerto Rico properties from their home countries.',
+  },
 ]
 
 const trajectory = [
@@ -227,7 +262,7 @@ export default function AboutPageEN() {
           <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
             The questions I hear most before we start.
           </h2>
-          <dl className="mt-12 space-y-8">
+          <dl className="mt-12 space-y-8" data-speakable="faq">
             {faqs.map((f) => (
               <div
                 key={f.question}

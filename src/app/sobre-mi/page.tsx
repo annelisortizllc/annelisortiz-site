@@ -56,6 +56,41 @@ const faqs = [
     answer:
       'Acompaño en español a Originadores que quieren crecer su producción y construir una carrera sostenible. El coaching combina estrategia comercial, organización del pipeline, marketing personal y mentalidad. Escríbeme para conversar si te interesa.',
   },
+  {
+    question: '¿Puedo comprar casa con ITIN si no tengo Social Security?',
+    answer:
+      'Sí. Existen programas de préstamos para compradores con ITIN (Individual Taxpayer Identification Number) que no tienen Social Security. Los requisitos son distintos al préstamo convencional: típicamente piden 10–20% de down payment, 2 años de historial de ingreso documentado y 2 años de presentación de impuestos con ITIN. He cerrado varios casos exitosos con esta estructura, especialmente con familias hispanas trabajando en Estados Unidos. La preparación previa de documentos es clave.',
+  },
+  {
+    question: '¿Realmente necesito 20% de down payment para comprar casa?',
+    answer:
+      'No. Es el mito más caro que existe. FHA permite 3.5% de down payment con score desde 580 (y desde 500 con 10%). Convencional empieza en 3% para compradores primerizos. VA loans para veteranos elegibles son 0%. USDA para zonas rurales también 0%. Existen además programas de asistencia para down payment a nivel estatal y local. La pregunta real no es cuánto ahorrar — es qué programa encaja con tu perfil.',
+  },
+  {
+    question: '¿Cuánto crédito necesito para calificar para una hipoteca?',
+    answer:
+      'Depende del programa. FHA acepta desde 580 con 3.5% de down (y desde 500 con 10%). Convencional típicamente desde 620 para programas estándar. VA loans no tienen mínimo oficial pero la mayoría de lenders piden 580–620. La realidad: scores bajos significan tasas más altas y costos más caros. Por eso siempre recomiendo trabajar la preparación crediticia 6–12 meses antes de aplicar — la diferencia entre un score de 620 y uno de 740 puede ahorrarte decenas de miles de dólares durante la vida del préstamo.',
+  },
+  {
+    question: '¿Cuánto tarda el proceso desde la pre-aprobación al cierre?',
+    answer:
+      'En condiciones normales, una vez aceptada tu oferta el cierre típicamente toma 30–45 días. Los plazos varían por programa: convencional cierra más rápido (28–35 días promedio), FHA y VA suelen tomar 35–45 días por requisitos adicionales del avalúo. Lo que más retrasa el proceso no es el banco — son documentos incompletos del comprador, cambios de empleo durante el proceso, o depósitos en efectivo sin documentar. Mi recomendación: organizar toda la documentación antes de aplicar, no durante.',
+  },
+  {
+    question: '¿Qué es un préstamo DSCR y para quién es?',
+    answer:
+      'DSCR (Debt Service Coverage Ratio) es un producto de préstamo para inversionistas de bienes raíces que califica la propiedad —no al borrower— basado en si la renta cubre el pago del préstamo (típicamente con un ratio de 1.0 a 1.25). No requiere documentar income personal con W-2s o taxes, lo cual lo hace ideal para inversionistas con income complejo o múltiples propiedades. Down payment típico: 20–25%. Es uno de mis productos más solicitados para clientes hispanos que están construyendo portafolio de propiedades de renta.',
+  },
+  {
+    question: '¿Cambiar de trabajo durante el proceso de compra afecta mi aprobación?',
+    answer:
+      'Sí, y es uno de los errores más comunes que veo. El underwriter verifica empleo dos veces: al inicio del proceso y al día del cierre. Si cambias de trabajo entre medio —especialmente si pasas de W-2 a 1099, o cambias de industria, o tu pago baja— puede tumbar la aprobación final. Si un cambio es inevitable, avísame antes de hacerlo; en algunos casos se puede estructurar para que no rompa el deal. Nunca cambies de empleo entre la pre-aprobación y el cierre sin consultar primero.',
+  },
+  {
+    question: '¿Puedo comprar propiedad en Estados Unidos siendo extranjero sin residir aquí?',
+    answer:
+      'Sí, mediante préstamos Foreign National. Son productos diseñados para personas que no son ciudadanas ni residentes legales de EE.UU. Los requisitos típicos: 30–40% de down payment, prueba de income en el país de origen, y carta de un banco internacional. Las tasas son ligeramente más altas que para residentes pero el proceso es factible. Trabajo regularmente con familias de Latinoamérica que invierten en propiedades en Florida, Texas y Puerto Rico desde sus países de origen.',
+  },
 ]
 
 const trayectoria = [
@@ -227,7 +262,7 @@ export default function SobreMiPage() {
           <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
             Lo que más me preguntan antes de empezar.
           </h2>
-          <dl className="mt-12 space-y-8">
+          <dl className="mt-12 space-y-8" data-speakable="faq">
             {faqs.map((f) => (
               <div
                 key={f.question}
