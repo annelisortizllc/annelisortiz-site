@@ -103,9 +103,16 @@ export default function BookPage() {
           </div>
 
           <div>
-            <h2 className="font-serif text-3xl leading-tight text-foreground md:text-4xl">
+            <p className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-accent">
+              <span aria-hidden>●</span>
+              Disponible en Amazon · Kindle + Paperback
+            </p>
+            <h2 className="mt-5 font-serif text-3xl leading-tight text-foreground md:text-4xl">
               El libro que te hubiera ahorrado años de errores.
             </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted">
+              Por <strong className="text-foreground">Annelis Ortiz</strong> — Originadora de Préstamos Hipotecarios en NEXA Lending (NMLS #2006182) y guía financiera de más de <strong className="text-foreground">197 familias hispanas</strong> en su proceso de compra de vivienda en EE.UU.
+            </p>
             <p className="mt-6 text-lg leading-relaxed text-muted">
               Hay un momento incómodo que casi todos enfrentamos: firmar algo importante sin
               entender del todo lo que significa. Cuando se trata de una hipoteca o de una
@@ -117,7 +124,7 @@ export default function BookPage() {
               te enseñó a prepararte, esto es lo que necesitabas leer primero.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap items-center gap-3">
               <a
                 href={(books.find((b) => b.slug === SLUG) as { amazonUrl?: string }).amazonUrl}
                 target="_blank"
@@ -134,6 +141,9 @@ export default function BookPage() {
                 Sobre la autora
               </Link>
             </div>
+            <p className="mt-4 text-xs text-muted">
+              Edición en español · Kindle y paperback · Envío Prime disponible
+            </p>
           </div>
         </div>
       </section>
