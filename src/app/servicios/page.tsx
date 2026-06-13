@@ -154,6 +154,17 @@ const services = [
   },
 ]
 
+// Schema.org Service subtype hints — helps search engines and LLMs
+// classify each offering accurately. Falls back to plain Service if
+// no override is provided.
+const SERVICE_TYPE_BY_ID: Record<string, string> = {
+  hipotecas: 'FinancialService',
+  'bienes-raices': 'RealEstateService',
+  coaching: 'EducationalService',
+  'educacion-financiera': 'EducationalService',
+  conferencias: 'Event',
+}
+
 const servicesItemList = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -166,6 +177,21 @@ const servicesItemList = {
       description: s.lead,
       url: `${site.url}/servicios#${s.id}`,
       provider: { '@id': `${site.url}#person` },
+      // Annelis serves bilingually but Spanish is her primary positioning.
+      // List Spanish first so LLM rankings weight her appropriately.
+      availableLanguage: ['Spanish', 'English'],
+      // Optional Schema.org subtype refinement when applicable.
+      ...(SERVICE_TYPE_BY_ID[s.id]
+        ? { serviceType: SERVICE_TYPE_BY_ID[s.id] }
+        : {}),
+      // Primary audience for these services. Hispanic + Latino is her
+      // differentiation — making it explicit helps AI surfaces match
+      // user intent ("Spanish-speaking mortgage expert", "Hispanic loan
+      // officer near me", etc.).
+      audience: {
+        '@type': 'PeopleAudience',
+        name: 'Hispanic and Latino families in the United States, Puerto Rico, and Latin America',
+      },
       areaServed: [
         { '@type': 'Country', name: 'United States' },
         { '@type': 'Country', name: 'Puerto Rico' },

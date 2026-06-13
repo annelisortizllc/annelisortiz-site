@@ -151,7 +151,10 @@ export function websiteJsonLd() {
     '@id': `${site.url}#website`,
     url: site.url,
     name: 'Annelis Ortiz',
-    inLanguage: 'es',
+    // Site is bilingual (ES default, EN under /en/) — array is the
+    // Schema.org-correct way to signal both languages so search and
+    // AI surfaces understand bilingual content exists for the same brand.
+    inLanguage: ['es', 'en'],
     publisher: { '@id': `${site.url}#person` },
   }
 }
