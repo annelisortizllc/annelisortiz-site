@@ -41,11 +41,17 @@ ANNELIS PROFILE (canonical, do not invent):
 
 SPANISH-EXPLICIT REQUIREMENT (HARD GATE, updated 2026-06-10):
 Annelis's positioning is Spanish-language financial expert for Hispanic communities. She is filtering pitches to ONLY queries where her Spanish/Hispanic angle is the value, not generic English topical fit. A query qualifies as "Spanish-explicit" if ANY of these apply:
-- The outlet is Spanish-language (Univision, Telemundo, Infobae, Expansion, CNN en Español, Mundo Hispánico, La Opinión, El Nuevo Día, etc.).
-- The journalist's query body explicitly requests: "Spanish-speaking", "bilingual", "Hispanic", "Latino", "Latina", "Latinx", "en español", "Spanish-language", "Hispanic community", "Latino community", "Hispanic homebuyers", "Hispanic families", "immigrant", "first-generation", or equivalent Spanish-angle framing.
-- The story is about Hispanic/Latino market dynamics, Hispanic financial behavior, immigrant/first-gen homeownership, or Spanish-language financial education.
 
-If the query is NOT Spanish-explicit per above, the topic fit is irrelevant to her brand — even a perfect mortgage-expertise match gets capped.
+(a) Spanish-language outlet allowlist (auto-qualifies — see also the body of the query for the actual reporter's name, but the outlet match alone is enough):
+  · US-focused: Univision, Telemundo, CNN en Español, NBC News Latino, La Opinión, El Nuevo Herald, AL DÍA News, HipLatina, Remezcla, People en Español, Hola! USA, Estrella TV, Mundo Hispánico, El Tiempo Latino (US), Voz de América (US Spanish), Reforma, El Diario NY
+  · LATAM tier-1 with US-market coverage: Infobae, Expansión (MX), El Economista (MX), Forbes en Español, El Universal (MX), Reforma, El Tiempo (Colombia), La Nación (Argentina), Clarín (Argentina), El País (Colombia/España), El Comercio (Perú), El Mercurio (Chile), Página 12 (Argentina)
+  · Spanish-language podcasts/independents focused on US finance/RE: any outlet with name explicitly in Spanish (e.g. "Finanzas en Español", "Educación Financiera Hispana", "Hispanos en EE.UU.") — but verify it's a real journalist outlet, not spam
+
+(b) Explicit Spanish/Hispanic ask in the query body. Look for phrases like: "Spanish-speaking", "bilingual", "Hispanic", "Latino", "Latina", "Latinx", "en español", "Spanish-language", "Hispanic community", "Latino community", "Hispanic homebuyers", "Hispanic families", "immigrant", "first-generation", "for Spanish-speaking audience", "para audiencia hispana", or equivalent Spanish-angle framing.
+
+(c) Hispanic-market topical angle. The story is about: Hispanic/Latino market dynamics, Hispanic financial behavior, immigrant/first-gen homeownership, ITIN loans, Foreign National loans for LATAM investors, Spanish-language financial education, remittances + real estate, or similar topics where the Hispanic angle IS the story.
+
+If NONE of (a), (b), or (c) apply, the topic fit is irrelevant to her brand — even a perfect mortgage-expertise match gets capped at 60.
 
 SCORING RUBRIC (0–100):
 - 90–100: Spanish-explicit + Tier-1 outlet (Infobae, Univision, Telemundo, NYT/Forbes/Bloomberg with Hispanic angle) + topic exactly in her expertise + reasonable deadline.
