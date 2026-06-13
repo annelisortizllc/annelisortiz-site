@@ -256,4 +256,252 @@ export const post: BlogPost = {
       },
     ],
   },
+  en: {
+    slug: 'dscr-loans-investment-property-financing',
+    title: 'DSCR Loans: How Investment Property Mortgages Qualify Without Tax Returns',
+    description:
+      'Complete guide to the DSCR loan for Hispanic real estate investors: how the ratio is calculated, real requirements, typical down payment, rates, and the mistakes I see most often as a mortgage originator.',
+    category: 'Investment',
+    keywords: [
+      'DSCR loan guide',
+      'DSCR investment loan',
+      'investment property mortgage',
+      'DSCR ratio calculation',
+      'mortgage without tax returns',
+      'real estate investing without W-2',
+      'DSCR loan requirements',
+      'DSCR down payment',
+    ],
+    intro:
+      'If your plan is to build a portfolio of investment properties and your biggest frustration with traditional mortgages is the amount of income documentation they ask for, the DSCR loan is probably the product you are looking for. In this article I will explain how it really works — not the simplified version of YouTube videos.',
+    sections: [
+      {
+        type: 'paragraph',
+        text: 'As a Mortgage Loan Originator and Real Estate Agent, I have watched the DSCR loan grow from a niche product to one of the most-used tools by investors building portfolios. For many of my Hispanic clients — especially those with complex income, self-employed borrowers, or investors who already have 4+ properties — DSCR solved the problem that had them stuck: how to keep buying without documenting more W-2s or tax returns.',
+      },
+
+      { type: 'heading', level: 2, text: 'What exactly is a DSCR loan?' },
+      {
+        type: 'paragraph',
+        text: 'DSCR stands for Debt Service Coverage Ratio — the relationship between the rental income of the property and the full mortgage payment. It is a loan where the lender qualifies the PROPERTY, not the borrower.',
+      },
+      {
+        type: 'paragraph',
+        text: 'In a traditional mortgage, the bank looks at your W-2s, your DTI (debt-to-income ratio), your tax returns. In a DSCR, the bank looks at whether the rent the property generates (or can generate) covers the mortgage payment. If the ratio is 1.0 or better, you qualify. They do not ask for personal W-2s or tax returns.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        title: 'How it is calculated',
+        text: 'DSCR = Monthly rent / Full monthly payment (PITIA — principal, interest, taxes, insurance, HOA). If a property generates $2,500 in rent and the full payment is $2,000, the DSCR is 1.25. That means the rent covers the payment with a 25% margin.',
+      },
+
+      { type: 'heading', level: 2, text: 'What is the minimum DSCR lenders require?' },
+      {
+        type: 'paragraph',
+        text: 'It depends on the lender but the typical ranges are:',
+      },
+      {
+        type: 'list',
+        items: [
+          'DSCR 1.25 or higher: the deal passes easily, standard product rate',
+          'DSCR 1.00 to 1.24: passes with adjusted rate or down payment',
+          'DSCR 0.75 to 0.99: there are "No-Ratio DSCR" programs where rent does not cover the full payment but you compensate with more down payment (typically 25-30%)',
+          'DSCR below 0.75: difficult to close, better to look for another structure',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'What almost nobody explains to you: many lenders accept the DSCR based on PROJECTED MARKET RENT (not current rent). So if you buy a property that is rented below market, you can qualify at the market rent an appraiser certifies. This opens many opportunities in under-rented properties.',
+      },
+
+      { type: 'heading', level: 2, text: 'Who qualifies for a DSCR loan?' },
+      {
+        type: 'paragraph',
+        text: 'Unlike a conventional mortgage, DSCR does not focus much on your personal income. But it does require certain basic requirements:',
+      },
+      {
+        type: 'list',
+        items: [
+          'Minimum credit score 660-680 (some lenders accept 620 with more down payment)',
+          'Down payment of 20-25% for 1-4 unit residential properties',
+          'Liquid reserves of 3-6 months of the mortgage payment',
+          'The property CANNOT be your primary residence (it is for investment)',
+          'Previous investor experience is NOT required by most lenders',
+          'There is NO limit on how many investment properties you can have (unlike conventional which caps you at 10)',
+        ],
+      },
+
+      { type: 'heading', level: 2, text: 'Real down payment and closing costs' },
+      {
+        type: 'paragraph',
+        text: 'The standard down payment is 20-25%. For 2-4 unit properties it usually goes up to 25%. For Airbnb or short-term rentals (when the lender accepts them), the down payment can be 30%.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Closing costs on a DSCR are typically higher than conventional — between 3-5% of the loan amount. This includes the lender origination fee (DSCRs usually have a 1-2 point fee), a specific appraisal that includes rent analysis, title, escrows, and legal costs of the LLC if you are buying through one.',
+      },
+      {
+        type: 'callout',
+        tone: 'highlight',
+        title: 'Strategic tip',
+        text: 'Buying through an LLC is VERY common with DSCR loans (and in fact many lenders prefer it). If your plan is to scale to multiple properties, structuring each one in its own LLC from the start gives you legal protection and tax simplification. Talk to a CPA and a real estate attorney before your first purchase.',
+      },
+
+      { type: 'heading', level: 2, text: 'Rates: how they compare to conventional' },
+      {
+        type: 'paragraph',
+        text: 'DSCR rates are typically between 0.5% and 1.5% higher than a conventional investment property loan. Why? Because the lender takes on more risk (they do not qualify the borrower with W-2s) and because many DSCR loans are Non-QM products that are not sold to Fannie/Freddie.',
+      },
+      {
+        type: 'paragraph',
+        text: 'But that rate premium makes sense when you compare it to what you gain: 1) you can buy more properties because there is no limit, 2) you do not need to document more personal income, 3) the properties self-finance if the ratio is good, 4) your personal DTI is not affected because the loan qualifies the property. In real cash-on-cash return, the numbers usually work.',
+      },
+
+      { type: 'heading', level: 2, text: 'Types of properties that qualify' },
+      {
+        type: 'list',
+        items: [
+          'Single-family homes for long-term rent — the most common case and the easiest to close',
+          'Duplex, triplex, fourplex (2-4 units) — DSCR is ideal for small multifamily',
+          'Condos for rent — they qualify but the HOA counts in the DSCR calculation',
+          'Airbnb / short-term rentals — some lenders yes, others no; you need to validate expected income with AirDNA or similar data',
+          'Stabilized properties (rented) — the easiest, qualify with current rent',
+          'Vacant or to-be-stabilized properties — qualify with appraiser market rent',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'What typically does NOT qualify for DSCR: 5+ unit properties (that is commercial, requires a different type of loan), land, homes that need major rehab (those go through bridge loans or fix-and-flip), and mixed-use properties in commercial zones.',
+      },
+
+      { type: 'heading', level: 2, text: 'Common mistakes in DSCR loans' },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Mistake #1 — Overestimating expected rent',
+      },
+      {
+        type: 'paragraph',
+        text: 'First-time investors plug optimistic numbers into the DSCR calculation. "This house will rent for $2,800 because I saw a similar one on Zillow." But the appraiser uses real market comparables. If your calculation is based on a high number and the appraiser certifies a lower one, the DSCR does not pass. Before making an offer, validate the rent with a local property manager or real data from the area.',
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Mistake #2 — Forgetting HOA in the calculation',
+      },
+      {
+        type: 'paragraph',
+        text: 'DSCR uses PITIA — it includes HOA. A property with $400 monthly HOA can sink the ratio. Many clients tell me "the cash flow looks good" because they calculate principal + interest + taxes + insurance but forget HOA. Always include HOA in your numbers.',
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Mistake #3 — Buying in markets with low cap rates',
+      },
+      {
+        type: 'paragraph',
+        text: 'In certain premium markets (parts of Miami, NYC, parts of California), rents are high but purchase prices are HIGHER. The DSCR comes in below 1.0 because the property does not self-finance. For DSCR loans, look for markets with 6-8% cap rates — typically secondary cities in FL, TX, GA, NC, OH. The numbers work there.',
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Mistake #4 — Not having enough reserves',
+      },
+      {
+        type: 'paragraph',
+        text: 'DSCR lenders require reserves of 3-6 months PER PROPERTY. If you are going to buy 3 properties in a year, you need to maintain reserves for all 3. Investors who spend all the cash on down payments are left without the ability to buy the next one or to handle vacancies.',
+      },
+
+      { type: 'heading', level: 2, text: 'Scaling strategy that works' },
+      {
+        type: 'paragraph',
+        text: 'For investors building a portfolio with DSCR, this is the strategy I see work best:',
+      },
+      {
+        type: 'list',
+        ordered: true,
+        items: [
+          'Start with 1-2 properties in secondary markets with high cap rate. Build operational history.',
+          'Refinance the first property after 12-18 months if rates drop or the value rises significantly. Recover capital for the next one.',
+          'Use BRRRR (Buy, Rehab, Rent, Refinance, Repeat) when the market allows — buy low, rehabilitate, rent, refinance to new value, repeat.',
+          'Keep reserves equivalent to 6 months of payment per property — not lower than that.',
+          'Diversify geographically and by property type: do not concentrate in a single market.',
+        ],
+      },
+
+      { type: 'heading', level: 2, text: 'Is DSCR for you?' },
+      {
+        type: 'paragraph',
+        text: 'DSCR loan is excellent if:',
+      },
+      {
+        type: 'list',
+        items: [
+          'You are self-employed and your income is complex to document for traditional loans',
+          'You already have 4+ investment properties and are close to or past the 10-financing limit of conventional',
+          'You want to buy quickly and do not want to go through heavy income verification',
+          'You have capital for 20-25% down payment + reserves',
+          'You are buying for rental (long-term or STR) and not as primary residence',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'DSCR loan is probably NOT the best option if:',
+      },
+      {
+        type: 'list',
+        items: [
+          'It is your first property and not for investment (better a conventional loan for primary residence)',
+          'You have very stable, high W-2 income — a conventional will give you a better rate',
+          'You do not have 20-25% down payment saved',
+          'Your plan is to buy in a market with a cap rate below 5% (the numbers will not work)',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'highlight',
+        title: 'My recommendation',
+        text: 'Before applying for a DSCR loan, run your numbers with a real calculator: expected rent (validated), full PITIA payment including HOA, 10% vacancy, 5% maintenance, 8% property management if you are not managing it yourself. If net cash flow is positive AFTER all of that, move forward. If it only works "on paper" without those costs, look for another property.',
+      },
+
+      { type: 'heading', level: 2, text: 'How to start?' },
+      {
+        type: 'paragraph',
+        text: 'If you are considering building an investment portfolio with DSCR loans, schedule an initial conversation. I work in Spanish and English, I evaluate your profile and the property you have in mind, and I help you structure the first deal correctly. The difference between a well-structured DSCR and a poorly structured one can be having positive cash flow from day 1 or paying out of pocket for years.',
+      },
+    ],
+    faq: [
+      {
+        question: 'What is the minimum DSCR ratio lenders accept?',
+        answer:
+          'It depends on the lender. Typical ranges: 1.25 or higher passes easily at standard rate. 1.00 to 1.24 passes with adjustments to rate or down payment. 0.75 to 0.99 enters "No-Ratio DSCR" programs where you compensate with 25-30% down payment. Below 0.75 is very difficult to close and better to look for another financing structure.',
+      },
+      {
+        question: 'What is the minimum down payment for a DSCR loan?',
+        answer:
+          'For 1-4 unit properties the minimum is typically 20%, although 25% is more common. For 2-4 units it usually rises to 25%. For Airbnb or short-term rentals (when the lender accepts them), the down payment rises to 30%. If your credit score is in the low range (620-660), expect them to ask for more down payment too.',
+      },
+      {
+        question: 'Do I need to show tax returns for a DSCR loan?',
+        answer:
+          'No. That is precisely the main advantage of DSCR. It does not ask for W-2s, does not ask for personal tax returns, does not calculate your DTI. The loan qualifies the property — if the rent covers the full mortgage payment (PITIA) per the DSCR ratio the lender requires, you qualify. What it does ask for is proof of credit score, liquid reserves, and down payment.',
+      },
+      {
+        question: 'Can I buy through an LLC with a DSCR loan?',
+        answer:
+          'Yes, and in fact many DSCR lenders prefer it. Buying through an LLC gives you legal protection (separation from personal assets) and simplifies tax structure if you are going to build a portfolio. Each property can be in its own LLC. Talk to a CPA and a real estate attorney before the first purchase to structure it well.',
+      },
+      {
+        question: 'Is there a limit on how many properties I can have with DSCR loans?',
+        answer:
+          'No. Unlike conventional loans that cap you at 10 financings, DSCR loans have no limit. You can have 5, 10, 50 properties — each with its own DSCR loan. This is one of the main reasons serious investors use DSCR to scale a portfolio quickly.',
+      },
+      {
+        question: 'What happens if the property sits vacant for a few months?',
+        answer:
+          'That is why DSCR lenders require reserves of 3-6 months per property. Those reserves exist exactly to cover vacancies, major maintenance, or any problem. If you run out of reserves and the property goes vacant, you will have to cover the payment out of your pocket. That is why you should always include 8-10% vacancy in your projected cash-flow calculation — do not assume 100% occupancy all year.',
+      },
+    ],
+  },
 }
