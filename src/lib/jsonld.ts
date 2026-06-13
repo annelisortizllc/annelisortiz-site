@@ -177,11 +177,19 @@ export function faqJsonLd(items: { question: string; answer: string }[]) {
     '@type': 'FAQPage',
     // SpeakableSpecification — hint to voice assistants (Google Assistant,
     // Bixby, Siri Suggestions) about which sections of the page work well
-    // when read aloud. CSS selectors target the FAQ <dl> container we
-    // render in /sobre-mi (dt for question, dd for answer).
+    // when read aloud. Selectors cover both FAQ rendering patterns:
+    //   - /sobre-mi uses <dl><dt><dd> (definition list)
+    //   - /blog/[slug] and /libros/[slug] use <details><summary><p> (collapsible)
+    // The container is always tagged data-speakable="faq" — the selector
+    // array reaches the right elements inside each structure.
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['[data-speakable="faq"] dt', '[data-speakable="faq"] dd'],
+      cssSelector: [
+        '[data-speakable="faq"] dt',
+        '[data-speakable="faq"] dd',
+        '[data-speakable="faq"] summary',
+        '[data-speakable="faq"] details > p',
+      ],
     },
     mainEntity: items.map((it) => ({
       '@type': 'Question',
@@ -217,6 +225,17 @@ export function articleJsonLd(article: {
     author: { '@id': `${site.url}#person` },
     publisher: { '@id': `${site.url}#person` },
     mainEntityOfPage: `${site.url}${basePath}/${article.slug}`,
+    // Speakable hint for voice assistants — read article headings (h2/h3)
+    // inside the body. Blog template tags <article> with
+    // data-speakable="article" so this selector reaches just the post
+    // content (not site navigation or footer).
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: [
+        '[data-speakable="article"] h2',
+        '[data-speakable="article"] h3',
+      ],
+    },
     image: `${site.url}/opengraph-image`,
     keywords: article.keywords,
   }
