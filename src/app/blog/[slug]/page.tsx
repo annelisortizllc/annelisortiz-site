@@ -106,7 +106,7 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
 
       <div data-theme="cream" className="bg-background text-foreground">
 
-      <article className="mx-auto max-w-3xl px-6 pt-12 pb-20">
+      <article className="mx-auto max-w-3xl px-6 pt-12 pb-20" data-speakable="article">
         <PostBody sections={content.sections} />
       </article>
 
@@ -118,7 +118,7 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
             <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground">
               Lo que más nos preguntan sobre este tema.
             </h2>
-            <div className="mt-10 space-y-3">
+            <div className="mt-10 space-y-3" data-speakable="faq">
               {content.faq.map((q) => (
                 <details
                   key={q.question}

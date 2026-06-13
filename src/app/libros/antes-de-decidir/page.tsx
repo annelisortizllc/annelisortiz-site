@@ -154,7 +154,7 @@ export default function BookPage() {
         <h2 className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
           Lo que más nos preguntan.
         </h2>
-        <div className="mt-10 space-y-4">
+        <div className="mt-10 space-y-4" data-speakable="faq">
           {faqs.map((faq) => (
             <details
               key={faq.question}
