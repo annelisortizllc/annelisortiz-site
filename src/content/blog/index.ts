@@ -4,6 +4,8 @@ import { post as primeraVivienda } from './primera-vivienda-en-estados-unidos'
 import { post as fhaVsConvencional } from './fha-vs-convencional-2026'
 import { post as downPayment } from './down-payment-cuanto-necesitas'
 import { post as creditScore90 } from './subir-credit-score-90-dias'
+import { post as itinLoans } from './itin-loans-comprar-casa-sin-ssn'
+import { post as dscrLoans } from './dscr-prestamos-inversion-inmobiliaria'
 import type { BlogPost, LocalizedContent } from './types'
 
 export type Locale = 'es' | 'en'
@@ -14,6 +16,8 @@ const POSTS: BlogPost[] = [
   fhaVsConvencional,
   downPayment,
   creditScore90,
+  itinLoans,
+  dscrLoans,
 ]
 
 // Returns the localized half of a post for a given locale, falling back
