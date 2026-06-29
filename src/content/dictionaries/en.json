@@ -95,7 +95,9 @@
     "title": "What the families I served say",
     "lead": "Real testimonials from clients on Google Business Profile. Every review is from someone who closed with me.",
     "verifiedBadge": "Verified on Google",
-    "viewAllCta": "View all on Google"
+    "viewAllCta": "View all on Google",
+    "prevAriaLabel": "Previous reviews",
+    "nextAriaLabel": "More reviews"
   },
   "contact": {
     "title": "Let's work together",
