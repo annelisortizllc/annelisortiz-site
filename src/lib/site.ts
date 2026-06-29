@@ -51,7 +51,7 @@ export const applicationPortal = {
 // Activos visuales centralizados — cambiar el path aquí si se renombran los archivos.
 export const assets = {
   portrait: '/annelis-portrait.jpg', // beige fondo, blusa negra — /sobre-mi
-  portraitHero: '/annelis-hero.jpg', // gris estudio, knit blanco — home Hero
+  portraitHero: '/annelis-hero.jpg', // fondo beige cálido, blusa amarillo mostaza, aretes dorados — home Hero
   bookCover: '/books/antes-de-decidir.jpg',
 } as const
 
