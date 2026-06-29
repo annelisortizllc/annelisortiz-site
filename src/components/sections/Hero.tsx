@@ -93,7 +93,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border bg-background-elev-1">
               <Image
                 src={assets.portraitHero}
-                alt="Annelis Ortiz — Originadora de Préstamos Hipotecarios y Agente de Bienes Raíces"
+                alt="Annelis Ortiz — Originadora de Préstamos Hipotecarios (NEXA Lending) y Realtor en Keller Williams Advantage III"
                 fill
                 sizes="(min-width: 768px) 40vw, 100vw"
                 priority
