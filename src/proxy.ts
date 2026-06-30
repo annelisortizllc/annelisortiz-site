@@ -83,6 +83,14 @@ export function proxy(request: NextRequest) {
   }
 
   const { pathname, search } = request.nextUrl
+
+  // The /pequenos-heroes section is a Spanish-only brand (Pequeños Héroes
+  // del Dinero — children's book). There is no /en/ mirror by design.
+  // Skip locale auto-detection so English-preferring browsers don't get
+  // redirected to /en/pequenos-heroes (which 404s).
+  if (pathname.startsWith('/pequenos-heroes')) {
+    return NextResponse.next()
+  }
   const cookieLocale = request.cookies.get(PREFERRED_COOKIE)?.value as
     | 'es'
     | 'en'
