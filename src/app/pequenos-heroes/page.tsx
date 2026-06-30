@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { breadcrumbJsonLd, jsonLdScript } from '@/lib/jsonld'
 import { site } from '@/lib/site'
@@ -19,7 +20,7 @@ const heroes = [
     id: 'coco',
     name: 'Coco',
     role: 'el explorador',
-    icon: '🌟',
+    image: '/kids/personajes/coco.png',
     color: 'var(--kids-yellow)',
     bg: 'rgba(255, 201, 60, 0.15)',
     bio: 'El explorador curioso que descubre que cada moneda puede acercarlo a sus sueños.',
@@ -28,7 +29,7 @@ const heroes = [
     id: 'lucy',
     name: 'Lucy',
     role: 'la alcancía mágica',
-    icon: '🐷',
+    image: '/kids/personajes/lucy.png',
     color: 'var(--kids-coral)',
     bg: 'rgba(255, 122, 162, 0.15)',
     bio: 'La alcancía mágica que enseña que ahorrar es sembrar el futuro.',
@@ -37,7 +38,7 @@ const heroes = [
     id: 'centavito',
     name: 'Centavito',
     role: 'el mejor amigo',
-    icon: '🐶',
+    image: '/kids/personajes/centavito.png',
     color: 'var(--kids-mango)',
     bg: 'rgba(255, 154, 77, 0.15)',
     bio: 'El mejor amigo de Coco, siempre listo para ayudar y aprender jugando.',
@@ -46,7 +47,7 @@ const heroes = [
     id: 'dona-moneda',
     name: 'Doña Moneda',
     role: 'la mentora sabia',
-    icon: '🪙',
+    image: '/kids/personajes/dona-moneda.png',
     color: 'var(--kids-gold)',
     bg: 'rgba(242, 183, 54, 0.15)',
     bio: 'La mentora sabia que demuestra que el dinero es una herramienta para construir oportunidades.',
@@ -55,7 +56,7 @@ const heroes = [
     id: 'gaston',
     name: 'Gastón el Gastador',
     role: 'el monstruito simpático',
-    icon: '💜',
+    image: '/kids/personajes/gaston.png',
     color: 'var(--kids-lavender)',
     bg: 'rgba(200, 162, 255, 0.18)',
     bio: 'El monstruito simpático que aprende que comprar todo lo que quiere no siempre es la mejor decisión.',
@@ -214,43 +215,24 @@ export default function PequenosHeroesPage() {
             </div>
           </div>
 
-          {/* Book cover placeholder */}
+          {/* Portada oficial del libro */}
           <div className="relative mx-auto w-full max-w-md">
             <div
               aria-hidden
               className="absolute inset-0 -z-10 translate-x-6 translate-y-8 rounded-[36px] bg-kids-coral/30 blur-2xl"
             />
             <div
-              className="relative aspect-[3/4] overflow-hidden rounded-[28px] border-4 border-white shadow-2xl"
-              style={{
-                background:
-                  'linear-gradient(155deg, var(--kids-yellow) 0%, var(--kids-mango) 50%, var(--kids-coral) 100%)',
-              }}
-            >
-              <div className="flex h-full flex-col items-center justify-between p-10 text-center text-white">
-                <span className="text-7xl">🌟</span>
-                <div>
-                  <p
-                    className="text-3xl leading-tight md:text-4xl"
-                    style={{ fontFamily: 'var(--font-kids-title)', fontWeight: 700 }}
-                  >
-                    Pequeños Héroes del Dinero
-                  </p>
-                  <p
-                    className="mt-3 text-sm uppercase tracking-[0.18em]"
-                    style={{ fontFamily: 'var(--font-kids-title)' }}
-                  >
-                    Annelis Ortiz
-                  </p>
-                </div>
-                <p
-                  className="text-xs uppercase tracking-[0.2em]"
-                  style={{ fontFamily: 'var(--font-kids-body)' }}
-                >
-                  ← portada oficial pendiente
-                </p>
-              </div>
-            </div>
+              aria-hidden
+              className="absolute -inset-4 -z-10 rounded-[36px] bg-kids-yellow/20 blur-3xl"
+            />
+            <Image
+              src="/kids/portada-libro.png"
+              alt='Portada del libro "Pequeños Héroes del Dinero" — Lucy la alcancía con corona dorada presenta el título'
+              width={800}
+              height={1000}
+              priority
+              className="relative h-auto w-full drop-shadow-2xl"
+            />
           </div>
         </div>
       </section>
@@ -276,21 +258,23 @@ export default function PequenosHeroesPage() {
           {heroes.map((h) => (
             <div
               key={h.id}
-              className="group relative overflow-hidden rounded-[28px] border border-white bg-white p-6 shadow-md transition hover:-translate-y-1 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-[28px] border border-white bg-white p-6 shadow-md transition hover:-translate-y-2 hover:shadow-xl"
             >
               <div
                 aria-hidden
-                className="absolute inset-x-0 top-0 h-32 transition-all group-hover:h-40"
+                className="absolute inset-x-0 top-0 h-40 transition-all group-hover:h-48"
                 style={{ background: h.bg }}
               />
               <div className="relative flex flex-col items-center">
-                <span
-                  aria-hidden
-                  className="inline-flex h-24 w-24 items-center justify-center rounded-full text-5xl shadow-md transition-transform group-hover:scale-110"
-                  style={{ backgroundColor: h.color }}
-                >
-                  {h.icon}
-                </span>
+                <div className="relative h-36 w-36 transition-transform group-hover:scale-110">
+                  <Image
+                    src={h.image}
+                    alt={`${h.name} — ${h.role}`}
+                    fill
+                    sizes="144px"
+                    className="object-contain drop-shadow-md"
+                  />
+                </div>
                 <h3
                   className="mt-5 text-xl text-foreground"
                   style={{ fontFamily: 'var(--font-kids-title)', fontWeight: 600 }}

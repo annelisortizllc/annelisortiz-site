@@ -1,14 +1,13 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
-// Kids-brand footer — characters waving goodbye + closing tagline.
-// Placeholder character icons (emoji) will be replaced when illustrations
-// are ready. See PR description for the asset checklist.
+// Kids-brand footer — los 5 héroes despidiéndose + tagline final.
 const heroes = [
-  { name: 'Coco', icon: '🌟', color: 'var(--kids-yellow)' },
-  { name: 'Lucy', icon: '🐷', color: 'var(--kids-coral)' },
-  { name: 'Centavito', icon: '🐶', color: 'var(--kids-mango)' },
-  { name: 'Doña Moneda', icon: '🪙', color: 'var(--kids-gold)' },
-  { name: 'Gastón', icon: '💜', color: 'var(--kids-lavender)' },
+  { name: 'Coco', image: '/kids/personajes/coco.png', bg: 'rgba(255, 201, 60, 0.18)' },
+  { name: 'Lucy', image: '/kids/personajes/lucy.png', bg: 'rgba(255, 122, 162, 0.18)' },
+  { name: 'Centavito', image: '/kids/personajes/centavito.png', bg: 'rgba(255, 154, 77, 0.18)' },
+  { name: 'Doña Moneda', image: '/kids/personajes/dona-moneda.png', bg: 'rgba(242, 183, 54, 0.18)' },
+  { name: 'Gastón', image: '/kids/personajes/gaston.png', bg: 'rgba(200, 162, 255, 0.20)' },
 ]
 
 export function KidsFooter() {
@@ -19,13 +18,18 @@ export function KidsFooter() {
         <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
           {heroes.map((h) => (
             <div key={h.name} className="flex flex-col items-center gap-2">
-              <span
-                aria-hidden
-                className="inline-flex h-16 w-16 items-center justify-center rounded-full text-3xl shadow-md transition-transform hover:scale-110"
-                style={{ backgroundColor: h.color }}
+              <div
+                className="relative h-24 w-24 overflow-hidden rounded-full shadow-md transition-transform hover:scale-110 hover:-rotate-6"
+                style={{ backgroundColor: h.bg }}
               >
-                {h.icon}
-              </span>
+                <Image
+                  src={h.image}
+                  alt={`${h.name} despidiéndose`}
+                  fill
+                  sizes="96px"
+                  className="object-contain p-1"
+                />
+              </div>
               <span
                 className="text-xs font-semibold text-foreground"
                 style={{ fontFamily: 'var(--font-kids-title)' }}
