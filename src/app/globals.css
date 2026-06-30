@@ -34,6 +34,40 @@
   --on-accent: #1a0a08;
 }
 
+/* Kids theme — bright editorial palette for the "Pequeños Héroes del Dinero"
+   children's book brand. Used by /pequenos-heroes/* and explicitly opted into
+   via <html data-theme="kids"> in the kids layout. */
+[data-theme="kids"] {
+  color-scheme: light;
+  /* Crema as canvas, dark warm grey as primary text. */
+  --background: #fff8e7;
+  --background-elev-1: #fefae0;
+  --background-elev-2: #fdf3c8;
+  --foreground: #2b2b2b;
+  --muted: #6e6e6e;
+  --border: rgba(43, 43, 43, 0.10);
+  --border-strong: rgba(43, 43, 43, 0.20);
+  /* Default accent: sun yellow (primary CTAs). */
+  --accent: #ffc93c;
+  --accent-soft: #ffe08a;
+  --accent-deep: #e6a920;
+  --accent-glow: rgba(255, 201, 60, 0.35);
+  --on-accent: #2b2b2b;
+  /* Brand palette — each named for direct use via bg-kids-*, text-kids-*. */
+  --kids-yellow: #ffc93c;
+  --kids-coral: #ff7aa2;
+  --kids-sky: #6bcbff;
+  --kids-mint: #9be7c4;
+  --kids-lavender: #c8a2ff;
+  --kids-mango: #ff9a4d;
+  --kids-gold: #f2b736;
+  --kids-cream: #fff8e7;
+}
+[data-theme="kids"] body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
 /* Light cream theme — used by sections wrapped in <div data-theme="cream">. */
 [data-theme="cream"] {
   color-scheme: light;
@@ -67,8 +101,20 @@
   --color-accent-soft: var(--accent-soft);
   --color-accent-deep: var(--accent-deep);
   --color-on-accent: var(--on-accent);
+  /* Kids palette exposed as Tailwind utilities (bg-kids-yellow, text-kids-coral, etc.) */
+  --color-kids-yellow: var(--kids-yellow);
+  --color-kids-coral: var(--kids-coral);
+  --color-kids-sky: var(--kids-sky);
+  --color-kids-mint: var(--kids-mint);
+  --color-kids-lavender: var(--kids-lavender);
+  --color-kids-mango: var(--kids-mango);
+  --color-kids-gold: var(--kids-gold);
+  --color-kids-cream: var(--kids-cream);
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  /* Kids fonts loaded by /pequenos-heroes layout via next/font/google. */
+  --font-kids-title: var(--font-kids-title), "Fredoka", ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --font-kids-body: var(--font-kids-body), "Quicksand", ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
