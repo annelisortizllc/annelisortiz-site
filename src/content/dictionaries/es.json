@@ -94,7 +94,9 @@
     "title": "Lo que dicen las familias que serví",
     "lead": "Testimonios reales de clientes en Google Business Profile. Cada reseña proviene de una persona que cerró conmigo.",
     "verifiedBadge": "Verificada en Google",
-    "viewAllCta": "Ver todas en Google"
+    "viewAllCta": "Ver todas en Google",
+    "prevAriaLabel": "Ver reseñas anteriores",
+    "nextAriaLabel": "Ver más reseñas"
   },
   "contact": {
     "title": "Trabajemos juntos",

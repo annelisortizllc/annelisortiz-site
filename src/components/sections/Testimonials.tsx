@@ -5,6 +5,7 @@ import {
   businessProfiles,
   reviewCountsBySource,
 } from '@/content/reviews'
+import { TestimonialsCarousel } from './TestimonialsCarousel'
 
 function Star({ filled }: { filled: boolean }) {
   return (
@@ -16,16 +17,6 @@ function Star({ filled }: { filled: boolean }) {
       <path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.9L10 14.9l-5.25 2.8 1-5.9L1.5 7.65l5.9-.85L10 1.5z" />
     </svg>
   )
-}
-
-function formatDate(iso: string) {
-  // "2025-09-01" → "Septiembre 2025"
-  const months = [
-    'Enero','Febrero','Marzo','Abril','Mayo','Junio',
-    'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre',
-  ]
-  const [y, m] = iso.split('-')
-  return `${months[Number(m) - 1]} ${y}`
 }
 
 export function Testimonials({ dict }: { dict: Dictionary }) {
@@ -74,40 +65,13 @@ export function Testimonials({ dict }: { dict: Dictionary }) {
 
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">{t.lead}</p>
 
-        <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {googleReviews.map((r) => (
-            <li
-              key={r.id}
-              className="group rounded-2xl border border-border bg-background-elev-2/60 p-6 transition hover:border-accent/60"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex gap-0.5" aria-label={`${r.rating} de 5 estrellas`}>
-                  {[1, 2, 3, 4, 5].map((n) => (
-                    <Star key={n} filled={n <= r.rating} />
-                  ))}
-                </div>
-                <span className="text-[10px] uppercase tracking-wider text-muted">
-                  {t.verifiedBadge}
-                </span>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-foreground/90">
-                “{r.body}”
-              </p>
-              <div className="mt-5 flex items-center justify-between border-t border-border/60 pt-4">
-                <span className="font-serif text-sm text-foreground">{r.displayName}</span>
-                <time
-                  dateTime={r.datePublished}
-                  className="text-xs text-muted"
-                >
-                  {formatDate(r.datePublished)}
-                </time>
-              </div>
-              <p className="mt-2 text-[10px] uppercase tracking-wider text-muted/80">
-                Reseña en {businessProfiles[r.source].label}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <TestimonialsCarousel
+          reviews={googleReviews}
+          businessProfiles={businessProfiles}
+          verifiedBadge={t.verifiedBadge}
+          prevAriaLabel={t.prevAriaLabel}
+          nextAriaLabel={t.nextAriaLabel}
+        />
       </div>
     </section>
   )
