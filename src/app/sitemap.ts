@@ -113,5 +113,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ])
 
-  return [...staticEntries, ...blogEntries, ...leadMagnetEntries]
+  // Solo existe en español — sin alternates para no apuntar a un /en/ que da 404.
+  const pequenosHeroesEntry = {
+    url: `${site.url}/pequenos-heroes`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }
+
+  return [...staticEntries, ...blogEntries, ...leadMagnetEntries, pequenosHeroesEntry]
 }
