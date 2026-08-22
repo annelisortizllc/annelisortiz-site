@@ -105,7 +105,7 @@ export default function PreparatePage() {
                 </p>
                 <p className="mt-2 text-sm text-muted">
                   Annelis Ortiz · NMLS #2006182<br />
-                  Originadora de Préstamos en NEXA Lending<br />
+                  Prestamista<br />
                   Agente de Bienes Raíces
                 </p>
               </div>

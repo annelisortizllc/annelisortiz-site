@@ -111,7 +111,7 @@ export default function BookPageEN() {
               The book that would have saved you years of mistakes.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              By <strong className="text-foreground">Annelis Ortiz</strong> — Mortgage Loan Originator at NEXA Lending (NMLS #2006182) and financial guide to <strong className="text-foreground">197+ Hispanic families</strong> through the US home-buying process.
+              By <strong className="text-foreground">Annelis Ortiz</strong> — Mortgage Loan Originator (NMLS #2006182) and financial guide to <strong className="text-foreground">297+ Hispanic families</strong> through the US home-buying process.
             </p>
             <p className="mt-6 text-lg leading-relaxed text-muted">
               There is an uncomfortable moment almost all of us face: signing something important

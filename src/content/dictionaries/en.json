@@ -3,7 +3,7 @@
     "lang": "en",
     "siteName": "Annelis Ortiz",
     "title": "Annelis Ortiz — Mortgage Loan Originator · Real Estate Agent · Author · Coach",
-    "description": "I help families grow their wealth through financing and the purchase of primary and investment properties. NEXA Lending. Author of \"Antes de Decidir\".",
+    "description": "I help families grow their wealth through financing and the purchase of primary and investment properties. Author of \"Antes de Decidir\".",
     "keywords": [
       "Annelis Ortiz",
       "mortgage loan originator",
@@ -14,7 +14,6 @@
       "investment property",
       "generational wealth",
       "financial education",
-      "NEXA Lending",
       "Antes de Decidir book"
     ]
   },
@@ -38,7 +37,7 @@
   "stats": {
     "title": "Results that speak",
     "items": [
-      { "value": "197+", "label": "Families and clients served" },
+      { "value": "297+", "label": "Families and clients served" },
       { "value": "30K+", "label": "Digital community" },
       { "value": "5+", "label": "Years in mortgage and real estate" },
       { "value": "3", "label": "Regions: US, Puerto Rico, LATAM" }
@@ -46,8 +45,8 @@
   },
   "about": {
     "title": "About Annelis",
-    "lead": "Mortgage Loan Originator at NEXA Lending and Real Estate Agent — I combine financial strategy, education, and a human approach at every stage of the buying and investment process.",
-    "body": "With a university background in accounting and more than five years of experience in the US mortgage and real estate industry, I've helped 197+ families and buyers prepare financially, organize their credit, and make smart decisions to build wealth through real estate. Beyond financing, I focus on strategic, personalized guidance — adapting every solution to each family's real goals. Wife and mother of four, my mission is to help others reach long-term stability, security, and financial growth.",
+    "lead": "Mortgage Loan Originator and Real Estate Agent — I combine financial strategy, education, and a human approach at every stage of the buying and investment process.",
+    "body": "With a university background in accounting and more than five years of experience in the US mortgage and real estate industry, I've helped 297+ families and buyers prepare financially, organize their credit, and make smart decisions to build wealth through real estate. Beyond financing, I focus on strategic, personalized guidance — adapting every solution to each family's real goals. Wife and mother of four, my mission is to help others reach long-term stability, security, and financial growth.",
     "cta": "Read my full story"
   },
   "philosophy": {
@@ -84,7 +83,7 @@
     "title": "My ecosystem",
     "lead": "Every part of what I do connects to serve two goals: helping more families achieve homeownership — and helping more Hispanic Loan Originators grow in their careers.",
     "pillars": [
-      { "title": "Mortgages", "body": "Mortgage loans at NEXA Lending, tailored to your reality and your goals." },
+      { "title": "Mortgages", "body": "Mortgage loans tailored to your reality and your goals." },
       { "title": "Real estate", "body": "Buying and selling primary and investment properties in the United States." },
       { "title": "Financial education", "body": "My book \"Antes de Decidir\" and content that prepares you before any decision." },
       { "title": "Coach", "body": "Spanish-language mentoring for Loan Originators who want to grow their production and career." }

@@ -2,6 +2,7 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Hero } from '@/components/sections/Hero'
 import { Stats } from '@/components/sections/Stats'
 import { AboutPreview } from '@/components/sections/AboutPreview'
+import { MapaVIP } from '@/components/sections/MapaVIP'
 import { Philosophy } from '@/components/sections/Philosophy'
 import { Ecosystem } from '@/components/sections/Ecosystem'
 import { BookFeature } from '@/components/sections/BookFeature'
@@ -18,6 +19,7 @@ export default async function HomePage() {
       <Hero dict={dict} />
       <div data-theme="cream" className="bg-background text-foreground">
         <Reveal><Stats dict={dict} /></Reveal>
+        <Reveal><MapaVIP /></Reveal>
         <Reveal><AboutPreview dict={dict} /></Reveal>
         <Reveal><Philosophy dict={dict} /></Reveal>
         <Reveal><Ecosystem dict={dict} /></Reveal>

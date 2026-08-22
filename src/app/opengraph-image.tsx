@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og'
 // OG image dinámica para WhatsApp, Twitter cards, LinkedIn, etc.
 // 1200x630 — proporción estándar Open Graph.
 
-export const alt = 'Annelis Ortiz — Originadora de Préstamos Hipotecarios y Agente de Bienes Raíces'
+export const alt = 'Annelis Ortiz — Prestamista y Agente de Bienes Raíces'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -116,7 +116,7 @@ export default async function Image() {
           }}
         >
           <div style={{ maxWidth: 720, display: 'flex' }}>
-            Originadora de Préstamos Hipotecarios · NEXA Lending LLC · Agente de Bienes Raíces · Autora
+            Prestamista · Agente de Bienes Raíces · Autora · Coach
           </div>
           <div
             style={{

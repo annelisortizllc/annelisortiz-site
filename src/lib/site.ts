@@ -31,7 +31,7 @@ export const social = {
 export const business = {
   employer: 'NEXA Lending LLC',
   employerUrl: 'https://nexalending.com',
-  role: 'Originadora de Préstamos Hipotecarios',
+  role: 'Prestamista',
   alsoRole: 'Agente de Bienes Raíces',
   // NMLS disclosures — legally required on any LO-facing communication.
   // Confirmado por Annelis 2026-05-17.
@@ -51,7 +51,7 @@ export const applicationPortal = {
 // Activos visuales centralizados — cambiar el path aquí si se renombran los archivos.
 export const assets = {
   portrait: '/annelis-portrait.jpg', // beige fondo, blusa negra — /sobre-mi
-  portraitHero: '/annelis-hero.jpg', // gris estudio, knit blanco — home Hero
+  portraitHero: '/annelis-hero-v2.jpg', // fondo blanco, blusa amarilla — home Hero (2026-08)
   bookCover: '/books/antes-de-decidir.jpg',
 } as const
 
