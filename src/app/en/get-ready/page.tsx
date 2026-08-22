@@ -105,7 +105,7 @@ export default function GetReadyPage() {
                 </p>
                 <p className="mt-2 text-sm text-muted">
                   Annelis Ortiz · NMLS #2006182<br />
-                  Mortgage Loan Originator at NEXA Lending<br />
+                  Mortgage Loan Originator<br />
                   Real Estate Agent
                 </p>
               </div>

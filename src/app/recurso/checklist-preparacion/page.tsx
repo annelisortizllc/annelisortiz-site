@@ -29,7 +29,7 @@ function howToJsonLd() {
     '@type': 'HowTo',
     name: 'Checklist de 10 pasos antes de aplicar a una hipoteca',
     description:
-      'Marco práctico de preparación financiera y crediticia que Annelis Ortiz, Originadora de Préstamos Hipotecarios (NMLS #2006182), aplica con cada familia antes de aplicar a una hipoteca.',
+      'Marco práctico de preparación financiera y crediticia que Annelis Ortiz, Prestamista (NMLS #2006182), aplica con cada familia antes de aplicar a una hipoteca.',
     inLanguage: 'es',
     author: { '@id': `${site.url}#person` },
     step: stepsEs.map((s) => ({

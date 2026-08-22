@@ -2,11 +2,11 @@
   "meta": {
     "lang": "es",
     "siteName": "Annelis Ortiz",
-    "title": "Annelis Ortiz — Originadora de Préstamos Hipotecarios · Agente de Bienes Raíces · Autora · Coach",
-    "description": "Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión. NEXA Lending. Autora de \"Antes de Decidir\".",
+    "title": "Annelis Ortiz — Prestamista · Agente de Bienes Raíces · Autora · Coach",
+    "description": "Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión. Autora de \"Antes de Decidir\".",
     "keywords": [
       "Annelis Ortiz",
-      "originadora de préstamos hipotecarios",
+      "prestamista hipotecaria",
       "mortgage loan officer en español",
       "agente de bienes raíces",
       "préstamo hipotecario",
@@ -14,7 +14,6 @@
       "inversión en propiedades",
       "patrimonio familiar",
       "educación financiera",
-      "NEXA Lending",
       "Antes de Decidir libro"
     ]
   },
@@ -28,7 +27,7 @@
     "contact": "Contacto"
   },
   "hero": {
-    "eyebrow": "Originadora de Préstamos · Bienes Raíces · Autora · Coach · Empresaria",
+    "eyebrow": "Prestamista · Bienes Raíces · Autora · Coach · Empresaria",
     "title": "Construyendo patrimonio,",
     "titleAccent": "una familia a la vez.",
     "tagline": "Ayudo a familias a aumentar su patrimonio a través del financiamiento y compra de propiedades principales y de inversión.",
@@ -38,7 +37,7 @@
   "stats": {
     "title": "Resultados que hablan",
     "items": [
-      { "value": "197+", "label": "Familias y clientes atendidos" },
+      { "value": "297+", "label": "Familias y clientes atendidos" },
       { "value": "30K+", "label": "Comunidad digital" },
       { "value": "5+", "label": "Años en hipotecas y bienes raíces" },
       { "value": "3", "label": "Regiones: EE.UU., Puerto Rico, LATAM" }
@@ -46,8 +45,8 @@
   },
   "about": {
     "title": "Sobre Annelis",
-    "lead": "Originadora de Préstamos Hipotecarios en NEXA Lending y Agente de Bienes Raíces — combino estrategia financiera, educación y un enfoque humano en cada etapa del proceso de compra e inversión.",
-    "body": "Con formación universitaria en contabilidad y más de cinco años de experiencia en la industria hipotecaria y de bienes raíces en Estados Unidos, he ayudado a más de 197 familias y compradores a prepararse financieramente, organizar su crédito y tomar decisiones inteligentes para construir patrimonio a través de bienes raíces. Más allá del financiamiento, me enfoco en brindar orientación estratégica y personalizada — adaptando cada solución a las metas reales de cada familia. Esposa y madre de cuatro hijos, mi misión es ayudar a otras personas a alcanzar estabilidad, seguridad y crecimiento financiero a largo plazo.",
+    "lead": "Prestamista y Agente de Bienes Raíces — combino estrategia financiera, educación y un enfoque humano en cada etapa del proceso de compra e inversión.",
+    "body": "Con formación universitaria en contabilidad y más de cinco años de experiencia en la industria hipotecaria y de bienes raíces en Estados Unidos, he ayudado a más de 297 familias y compradores a prepararse financieramente, organizar su crédito y tomar decisiones inteligentes para construir patrimonio a través de bienes raíces. Más allá del financiamiento, me enfoco en brindar orientación estratégica y personalizada — adaptando cada solución a las metas reales de cada familia. Esposa y madre de cuatro hijos, mi misión es ayudar a otras personas a alcanzar estabilidad, seguridad y crecimiento financiero a largo plazo.",
     "cta": "Leer mi historia completa"
   },
   "philosophy": {
@@ -84,7 +83,7 @@
     "title": "Mi ecosistema",
     "lead": "Cada parte de lo que hago se conecta para servir dos objetivos: que más familias logren propiedad — y que más Originadores hispanos crezcan en su carrera.",
     "pillars": [
-      { "title": "Hipotecas", "body": "Préstamos hipotecarios en NEXA Lending, adaptados a tu realidad y tus metas." },
+      { "title": "Hipotecas", "body": "Préstamos hipotecarios adaptados a tu realidad y tus metas." },
       { "title": "Bienes raíces", "body": "Compra y venta de propiedades principales y de inversión en Estados Unidos." },
       { "title": "Educación financiera", "body": "Mi libro \"Antes de Decidir\" y contenido que te prepara antes de cualquier decisión." },
       { "title": "Coach", "body": "Mentoría en español para Loan Originators que quieren crecer su producción y carrera." }

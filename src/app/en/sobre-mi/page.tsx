@@ -8,7 +8,7 @@ import { social, assets, site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Mortgage Loan Originator at NEXA Lending and Real Estate Agent. 5+ years of experience, 197+ families served, author of "Antes de Decidir".',
+    'Mortgage Loan Originator and Real Estate Agent. 5+ years of experience, 297+ families served, author of "Antes de Decidir".',
   alternates: {
     canonical: `${site.url}/en/sobre-mi`,
     languages: {
@@ -24,7 +24,7 @@ const crumbs = [
 ]
 
 const highlights = [
-  { value: '197+', label: 'Families and clients served' },
+  { value: '297+', label: 'Families and clients served' },
   { value: '30K+', label: 'Digital community' },
   { value: '5+', label: 'Years in mortgage and real estate' },
   { value: '3', label: 'Regions: US, Puerto Rico, LATAM' },
@@ -34,7 +34,7 @@ const faqs = [
   {
     question: 'What kind of mortgage loans do you handle?',
     answer:
-      'As a Mortgage Loan Originator at NEXA Lending, I structure conventional, FHA, VA, jumbo, and investment property loans. I work with first-time buyers, refinances, and second-home buyers.',
+      'As a Mortgage Loan Originator, I structure conventional, FHA, VA, jumbo, and investment property loans. I work with first-time buyers, refinances, and second-home buyers.',
   },
   {
     question: 'Do you only serve first-time buyers or also investors?',
@@ -99,7 +99,7 @@ const trajectory = [
     body: 'A solid foundation in numbers and finance that I apply to every mortgage and investment strategy I design with my clients.',
   },
   {
-    title: 'Mortgage Loan Originator at NEXA Lending',
+    title: 'Mortgage Loan Originator',
     body: 'I structure financing for first-time buyers, refinances, and investment properties across the United States.',
   },
   {
@@ -131,7 +131,7 @@ export default function AboutPageEN() {
       <PageHeader
         eyebrow="About"
         title="Strategy, education, and a human approach in every real estate decision."
-        lead="Mortgage Loan Originator at NEXA Lending and Real Estate Agent. My work combines numbers, preparation, and a real commitment to every family that decides to build wealth through property."
+        lead="Mortgage Loan Originator and Real Estate Agent. My work combines numbers, preparation, and a real commitment to every family that decides to build wealth through property."
         crumbs={crumbs}
       />
 
@@ -186,15 +186,15 @@ export default function AboutPageEN() {
         <div className="prose-bio mt-10 space-y-7 text-lg leading-relaxed text-muted">
           <p>
             <strong className="text-foreground">Annelis Ortiz</strong> is a Mortgage Loan
-            Originator at <strong className="text-foreground">NEXA Lending</strong> and a Real
-            Estate Agent, recognized for combining financial strategy, education, and a human
-            approach at every stage of the home buying and investment process.
+            Originator and a Real Estate Agent, recognized for combining financial strategy,
+            education, and a human approach at every stage of the home buying and investment
+            process.
           </p>
           <p>
             With a university background in <strong className="text-foreground">accounting</strong>{' '}
             and more than <strong className="text-foreground">five years of experience</strong> in
             the US mortgage and real estate industry, she has helped{' '}
-            <strong className="text-foreground">197+ families and buyers</strong> prepare
+            <strong className="text-foreground">297+ families and buyers</strong> prepare
             financially, organize their credit, and make smart decisions to build wealth through
             real estate.
           </p>

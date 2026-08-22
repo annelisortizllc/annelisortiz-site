@@ -195,7 +195,7 @@ function autoResponseHtml(
   const bookLabel = isEn ? 'Book a consultation' : 'Agenda una consulta'
   const bookNote = isEn ? '30 minutes on my calendar' : 'bloquea 30 min en mi calendario'
   const closing = isEn ? 'Talk soon,' : 'Hablamos pronto,'
-  const role = isEn ? 'Mortgage Loan Originator' : 'Originadora de Préstamos Hipotecarios'
+  const role = isEn ? 'Mortgage Loan Originator' : 'Prestamista'
   const altRole = isEn ? 'Real Estate Agent' : 'Agente de Bienes Raíces'
   const disclaimer = isEn
     ? `NMLS #${siteBusiness.nmlsLoanOfficer} (Annelis) · NMLS #${siteBusiness.nmlsCompany} (NEXA Lending LLC) · Equal Housing Lender. This is not a credit offer or guarantee of approval; all applications are subject to qualification.`
@@ -229,7 +229,7 @@ function autoResponseHtml(
     <p style="margin:28px 0 4px;font-size:15px;color:#333;">${closing}</p>
     <p style="margin:0;font-size:15px;line-height:1.5;">
       <strong>Annelis Ortiz</strong><br>
-      <span style="color:#666;font-size:13px;">${role} · NEXA Lending LLC</span><br>
+      <span style="color:#666;font-size:13px;">${role}</span><br>
       <span style="color:#666;font-size:13px;">${altRole}</span>
     </p>
   </div>
@@ -261,7 +261,7 @@ In the meantime, two ways to move forward:
 
 Talk soon,
 Annelis Ortiz
-Mortgage Loan Originator · NEXA Lending LLC
+Mortgage Loan Originator
 Real Estate Agent
 
 ---
@@ -283,7 +283,7 @@ Mientras tanto, dos formas de adelantar:
 
 Hablamos pronto,
 Annelis Ortiz
-Originadora de Préstamos Hipotecarios · NEXA Lending LLC
+Prestamista
 Agente de Bienes Raíces
 
 ---

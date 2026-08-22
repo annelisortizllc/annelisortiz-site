@@ -24,7 +24,7 @@ export const post: BlogPost = {
     sections: [
       {
         type: 'paragraph',
-        text: 'Soy Originadora de Préstamos Hipotecarios y agente de bienes raíces. He acompañado a más de 197 familias en su proceso de compra, y he visto el mismo patrón repetirse: la preparación financiera empieza 30 días antes de buscar casa, cuando debería empezar 6 a 12 meses antes. Esta guía es para que tú no caigas en ese hueco.',
+        text: 'Soy Originadora de Préstamos Hipotecarios y agente de bienes raíces. He acompañado a más de 297 familias en su proceso de compra, y he visto el mismo patrón repetirse: la preparación financiera empieza 30 días antes de buscar casa, cuando debería empezar 6 a 12 meses antes. Esta guía es para que tú no caigas en ese hueco.',
       },
 
       { type: 'heading', level: 2, text: 'Cuánto tiempo necesitas en realidad' },
@@ -188,7 +188,7 @@ export const post: BlogPost = {
     sections: [
       {
         type: 'paragraph',
-        text: 'I am a Mortgage Loan Originator and licensed real estate agent. I have walked more than 197 families through the buying process, and I keep seeing the same pattern: financial prep starts 30 days before they go house-hunting, when it should start 6 to 12 months earlier. This guide exists so you do not fall into that gap.',
+        text: 'I am a Mortgage Loan Originator and licensed real estate agent. I have walked more than 297 families through the buying process, and I keep seeing the same pattern: financial prep starts 30 days before they go house-hunting, when it should start 6 to 12 months earlier. This guide exists so you do not fall into that gap.',
       },
 
       { type: 'heading', level: 2, text: 'How much lead time you actually need' },

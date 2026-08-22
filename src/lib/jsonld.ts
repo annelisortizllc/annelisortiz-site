@@ -16,7 +16,7 @@ export function personJsonLd() {
     email: contact.email,
     telephone: contact.whatsappE164,
     description:
-      'Originadora de Préstamos Hipotecarios en NEXA Lending LLC, Agente de Bienes Raíces, Autora de "Antes de Decidir" y Coach. Ayudo a familias a construir patrimonio a través de la propiedad, y a Originadores hispanos a crecer en su carrera.',
+      'Prestamista, Agente de Bienes Raíces, Autora de "Antes de Decidir" y Coach. Ayudo a familias a construir patrimonio a través de la propiedad, y a Originadores hispanos a crecer en su carrera.',
     jobTitle: [
       business.role,
       business.alsoRole,

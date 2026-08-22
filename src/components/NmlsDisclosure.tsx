@@ -33,7 +33,7 @@ export function NmlsDisclosure() {
             <p>
               <span className="font-medium text-foreground">Annelis Ortiz</span>{' '}
               · NMLS #<span className="font-medium text-foreground">{business.nmlsLoanOfficer}</span>{' '}
-              · Originadora de Préstamos Hipotecarios en{' '}
+              · Prestamista en{' '}
               <span className="font-medium text-foreground">{business.employer}</span>{' '}
               · NMLS #<span className="font-medium text-foreground">{business.nmlsCompany}</span>
             </p>

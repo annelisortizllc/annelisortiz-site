@@ -7,7 +7,7 @@ import { contact, applicationPortal, site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Servicios',
   description:
-    'Préstamos hipotecarios (convencional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, préstamos para extranjeros), compraventa de propiedades, coaching, educación financiera y conferencias. Annelis Ortiz — NEXA Lending + Keller Williams.',
+    'Préstamos hipotecarios (convencional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, préstamos para extranjeros), compraventa de propiedades, coaching, educación financiera y conferencias.',
   alternates: {
     canonical: `${site.url}/servicios`,
     languages: {
@@ -25,7 +25,7 @@ const crumbs = [
 const services = [
   {
     id: 'hipotecas',
-    eyebrow: 'NEXA Lending · NMLS #2006182',
+    eyebrow: 'NMLS #2006182',
     title: 'Préstamos Hipotecarios',
     lead: 'Estructuro financiamiento para compradores de primera vivienda, refinanciamientos, segunda casa, propiedades de inversión y perfiles no tradicionales. Trabajo cada préstamo con preparación crediticia previa cuando hace falta.',
     groups: [

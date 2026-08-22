@@ -38,6 +38,9 @@ function detectLocale(pathname: string | null): Locale {
 
 export function Footer() {
   const pathname = usePathname()
+  // /pequenos-heroes uses its own kids-brand footer — hide the global one
+  // to keep the kids section visually isolated.
+  if (pathname.startsWith('/pequenos-heroes')) return null
   const locale = detectLocale(pathname)
   const prefix = locale === 'en' ? '/en' : ''
   const t = labels[locale]

@@ -8,7 +8,7 @@ import { social, assets } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Sobre mí',
   description:
-    'Originadora de Préstamos Hipotecarios en NEXA Lending y Agente de Bienes Raíces. 5+ años de experiencia, 197+ familias atendidas, autora de "Antes de Decidir".',
+    'Prestamista y Agente de Bienes Raíces. 5+ años de experiencia, 297+ familias atendidas, autora de "Antes de Decidir".',
   alternates: {
     canonical: 'https://annelisortiz.com/sobre-mi',
     languages: {
@@ -24,7 +24,7 @@ const crumbs = [
 ]
 
 const highlights = [
-  { value: '197+', label: 'Familias y clientes atendidos' },
+  { value: '297+', label: 'Familias y clientes atendidos' },
   { value: '30K+', label: 'Comunidad digital' },
   { value: '5+', label: 'Años en hipotecas y bienes raíces' },
   { value: '3', label: 'Regiones: EE.UU., Puerto Rico, LATAM' },
@@ -34,7 +34,7 @@ const faqs = [
   {
     question: '¿Qué tipo de préstamos hipotecarios manejas?',
     answer:
-      'Como Originadora de Préstamos en NEXA Lending estructuro préstamos convencionales, FHA, VA, jumbo y financiamientos para propiedades de inversión. Trabajo con compradores de primera vivienda, refinanciamientos y compradores en segunda vivienda.',
+      'Como Prestamista estructuro préstamos convencionales, FHA, VA, jumbo y financiamientos para propiedades de inversión. Trabajo con compradores de primera vivienda, refinanciamientos y compradores en segunda vivienda.',
   },
   {
     question: '¿Atiendes solo a primeros compradores o también a inversionistas?',
@@ -99,7 +99,7 @@ const trayectoria = [
     body: 'Una base sólida en números y finanzas que aplico a cada estrategia hipotecaria y de inversión que diseño con mis clientes.',
   },
   {
-    title: 'Originadora de Préstamos Hipotecarios en NEXA Lending',
+    title: 'Prestamista',
     body: 'Estructuro financiamientos para compradores de primera vivienda, refinanciamientos y propiedades de inversión en Estados Unidos.',
   },
   {
@@ -131,7 +131,7 @@ export default function SobreMiPage() {
       <PageHeader
         eyebrow="Sobre mí"
         title="Estrategia, educación y un enfoque humano en cada decisión de bienes raíces."
-        lead="Originadora de Préstamos Hipotecarios en NEXA Lending y Agente de Bienes Raíces. Mi trabajo combina números, preparación y un compromiso real con cada familia que decide construir patrimonio a través de la propiedad."
+        lead="Prestamista y Agente de Bienes Raíces. Mi trabajo combina números, preparación y un compromiso real con cada familia que decide construir patrimonio a través de la propiedad."
         crumbs={crumbs}
       />
 
@@ -185,16 +185,15 @@ export default function SobreMiPage() {
 
         <div className="prose-bio mt-10 space-y-7 text-lg leading-relaxed text-muted">
           <p>
-            <strong className="text-foreground">Annelis Ortiz</strong> es Originadora de
-            Préstamos Hipotecarios en <strong className="text-foreground">NEXA Lending</strong>{' '}
-            y Agente de Bienes Raíces, reconocida por combinar estrategia financiera, educación
+            <strong className="text-foreground">Annelis Ortiz</strong> es Prestamista y{' '}
+            Agente de Bienes Raíces, reconocida por combinar estrategia financiera, educación
             y un enfoque humano en cada etapa del proceso de compra e inversión inmobiliaria.
           </p>
           <p>
             Con formación universitaria en <strong className="text-foreground">contabilidad</strong>{' '}
             y más de <strong className="text-foreground">cinco años de experiencia</strong> en la
             industria hipotecaria y de bienes raíces en Estados Unidos, ha ayudado a{' '}
-            <strong className="text-foreground">197+ familias y compradores</strong> a prepararse
+            <strong className="text-foreground">297+ familias y compradores</strong> a prepararse
             financieramente, organizar su crédito y tomar decisiones inteligentes para construir
             patrimonio a través de bienes raíces.
           </p>

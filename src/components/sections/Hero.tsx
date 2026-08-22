@@ -25,7 +25,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
       />
       <div className="surface-grain relative">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 pt-24 pb-28 md:grid-cols-5 md:gap-16 md:pt-32 md:pb-36">
-          <div className="md:col-span-3">
+          <div className="order-2 md:order-1 md:col-span-3">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -79,33 +79,30 @@ export function Hero({ dict }: { dict: Dictionary }) {
             </motion.div>
           </div>
 
-          {/* Hero portrait — visible on md+ */}
+          {/* Hero portrait — arriba en mobile, columna derecha en desktop */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease, delay: 0.2 }}
-            className="relative hidden md:col-span-2 md:block"
+            className="relative order-1 mx-auto w-full max-w-[220px] sm:max-w-[260px] md:order-2 md:col-span-2 md:max-w-none"
           >
             <div
               aria-hidden
               className="absolute -inset-4 -z-10 rounded-3xl bg-accent/15 blur-2xl"
             />
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border bg-background-elev-1">
+            <div className="relative aspect-[2/3]">
               <Image
                 src={assets.portraitHero}
-                alt="Annelis Ortiz — Originadora de Préstamos Hipotecarios (NEXA Lending) y Realtor en Keller Williams Advantage III"
+                alt="Annelis Ortiz — Prestamista y Agente de Bienes Raíces"
                 fill
-                sizes="(min-width: 768px) 40vw, 100vw"
+                sizes="(min-width: 768px) 40vw, 260px"
                 priority
-                className="object-cover"
-              />
-              {/* Subtle gradient overlay for legibility integration with the dark theme */}
-              <div
-                aria-hidden
-                className="absolute inset-0"
+                className="object-cover object-top"
                 style={{
-                  background:
-                    'linear-gradient(180deg, transparent 60%, rgba(7,7,10,0.4) 100%)',
+                  WebkitMaskImage:
+                    'radial-gradient(ellipse 65% 88% at 50% 50%, black 32%, rgba(0,0,0,0.5) 62%, transparent 95%)',
+                  maskImage:
+                    'radial-gradient(ellipse 65% 88% at 50% 50%, black 32%, rgba(0,0,0,0.5) 62%, transparent 95%)',
                 }}
               />
             </div>

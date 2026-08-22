@@ -111,7 +111,7 @@ export default function BookPage() {
               El libro que te hubiera ahorrado años de errores.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              Por <strong className="text-foreground">Annelis Ortiz</strong> — Originadora de Préstamos Hipotecarios en NEXA Lending (NMLS #2006182) y guía financiera de más de <strong className="text-foreground">197 familias hispanas</strong> en su proceso de compra de vivienda en EE.UU.
+              Por <strong className="text-foreground">Annelis Ortiz</strong> — Prestamista (NMLS #2006182) y guía financiera de más de <strong className="text-foreground">297 familias hispanas</strong> en su proceso de compra de vivienda en EE.UU.
             </p>
             <p className="mt-6 text-lg leading-relaxed text-muted">
               Hay un momento incómodo que casi todos enfrentamos: firmar algo importante sin

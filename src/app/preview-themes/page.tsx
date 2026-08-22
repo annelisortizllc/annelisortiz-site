@@ -66,7 +66,7 @@ function ThemePreview({ theme }: { theme: Theme }) {
 
         {/* Pico de headline */}
         <p className="text-[10px] uppercase tracking-[0.22em] text-muted">
-          Originadora de Préstamos · NEXA Lending LLC
+          Prestamista · Agente de Bienes Raíces
         </p>
         <h2 className="mt-3 font-serif text-2xl leading-[1.05] tracking-tight text-foreground">
           Construyendo patrimonio,
@@ -93,7 +93,7 @@ function ThemePreview({ theme }: { theme: Theme }) {
                     'linear-gradient(180deg, var(--accent-soft), var(--accent-deep))',
                 }}
               >
-                197+
+                297+
               </span>
             </div>
             <div className="mt-1 text-[10px] uppercase tracking-wider text-muted">

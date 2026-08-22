@@ -60,6 +60,10 @@ function swapLocale(pathname: string | null, target: Locale): string {
 
 export function Header() {
   const pathname = usePathname()
+  // The /pequenos-heroes section has its own kids-brand header rendered via
+  // its layout. Hide the global header entirely so the kids brand stays
+  // visually isolated from the adult mortgage/real-estate site.
+  if (pathname.startsWith('/pequenos-heroes')) return null
   const locale = detectLocale(pathname)
   const prefix = locale === 'en' ? '/en' : ''
   const t = labels[locale]

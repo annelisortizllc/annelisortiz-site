@@ -7,7 +7,7 @@ import { contact, applicationPortal, site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Mortgage loans (conventional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, Foreign National), real estate buy & sell, coaching, financial education, and speaking. Annelis Ortiz — NEXA Lending + Keller Williams.',
+    'Mortgage loans (conventional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, Foreign National), real estate buy & sell, coaching, financial education, and speaking.',
   alternates: {
     canonical: `${site.url}/en/servicios`,
     languages: {
@@ -25,7 +25,7 @@ const crumbs = [
 const services = [
   {
     id: 'mortgages',
-    eyebrow: 'NEXA Lending · NMLS #2006182',
+    eyebrow: 'NMLS #2006182',
     title: 'Mortgage Loans',
     lead: 'I structure financing for first-time buyers, refinances, second homes, investment properties, and non-traditional profiles. Every loan starts with credit preparation when needed.',
     groups: [
