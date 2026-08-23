@@ -2,22 +2,25 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 /**
- * Locale auto-detection proxy (Next.js 16 middleware).
+ * Locale proxy (Next.js 16 middleware).
  *
- * Behavior:
- *  - When a visitor lands on a Spanish (root) URL we check the `NEXT_LOCALE`
- *    cookie first. If they previously chose EN, we redirect them to the EN
- *    mirror of the same path. If they explicitly chose ES, we leave them
- *    alone.
- *  - With no cookie set, we fall back to the browser's `Accept-Language`
- *    header. If it prefers English, we redirect to the EN mirror.
- *  - For EN paths we apply the inverse: if the cookie says ES (user later
- *    chose Spanish), we strip the `/en` prefix.
- *  - The matcher excludes API routes, admin, Next internals, and static
- *    assets so this only ever touches public content pages.
- *  - Setting the cookie is the responsibility of the language toggle in the
- *    Header / MobileNav (client components). The proxy itself never writes
- *    the cookie — it only reads it.
+ * ESPAÑOL ES EL DEFAULT. Punto. Un visitante sin cookie ve el sitio en
+ * español, sin importar cómo tenga configurado el navegador.
+ *
+ * Antes esto miraba el header `Accept-Language`, y el resultado era que un
+ * cliente hispanohablante con la computadora en inglés — que en Estados
+ * Unidos es la mayoría — aterrizaba en el sitio en inglés. Justo al revés
+ * de la audiencia de Annelis.
+ *
+ * Comportamiento:
+ *  - Sin cookie → no redirigimos nunca. Cada URL sirve su propio idioma:
+ *    `/sobre-mi` en español, `/en/about` en inglés. Un enlace compartido
+ *    siempre abre en el idioma en que se compartió.
+ *  - Con cookie (o sea, el visitante tocó el selector) → respetamos su
+ *    elección y lo llevamos al espejo del idioma que escogió.
+ *  - El matcher excluye API, admin, internos de Next y estáticos.
+ *  - Escribir la cookie es responsabilidad de <LocaleToggle>. El proxy
+ *    solo la lee.
  */
 
 const PREFERRED_COOKIE = 'NEXT_LOCALE'
@@ -64,14 +67,8 @@ function isBot(userAgent: string | null): boolean {
   return /\b(bot|crawler|spider)\b/.test(ua)
 }
 
-/** Pull the best-matching locale from an Accept-Language header. */
-function preferredLocale(acceptLanguage: string | null): 'es' | 'en' {
-  if (!acceptLanguage) return 'es'
-  // Parse `en-US,en;q=0.9,es;q=0.7` → take the first language tag.
-  const first = acceptLanguage.split(',')[0]?.trim().toLowerCase() ?? ''
-  if (first.startsWith('en')) return 'en'
-  return 'es'
-}
+/** El sitio abre en español mientras el visitante no diga lo contrario. */
+const DEFAULT_LOCALE = 'es' as const
 
 export function proxy(request: NextRequest) {
   // Bots: never auto-redirect. They get whatever URL they asked for and we
@@ -98,11 +95,12 @@ export function proxy(request: NextRequest) {
 
   const isEnglishPath = pathname === '/en' || pathname.startsWith('/en/')
 
-  // Decide the desired locale: explicit cookie wins; otherwise the browser.
+  // La cookie solo existe si el visitante tocó el selector. Sin cookie,
+  // español — nunca adivinamos a partir del navegador.
   const desiredLocale: 'es' | 'en' =
     cookieLocale === 'en' || cookieLocale === 'es'
       ? cookieLocale
-      : preferredLocale(request.headers.get('accept-language'))
+      : DEFAULT_LOCALE
 
   // If the visitor is on a Spanish path but wants English, send them to /en.
   if (!isEnglishPath && desiredLocale === 'en') {

@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MobileNav } from '@/components/MobileNav'
+import { LocaleToggle } from '@/components/LocaleToggle'
+import { detectLocale } from '@/lib/locale'
 import { contact } from '@/lib/site'
 
 const labels = {
@@ -26,38 +28,6 @@ const labels = {
   },
 } as const
 
-type Locale = keyof typeof labels
-
-/** Detect locale from URL ("/en/..." → en, otherwise → es). */
-function detectLocale(pathname: string | null): Locale {
-  return pathname?.startsWith('/en') ? 'en' : 'es'
-}
-
-/**
- * Persist the user's manual locale choice in a cookie so the proxy honors it
- * on subsequent visits and won't auto-redirect them away from their pick.
- */
-function rememberLocale(locale: Locale) {
-  if (typeof document === 'undefined') return
-  // 1 year, root path, lax samesite — Vercel preview + prod both work.
-  document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; samesite=lax`
-}
-
-/** Return the path for the opposite locale, preserving the rest of the URL. */
-function swapLocale(pathname: string | null, target: Locale): string {
-  const p = pathname ?? '/'
-  if (target === 'en') {
-    // ES root or any path → prefix with /en
-    if (p === '/' || p === '') return '/en'
-    if (p.startsWith('/en')) return p
-    return `/en${p}`
-  }
-  // target === 'es' — strip /en prefix
-  if (p === '/en' || p === '/en/') return '/'
-  if (p.startsWith('/en/')) return p.slice(3) // drop "/en"
-  return p
-}
-
 export function Header() {
   const pathname = usePathname()
   // The /pequenos-heroes section has its own kids-brand header rendered via
@@ -68,8 +38,6 @@ export function Header() {
   const prefix = locale === 'en' ? '/en' : ''
   const t = labels[locale]
   const homeHref = locale === 'en' ? '/en' : '/'
-  const otherLocale: Locale = locale === 'en' ? 'es' : 'en'
-  const otherHref = swapLocale(pathname, otherLocale)
 
   const contactHref = `${homeHref === '/' ? '' : homeHref}/#contacto`
   const links = [
@@ -96,14 +64,7 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link
-            href={otherHref}
-            onClick={() => rememberLocale(otherLocale)}
-            aria-label={otherLocale === 'en' ? 'Switch to English' : 'Cambiar a español'}
-            className="hidden rounded-full border border-border px-3 py-1 text-xs uppercase tracking-wider text-muted transition hover:border-accent hover:text-foreground md:inline-flex"
-          >
-            {otherLocale.toUpperCase()}
-          </Link>
+          <LocaleToggle />
           <a
             href={contact.bookingUrl}
             target="_blank"
