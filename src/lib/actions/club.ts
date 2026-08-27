@@ -7,6 +7,7 @@ import { createClient } from '@supabase/supabase-js'
 import { site, contact as siteContact } from '@/lib/site'
 import { CLUB_META, tagValue } from '@/lib/inquiry-codes'
 import { upsertContact } from '@/lib/crm/gohighlevel'
+import { classifyLine } from '@/lib/crm/pipeline'
 
 // ============================================================================
 // Club Pequeños Héroes del Dinero — registro gratis
@@ -78,6 +79,7 @@ async function persistLead(
         whatsapp: null,
         company: null,
         inquiry_type: INQUIRY_TYPE,
+        business_line: classifyLine(INQUIRY_TYPE),
         message: `Se registró al Club Pequeños Héroes del Dinero (gratis)${ageNote}`,
         locale: data.locale,
         source_path: ctx.source_path,
