@@ -61,11 +61,51 @@ where business_line = 'other'
   and inquiry_type in ('Compra de propiedad','Property purchase',
                        'Inversión en bienes raíces','Real estate investment');
 
+-- ---------------------------------------------------------------------------
+-- La clasificación vive AQUÍ, no en la app.
+--
+-- El panel del CRM es un proyecto aparte (repo privado `annelis-crm`). Si cada
+-- app clasificara por su cuenta habría dos copias que deben coincidir y nada
+-- las compararía — el patrón que el espejo del Master Brain ya encontró 4 veces.
+-- Con el trigger, cualquier app que inserte en `leads` queda clasificada igual.
+-- ---------------------------------------------------------------------------
+
+create or replace function public.leads_classify_line()
+returns trigger
+language plpgsql
+as $$
+begin
+  -- Solo clasifica si nadie lo hizo explícitamente ('other' es el default).
+  if new.business_line is null or new.business_line = 'other' then
+    if new.inquiry_type ilike '%club%' then
+      new.business_line := 'kids';
+    elsif new.inquiry_type in ('Préstamo hipotecario','Mortgage loan',
+                               'Preparación financiera / crédito','Financial preparation / credit')
+          or new.inquiry_type ilike 'Lead magnet%' then
+      new.business_line := 'mortgage';
+    elsif new.inquiry_type in ('Compra de propiedad','Property purchase',
+                               'Inversión en bienes raíces','Real estate investment') then
+      new.business_line := 'real_estate';
+    else
+      new.business_line := 'other';
+    end if;
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists leads_classify_line_trg on public.leads;
+
+create trigger leads_classify_line_trg
+  before insert on public.leads
+  for each row
+  execute function public.leads_classify_line();
+
 comment on column public.leads.business_line is
-  'Línea de negocio derivada de inquiry_type al insertar (src/lib/crm/pipeline.ts · classifyLine).';
+  'Línea de negocio. La asigna sola el trigger leads_classify_line_trg al insertar.';
 
 comment on column public.leads.stage is
-  'Etapa de seguimiento. El set válido por línea vive en src/lib/crm/pipeline.ts.';
+  'Etapa de seguimiento. Qué etapa aplica a qué línea se decide en el repo privado annelis-crm.';
 
 comment on column public.leads.notes is
   'Notas privadas de Annelis. Nunca se envían al contacto.';

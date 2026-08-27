@@ -10,7 +10,6 @@ import {
   business as siteBusiness,
 } from '@/lib/site'
 import { inquiryMeta, tagValue } from '@/lib/inquiry-codes'
-import { classifyLine } from '@/lib/crm/pipeline'
 
 const ContactSchema = z.object({
   name: z.string().min(2, 'Nombre muy corto'),
@@ -57,7 +56,6 @@ async function persistLead(
         whatsapp: data.whatsapp || null,
         company: data.company || null,
         inquiry_type: data.type,
-        business_line: classifyLine(data.type),
         message: data.message,
         locale: ctx.locale,
         source_path: ctx.source_path,

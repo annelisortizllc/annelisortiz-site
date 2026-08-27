@@ -11,7 +11,6 @@ import {
   business as siteBusiness,
 } from '@/lib/site'
 import { LEAD_MAGNET_META, tagValue } from '@/lib/inquiry-codes'
-import { classifyLine } from '@/lib/crm/pipeline'
 
 const LeadMagnetSchema = z.object({
   name: z.string().min(2, 'Nombre muy corto'),
@@ -67,7 +66,6 @@ async function persistLead(
         whatsapp: null,
         company: null,
         inquiry_type: INQUIRY_TYPE,
-        business_line: classifyLine(INQUIRY_TYPE),
         message: `Solicitó el checklist de preparación (lead magnet · landing ${data.locale === 'en' ? '/en/get-ready' : '/preparate'})`,
         locale: data.locale,
         source_path: ctx.source_path,
