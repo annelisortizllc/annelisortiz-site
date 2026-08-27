@@ -17,6 +17,8 @@ export const contact = {
   // Vive en el portal profesional (aortizloans.com) donde Annelis ya tiene su
   // calendar set up. Abre en nueva pestaña; no se embebe en iframe en el sitio.
   bookingUrl: 'https://app.aortizloans.com/widget/bookings/calendario-consulta-inicial',
+  // Formulario 1003 (aplicación formal de hipoteca). Abre en nueva pestaña.
+  applyUrl: 'https://annelisortiz.my1003app.com',
 } as const
 
 // Redes sociales verificadas. OJO: TikTok handle es @annelis.7 (no @annelisortiz).
