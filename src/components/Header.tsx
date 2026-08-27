@@ -16,6 +16,7 @@ const labels = {
     blog: 'Blog',
     contact: 'Contacto',
     book: 'Agendar consulta',
+    apply: 'Solicitar hipoteca',
   },
   en: {
     about: 'About',
@@ -25,6 +26,7 @@ const labels = {
     blog: 'Blog',
     contact: 'Contact',
     book: 'Book a consultation',
+    apply: 'Apply for a mortgage',
   },
 } as const
 
@@ -56,7 +58,7 @@ export function Header() {
           <span className="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_var(--accent-glow)]" />
           <span className="font-medium text-foreground">Annelis Ortiz</span>
         </Link>
-        <nav className="hidden items-center gap-7 text-sm text-muted md:flex">
+        <nav className="hidden items-center gap-6 text-sm text-muted lg:flex">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="transition hover:text-foreground">
               {l.label}
@@ -66,10 +68,18 @@ export function Header() {
         <div className="flex items-center gap-3">
           <LocaleToggle />
           <a
+            href={contact.applyUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden whitespace-nowrap rounded-full bg-accent px-4 py-1.5 text-sm font-medium text-on-accent transition hover:bg-accent-soft lg:inline-block"
+          >
+            {t.apply}
+          </a>
+          <a
             href={contact.bookingUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden rounded-full bg-accent px-4 py-1.5 text-sm font-medium text-on-accent transition hover:bg-accent-soft md:inline-block"
+            className="hidden whitespace-nowrap rounded-full border border-accent px-4 py-1.5 text-sm font-medium text-accent transition hover:bg-accent hover:text-on-accent lg:inline-block"
           >
             {t.book}
           </a>

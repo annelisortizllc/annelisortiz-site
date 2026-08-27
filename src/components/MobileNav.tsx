@@ -18,6 +18,7 @@ const labels = {
     blog: 'Blog',
     contact: 'Contacto',
     book: 'Agendar consulta',
+    apply: 'Solicitar hipoteca',
     closeAria: 'Cerrar menú',
     openAria: 'Abrir menú',
   },
@@ -29,6 +30,7 @@ const labels = {
     blog: 'Blog',
     contact: 'Contact',
     book: 'Book a consultation',
+    apply: 'Apply for a mortgage',
     closeAria: 'Close menu',
     openAria: 'Open menu',
   },
@@ -75,7 +77,7 @@ export function MobileNav() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 md:hidden"
+          className="fixed inset-0 z-50 lg:hidden"
           style={{ background: 'var(--background)' }}
         >
           <button
@@ -112,16 +114,26 @@ export function MobileNav() {
                 </motion.li>
               ))}
             </ul>
-            <div className="mt-10 flex items-center gap-4">
+            <div className="mt-10 flex flex-col gap-4">
               <a
-                href={contact.bookingUrl}
+                href={contact.applyUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent-glow)]"
               >
-                {t.book} <span aria-hidden>→</span>
+                {t.apply} <span aria-hidden>→</span>
               </a>
-              <LocaleToggle size="md" />
+              <div className="flex items-center gap-4">
+                <a
+                  href={contact.bookingUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-fit items-center gap-2 rounded-full border border-accent px-5 py-2.5 text-sm font-medium text-accent"
+                >
+                  {t.book}
+                </a>
+                <LocaleToggle size="md" />
+              </div>
             </div>
           </motion.nav>
         </motion.div>
@@ -136,7 +148,7 @@ export function MobileNav() {
         aria-label={t.openAria}
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className="relative z-40 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background-elev-1/60 text-foreground md:hidden"
+        className="relative z-40 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background-elev-1/60 text-foreground lg:hidden"
       >
         <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" d="M4 7h16" />
