@@ -5,6 +5,8 @@ import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'motion/react'
+import { LocaleToggle } from '@/components/LocaleToggle'
+import { detectLocale } from '@/lib/locale'
 import { contact } from '@/lib/site'
 
 const labels = {
@@ -18,8 +20,6 @@ const labels = {
     book: 'Agendar consulta',
     closeAria: 'Cerrar menú',
     openAria: 'Abrir menú',
-    langLabel: 'EN',
-    langAria: 'Switch to English',
   },
   en: {
     about: 'About',
@@ -31,37 +31,8 @@ const labels = {
     book: 'Book a consultation',
     closeAria: 'Close menu',
     openAria: 'Open menu',
-    langLabel: 'ES',
-    langAria: 'Cambiar a español',
   },
 } as const
-
-type Locale = keyof typeof labels
-
-function detectLocale(pathname: string | null): Locale {
-  return pathname?.startsWith('/en') ? 'en' : 'es'
-}
-
-/**
- * Persist the user's manual locale choice in a cookie so the proxy honors it
- * and won't auto-redirect them away from their pick.
- */
-function rememberLocale(locale: Locale) {
-  if (typeof document === 'undefined') return
-  document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; samesite=lax`
-}
-
-function swapLocale(pathname: string | null, target: Locale): string {
-  const p = pathname ?? '/'
-  if (target === 'en') {
-    if (p === '/' || p === '') return '/en'
-    if (p.startsWith('/en')) return p
-    return `/en${p}`
-  }
-  if (p === '/en' || p === '/en/') return '/'
-  if (p.startsWith('/en/')) return p.slice(3)
-  return p
-}
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -70,8 +41,6 @@ export function MobileNav() {
   const locale = detectLocale(pathname)
   const prefix = locale === 'en' ? '/en' : ''
   const t = labels[locale]
-  const otherLocale: Locale = locale === 'en' ? 'es' : 'en'
-  const otherHref = swapLocale(pathname, otherLocale)
 
   useEffect(() => setMounted(true), [])
 
@@ -152,14 +121,7 @@ export function MobileNav() {
               >
                 {t.book} <span aria-hidden>→</span>
               </a>
-              <Link
-                href={otherHref}
-                onClick={() => rememberLocale(otherLocale)}
-                aria-label={t.langAria}
-                className="inline-flex rounded-full border border-border px-4 py-2 text-xs uppercase tracking-wider text-muted hover:border-accent hover:text-foreground"
-              >
-                {t.langLabel}
-              </Link>
+              <LocaleToggle size="md" />
             </div>
           </motion.nav>
         </motion.div>
