@@ -43,6 +43,9 @@ export function inquiryMeta(inquiryType: string): InquiryMeta {
 // Lead magnet usa un código fijo independiente del mapping.
 export const LEAD_MAGNET_META: InquiryMeta = { code: 'LMG', slug: 'lead_magnet' }
 
+// Club Pequeños Héroes — registro gratis desde /pequenos-heroes/club.
+export const CLUB_META: InquiryMeta = { code: 'CLB', slug: 'club_pequenos_heroes' }
+
 // Resend tag value contract: lowercase, [a-z0-9_], <= 256 chars.
 // Slug ya cumple esto pero lo normalizamos por seguridad.
 export function tagValue(s: string): string {

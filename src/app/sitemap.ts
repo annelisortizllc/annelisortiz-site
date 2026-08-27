@@ -113,13 +113,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ])
 
-  // Solo existe en español — sin alternates para no apuntar a un /en/ que da 404.
-  const pequenosHeroesEntry = {
-    url: `${site.url}/pequenos-heroes`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }
+  // Solo existen en español — sin alternates para no apuntar a un /en/ que da 404.
+  const pequenosHeroesEntries = [
+    {
+      url: `${site.url}/pequenos-heroes`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${site.url}/pequenos-heroes/club`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+  ]
 
-  return [...staticEntries, ...blogEntries, ...leadMagnetEntries, pequenosHeroesEntry]
+  return [...staticEntries, ...blogEntries, ...leadMagnetEntries, ...pequenosHeroesEntries]
 }
