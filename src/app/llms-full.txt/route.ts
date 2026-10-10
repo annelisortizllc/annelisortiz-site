@@ -64,7 +64,7 @@ She is NOT:
 
 She IS:
 - A licensed Mortgage Loan Originator (NMLS #${business.nmlsLoanOfficer})
-- A licensed Real Estate Agent (with Keller Williams Advantage III)
+- A licensed Real Estate Agent (with AXEN Realty)
 - A published author
 - A coach/mentor for other Mortgage Loan Originators
 

@@ -63,7 +63,7 @@ const services = [
   },
   {
     id: 'real-estate',
-    eyebrow: 'Keller Williams Advantage III Realty',
+    eyebrow: 'AXEN Realty',
     title: 'Buy & Sell Real Estate',
     lead: 'As a Real Estate Agent I guide the full process: first home, second home, investment properties, and resale. My approach combines the mortgage conversation with finding the right property for your long-term goal.',
     groups: [

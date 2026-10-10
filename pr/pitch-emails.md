@@ -78,7 +78,7 @@ Hi [NOMBRE PERIODISTA],
 
 I read your piece on [ANGULO — e.g., "personal brand as a moat for solo professionals"]. Wanted to offer myself as a case study source.
 
-I'm Annelis Ortiz: Mortgage Loan Originator at NEXA Lending, Real Estate Agent at Keller Williams, and founder of Annelis Ortiz LLC. Built my personal brand in Spanish from zero to 30K+ followers across IG/TikTok/YouTube/LinkedIn in under 2 years, while closing loans for 197+ Hispanic families and writing my first book (*Antes de Decidir*, Amazon).
+I'm Annelis Ortiz: Mortgage Loan Originator at NEXA Lending, Real Estate Agent at AXEN Realty, and founder of Annelis Ortiz LLC. Built my personal brand in Spanish from zero to 30K+ followers across IG/TikTok/YouTube/LinkedIn in under 2 years, while closing loans for 197+ Hispanic families and writing my first book (*Antes de Decidir*, Amazon).
 
 What I can speak to:
 - **Spanish-language content as a moat** in a saturated English mortgage market
@@ -98,7 +98,7 @@ Founded the LLC in 2024, Rookie of the Year + Rising Star at KW the same year. A
 
 Hola [NOMBRE PERIODISTA],
 
-Te escribo para proponer un perfil. Soy Annelis Ortiz: puertorriqueña, formada en contabilidad en la UPR, Originadora de Préstamos Hipotecarios en NEXA Lending, Agente de Bienes Raíces en Keller Williams, autora del libro *Antes de Decidir* y madre de cuatro hijos.
+Te escribo para proponer un perfil. Soy Annelis Ortiz: puertorriqueña, formada en contabilidad en la UPR, Originadora de Préstamos Hipotecarios en NEXA Lending, Agente de Bienes Raíces en AXEN Realty, autora del libro *Antes de Decidir* y madre de cuatro hijos.
 
 En 2024 fundé mi propia LLC y ese mismo año fui reconocida como Rookie of the Year y Rising Star en mi oficina de KW. He acompañado a 197+ familias hispanas a comprar su primera casa o su primera propiedad de inversión en EE.UU.
 

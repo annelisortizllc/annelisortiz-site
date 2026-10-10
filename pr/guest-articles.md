@@ -20,7 +20,7 @@ Hay un patrón que he visto repetirse. La familia que más tarda en arrancar no 
 
 Cuando publiqué *Antes de Decidir*, lo escribí pensando exactamente en esa familia. No es un libro técnico. Es la conversación que yo quisiera haber tenido yo misma a los veinticinco, cuando todavía pensaba que comprar casa era una cosa de adultos lejanos. Le tomé prestado al lenguaje contable la idea de balance: no puedes mover un lado de la ecuación sin afectar el otro. Tu crédito, tus ahorros, tu estabilidad de empleo, tu mentalidad. Si uno de esos pilares está flojo, los demás no compensan. Y si están alineados, no importa de dónde vengas: vas a llegar.
 
-Hoy, además de originar préstamos en NEXA Lending y vender propiedades como Agente de Bienes Raíces en Keller Williams, dedico parte de mi semana a entrenar en español a otros Originadores que están construyendo su práctica. Algunos llevan más años que yo en la industria. Casi todos llegan con la misma pregunta sin formular que llegan los clientes: *¿estoy haciendo esto bien?*
+Hoy, además de originar préstamos en NEXA Lending y vender propiedades como Agente de Bienes Raíces en AXEN Realty, dedico parte de mi semana a entrenar en español a otros Originadores que están construyendo su práctica. Algunos llevan más años que yo en la industria. Casi todos llegan con la misma pregunta sin formular que llegan los clientes: *¿estoy haciendo esto bien?*
 
 La respuesta corta es que nadie hace este trabajo "bien" si no entiende la cara de quien tiene enfrente. Las tasas las da el mercado. Los programas los dan los reguladores. Lo que da una originadora —o un originador— es la capacidad de traducir todo eso a una decisión humana. Ahí está el oficio. Y por eso, aunque hoy enseño coaching y escribo libros, sigo cerrando préstamos cada mes. Porque la conversación de la mesa es la única que te enseña.
 
@@ -78,7 +78,7 @@ La oportunidad para la industria es enorme. Pero requiere reconocer que la barre
 
 Las familias hispanas no están llegando tarde a la hipoteca. Es la hipoteca la que está llegando tarde a las familias hispanas. Cuando eso cambie, la cifra de homeownership va a cambiar también.
 
-*Annelis Ortiz es Originadora de Préstamos Hipotecarios en NEXA Lending (NMLS #2006182), Agente de Bienes Raíces en Keller Williams Advantage III Realty y autora de* Antes de Decidir*. Vive en Florida, es originaria de San Juan, Puerto Rico, y entrena en español a Originadores de Préstamos en EE.UU. [annelisortiz.com](https://annelisortiz.com)*
+*Annelis Ortiz es Originadora de Préstamos Hipotecarios en NEXA Lending (NMLS #2006182), Agente de Bienes Raíces en AXEN Realty y autora de* Antes de Decidir*. Vive en Florida, es originaria de San Juan, Puerto Rico, y entrena en español a Originadores de Préstamos en EE.UU. [annelisortiz.com](https://annelisortiz.com)*
 
 ---
 
