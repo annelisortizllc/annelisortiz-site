@@ -63,7 +63,7 @@ const services = [
   },
   {
     id: 'bienes-raices',
-    eyebrow: 'Keller Williams Advantage III Realty',
+    eyebrow: 'AXEN Realty',
     title: 'Compra y Venta de Propiedades',
     lead: 'Como Agente de Bienes Raíces acompaño el proceso completo: primera vivienda, segunda casa, propiedades de inversión y reventa. Mi enfoque combina la conversación hipotecaria con la búsqueda de la propiedad correcta para tu meta a largo plazo.',
     groups: [

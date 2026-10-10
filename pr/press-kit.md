@@ -14,7 +14,7 @@ Es autora de *Antes de Decidir: Cuando Nadie Te Enseñó a Prepararte* (Amazon, 
 
 ## Bio larga (250 palabras)
 
-Annelis Ortiz es Originadora de Préstamos Hipotecarios en NEXA Lending LLC (NMLS #2006182) y Agente de Bienes Raíces en Keller Williams Advantage III Realty. Su trabajo combina estrategia financiera, educación y un enfoque humano en cada etapa del proceso de compra e inversión inmobiliaria.
+Annelis Ortiz es Originadora de Préstamos Hipotecarios en NEXA Lending LLC (NMLS #2006182) y Agente de Bienes Raíces en AXEN Realty. Su trabajo combina estrategia financiera, educación y un enfoque humano en cada etapa del proceso de compra e inversión inmobiliaria.
 
 Nacida en San Juan, Puerto Rico, y formada en contabilidad por la Universidad de Puerto Rico, Recinto de Río Piedras, Annelis acumula más de cinco años de experiencia en la industria hipotecaria y de bienes raíces en Estados Unidos. Ha guiado a más de 197 familias y compradores —desde primera vivienda hasta inversionistas con portafolios de propiedades de renta— en EE.UU., Puerto Rico y Latinoamérica.
 
@@ -55,7 +55,7 @@ Además de su práctica profesional, Annelis acompaña en español a Originadore
 - National Association of Realtors (NAR)
 - Florida Realtors
 - NEXA Lending LLC (NMLS #1660690)
-- Keller Williams Advantage III Realty
+- AXEN Realty
 - Fundadora — Annelis Ortiz LLC (2024)
 
 ## Recursos descargables
