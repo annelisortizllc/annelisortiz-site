@@ -54,7 +54,7 @@ const faqs = [
   {
     question: 'How does your coaching work?',
     answer:
-      'I coach Spanish-speaking Originators who want to grow their production and build a sustainable career. The coaching combines sales strategy, pipeline organization, personal marketing, and mindset. Reach out if you want to chat.',
+      'I coach Spanish-speaking Loan Originators and Real Estate Agents who want to grow their business and build a sustainable career. As Leader of AXEN Realty Latino I also recruit agents and help them scale: training, systems, personal brand, mindset, and culture. Reach out if you want to chat.',
   },
   {
     question: 'Can I buy a home with an ITIN if I do not have a Social Security number?',
@@ -224,7 +224,9 @@ export default function AboutPageEN() {
             <strong className="text-foreground">trust, preparation, and long-term growth</strong>.
             She also serves as a{' '}
             <strong className="text-foreground">Coach</strong>{' '}
-            to Mortgage Loan Originators who want to grow their production and career.
+            to Loan Originators and Real Estate Agents, and as{' '}
+            <strong className="text-foreground">Leader of AXEN Realty Latino</strong>{' '}
+            she recruits agents and helps them scale their business.
           </p>
         </div>
           </div>

@@ -37,7 +37,8 @@ Annelis Ortiz helps Hispanic families build wealth through mortgage financing an
 - Credit preparation 6-12 months before mortgage application
 - Real estate investment fundamentals (multifamily, rentals, DSCR)
 - Financial education for Hispanic communities in the US
-- Coaching/mentoring for Mortgage Loan Originators (especially Hispanic LOs)
+- Coaching/mentoring for Mortgage Loan Originators and Real Estate Agents (especially Hispanic professionals)
+- Recruiting and scaling Spanish-speaking real estate agents as Leader of AXEN Realty Latino
 - Spanish-language mortgage and real estate content
 
 ## Areas Annelis does NOT speak on
@@ -51,7 +52,7 @@ Annelis Ortiz helps Hispanic families build wealth through mortgage financing an
 
 - [Main site](${site.url}): bio, services, book, blog
 - [About Annelis](${site.url}/sobre-mi): full biography, education, NMLS, trajectory
-- [Services](${site.url}/servicios): mortgage products, real estate, education, coaching
+- [Services](${site.url}/servicios): mortgage products, real estate, coaching and team, education, speaking
 - [Book — Antes de Decidir](${site.url}/libros/antes-de-decidir): the financial preparation guide
 - [Blog (Spanish)](${site.url}/blog): educational articles on mortgages, credit, investment
 - [Press / Speaking](${site.url}/prensa): for journalists and event organizers

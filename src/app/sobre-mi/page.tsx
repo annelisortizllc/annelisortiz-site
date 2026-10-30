@@ -54,7 +54,7 @@ const faqs = [
   {
     question: '¿Cómo funciona tu coaching?',
     answer:
-      'Acompaño en español a Originadores que quieren crecer su producción y construir una carrera sostenible. El coaching combina estrategia comercial, organización del pipeline, marketing personal y mentalidad. Escríbeme para conversar si te interesa.',
+      'Acompaño en español a Originadores y Agentes de Bienes Raíces que quieren crecer su negocio y construir una carrera sostenible. Como Líder de AXEN Realty Latino también recluto agentes y los ayudo a escalar: entrenamiento, sistemas, marca personal, mentalidad y cultura. Escríbeme para conversar si te interesa.',
   },
   {
     question: '¿Puedo comprar casa con ITIN si no tengo Social Security?',
@@ -223,7 +223,7 @@ export default function SobreMiPage() {
             Hoy, a través de su marca personal, educación financiera y experiencia en hipotecas
             y bienes raíces, continúa guiando a compradores e inversionistas con una visión basada
             en <strong className="text-foreground">confianza, preparación y crecimiento a largo plazo</strong>.
-            También acompaña como <strong className="text-foreground">Coach</strong> a Originadores que buscan crecer su producción y carrera.
+            También acompaña como <strong className="text-foreground">Coach</strong> a Originadores y Agentes de Bienes Raíces, y como <strong className="text-foreground">Líder de AXEN Realty Latino</strong> recluta agentes y los ayuda a escalar su negocio.
           </p>
         </div>
           </div>

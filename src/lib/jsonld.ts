@@ -16,7 +16,7 @@ export function personJsonLd() {
     email: contact.email,
     telephone: contact.whatsappE164,
     description:
-      'Prestamista, Agente de Bienes Raíces, Autora de "Antes de Decidir" y Coach. Ayudo a familias a construir patrimonio a través de la propiedad, y a Originadores hispanos a crecer en su carrera.',
+      'Prestamista, Agente de Bienes Raíces, Autora de "Antes de Decidir" y Coach. Ayudo a familias a construir patrimonio a través de la propiedad, y a Originadores y Agentes de Bienes Raíces hispanos a crecer en su carrera.',
     jobTitle: [
       business.role,
       business.alsoRole,
@@ -43,7 +43,8 @@ export function personJsonLd() {
       {
         '@type': 'Occupation',
         name: 'Coach',
-        skills: 'Mentoring, production growth, Spanish-language coaching',
+        skills:
+          'Mentoring for loan originators and real estate agents, team building, Spanish-language coaching',
       },
     ],
     worksFor: {
