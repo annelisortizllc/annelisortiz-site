@@ -50,6 +50,11 @@ export const applicationPortal = {
   label: 'aortizloans.com',
 } as const
 
+// Funnel de reclutamiento de realtors para AXEN Realty Latino (vive en GoHighLevel).
+export const realtorRecruiting = {
+  url: 'https://web.aortizloans.com/join-axen',
+} as const
+
 // Activos visuales centralizados — cambiar el path aquí si se renombran los archivos.
 export const assets = {
   portrait: '/annelis-portrait.jpg', // beige fondo, blusa negra — /sobre-mi

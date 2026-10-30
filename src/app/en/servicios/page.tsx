@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHeader } from '@/components/PageHeader'
 import { breadcrumbJsonLd, jsonLdScript } from '@/lib/jsonld'
-import { contact, applicationPortal, site } from '@/lib/site'
+import { contact, applicationPortal, realtorRecruiting, site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Mortgage loans (conventional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, Foreign National), real estate buy & sell, coaching, financial education, and speaking.',
+    'Mortgage loans (conventional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, Foreign National), real estate buy & sell, coaching and team, financial education, and speaking.',
   alternates: {
     canonical: `${site.url}/en/servicios`,
     languages: {
@@ -65,13 +65,14 @@ const services = [
     id: 'real-estate',
     eyebrow: 'AXEN Realty',
     title: 'Buy & Sell Real Estate',
-    lead: 'As a Real Estate Agent I guide the full process: first home, second home, investment properties, and resale. My approach combines the mortgage conversation with finding the right property for your long-term goal.',
+    lead: 'As a Real Estate Agent, my team and I guide you through the full process: your first home, an investment, or new construction. My approach combines the mortgage conversation with finding the right property for your long-term goal.',
     groups: [
       {
         label: 'How I work with you',
         items: [
           'First home — from search to closing',
           'Investment properties — cash-flow and ROI analysis',
+          'New construction',
           'Second home or vacation property',
           'Sale of your current property with strategy',
           'Comparative Market Analysis (CMA)',
@@ -87,17 +88,18 @@ const services = [
   {
     id: 'coaching',
     eyebrow: 'Professional mentoring',
-    title: 'Coaching',
-    lead: 'A Spanish-language program for Originators who want to grow their production and build a sustainable career. Combines sales strategy, pipeline organization, personal brand, and mindset.',
+    title: 'Coaching & Team',
+    lead: 'A Spanish-language program for Loan Originators and Real Estate Agents who want to grow their business and build a sustainable career. As Leader of AXEN Realty Latino I recruit agents and help them scale their business inside a Spanish-speaking community: training, systems, and everything AXEN provides.',
     groups: [
       {
-        label: 'What the coaching covers',
+        label: 'What you get on my team',
+        items: ['Training', 'Systems', 'Personal brand', 'Mindset', 'Culture'],
+      },
+      {
+        label: 'Your compensation',
         items: [
-          'Pipeline structure and follow-up',
-          'Personal brand and Spanish-language content',
-          'Referral strategy with realtors and partners',
-          'Mindset and handling rejection in origination',
-          'Personalized growth roadmap',
+          'Keep 100% of your commission',
+          'Two more income streams beyond your closings',
         ],
       },
     ],
@@ -105,6 +107,11 @@ const services = [
       label: 'Apply to the coaching',
       href: '/en/#contacto',
       external: false,
+    },
+    secondary: {
+      label: "I'm a realtor: learn about AXEN",
+      href: realtorRecruiting.url,
+      external: true,
     },
   },
   {
@@ -190,7 +197,7 @@ export default function ServicesPageEN() {
       <PageHeader
         eyebrow="Services"
         title="Five ways I work with you."
-        lead="Mortgage loans, real estate buy & sell, coaching, financial education, and speaking. All from the same perspective: strategy, preparation, and a human approach."
+        lead="Mortgage loans, real estate buy & sell, coaching and team, financial education, and speaking. All from the same perspective: strategy, preparation, and a human approach."
         crumbs={crumbs}
       />
 
