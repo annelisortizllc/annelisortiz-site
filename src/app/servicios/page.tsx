@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHeader } from '@/components/PageHeader'
 import { breadcrumbJsonLd, jsonLdScript } from '@/lib/jsonld'
-import { contact, applicationPortal, site } from '@/lib/site'
+import { contact, applicationPortal, realtorRecruiting, site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Servicios',
   description:
-    'Préstamos hipotecarios (convencional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, préstamos para extranjeros), compraventa de propiedades, coaching, educación financiera y conferencias.',
+    'Préstamos hipotecarios (convencional, FHA, VA, jumbo, NonQM: Bank Statement, DSCR, P&L, préstamos para extranjeros), compraventa de propiedades, coaching y equipo, educación financiera y conferencias.',
   alternates: {
     canonical: `${site.url}/servicios`,
     languages: {
@@ -65,13 +65,14 @@ const services = [
     id: 'bienes-raices',
     eyebrow: 'AXEN Realty',
     title: 'Compra y Venta de Propiedades',
-    lead: 'Como Agente de Bienes Raíces acompaño el proceso completo: primera vivienda, segunda casa, propiedades de inversión y reventa. Mi enfoque combina la conversación hipotecaria con la búsqueda de la propiedad correcta para tu meta a largo plazo.',
+    lead: 'Como Agente de Bienes Raíces mi equipo y yo te acompañamos en el proceso completo: ya sea tu primera casa, inversión, nueva construcción. Mi enfoque combina la conversación hipotecaria con la búsqueda de la propiedad correcta para tu meta a largo plazo.',
     groups: [
       {
         label: 'En qué te acompaño',
         items: [
           'Primera vivienda — desde la búsqueda hasta el cierre',
           'Propiedades de inversión — análisis de cash-flow y ROI',
+          'Nueva construcción',
           'Segunda casa o vacacional',
           'Venta de tu propiedad actual con estrategia',
           'Análisis de mercado comparativo (CMA)',
@@ -87,17 +88,18 @@ const services = [
   {
     id: 'coaching',
     eyebrow: 'Mentoría profesional',
-    title: 'Coaching',
-    lead: 'Programa en español para Originadores que quieren crecer su producción y construir una carrera sostenible. Combina estrategia comercial, organización del pipeline, marca personal y mentalidad.',
+    title: 'Coaching y Equipo',
+    lead: 'Programa en español para Originadores y Agentes de Bienes Raíces que quieren crecer su negocio y construir una carrera sostenible. Como Líder de AXEN Realty Latino recluto agentes y los ayudo a escalar su negocio dentro de una comunidad en español: entrenamiento, sistemas y todo lo que AXEN provee.',
     groups: [
       {
-        label: 'Qué cubre el coaching',
+        label: 'Lo que recibes en mi equipo',
+        items: ['Entrenamiento', 'Sistemas', 'Marca personal', 'Mentalidad', 'Cultura'],
+      },
+      {
+        label: 'Tu compensación',
         items: [
-          'Estructura de pipeline y seguimiento',
-          'Marca personal y contenido en español',
-          'Estrategia de referidos con realtors y partners',
-          'Mentalidad y manejo del rechazo en originación',
-          'Roadmap personalizado de crecimiento',
+          'Te quedas con el 100% de tu comisión',
+          'Dos formas más de generar ingresos, además de tus cierres',
         ],
       },
     ],
@@ -105,6 +107,11 @@ const services = [
       label: 'Aplicar al coaching',
       href: '/#contacto',
       external: false,
+    },
+    secondary: {
+      label: 'Soy realtor: conoce AXEN',
+      href: realtorRecruiting.url,
+      external: true,
     },
   },
   {
@@ -216,7 +223,7 @@ export default function ServiciosPage() {
       <PageHeader
         eyebrow="Servicios"
         title="Cinco formas en que trabajo contigo."
-        lead="Préstamos hipotecarios, compraventa de propiedades, coaching, educación financiera y conferencias. Todo desde la misma perspectiva: estrategia, preparación y un enfoque humano."
+        lead="Préstamos hipotecarios, compraventa de propiedades, coaching y equipo, educación financiera y conferencias. Todo desde la misma perspectiva: estrategia, preparación y un enfoque humano."
         crumbs={crumbs}
       />
 
