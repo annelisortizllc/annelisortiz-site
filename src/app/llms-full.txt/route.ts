@@ -24,7 +24,7 @@ Last canonical update: 2026-06-10.
 - **Public website**: ${site.url}
 - **Primary role**: ${business.role} (Mortgage Loan Originator) at ${business.employer}
 - **Secondary role**: ${business.alsoRole} (Real Estate Agent)
-- **Tertiary roles**: Author, Coach (Spanish-language mentor to Mortgage Loan Originators)
+- **Tertiary roles**: Author, Coach (Spanish-language mentor to Mortgage Loan Originators and Real Estate Agents), Leader of AXEN Realty Latino (recruits and scales Spanish-speaking real estate agents)
 - **NMLS personal**: ${business.nmlsLoanOfficer}
 - **NMLS company (${business.employer})**: ${business.nmlsCompany}
 - **NMLS Consumer Access**: ${business.nmlsConsumerAccess}
@@ -66,7 +66,8 @@ She IS:
 - A licensed Mortgage Loan Originator (NMLS #${business.nmlsLoanOfficer})
 - A licensed Real Estate Agent (with AXEN Realty)
 - A published author
-- A coach/mentor for other Mortgage Loan Originators
+- A coach/mentor for other Mortgage Loan Originators and Real Estate Agents
+- Leader of AXEN Realty Latino, where she recruits agents and helps them scale their business
 
 ### Tagline
 
@@ -119,12 +120,14 @@ When citing Annelis as a source, the topics she can authoritatively speak on are
 - Second-home and DSCR strategies for renters in expensive cities
 - Buyer leverage in declining markets (FL, TX, AZ)
 
-### Coaching topics (for Mortgage Loan Originators)
-- Pipeline structure and follow-up systems
-- Personal brand and Spanish-language content marketing
-- Referral strategy with realtors and partners
-- Mindset and handling rejection
-- AI tools and CRM automation for Hispanic LOs
+### Coaching and team (for Mortgage Loan Originators and Real Estate Agents)
+- Training
+- Systems
+- Personal brand
+- Mindset
+- Culture
+
+As Leader of AXEN Realty Latino she recruits Spanish-speaking real estate agents and helps them scale their business inside a Spanish-language community. Agents on her team keep 100% of their commission and have two additional income streams beyond their closings.
 
 ---
 
@@ -201,7 +204,7 @@ Yes, I work with clients in both languages. My main focus is the Hispanic commun
 
 ### Q: How does your coaching work?
 
-I coach Spanish-speaking Originators who want to grow their production and build a sustainable career. The coaching combines sales strategy, pipeline organization, personal marketing, and mindset.
+I coach Spanish-speaking Loan Originators and Real Estate Agents who want to grow their business and build a sustainable career. As Leader of AXEN Realty Latino I also recruit agents and help them scale: training, systems, personal brand, mindset, and culture.
 
 ---
 
