@@ -46,6 +46,9 @@ export const LEAD_MAGNET_META: InquiryMeta = { code: 'LMG', slug: 'lead_magnet' 
 // Club Pequeños Héroes — registro gratis desde /pequenos-heroes/club.
 export const CLUB_META: InquiryMeta = { code: 'CLB', slug: 'club_pequenos_heroes' }
 
+// La Guía Definitiva para Comprar Casa en USA — destino del enlace de Instagram.
+export const GUIA_META: InquiryMeta = { code: 'GUI', slug: 'guia_definitiva' }
+
 // Resend tag value contract: lowercase, [a-z0-9_], <= 256 chars.
 // Slug ya cumple esto pero lo normalizamos por seguridad.
 export function tagValue(s: string): string {
