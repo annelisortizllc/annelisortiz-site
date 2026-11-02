@@ -22,9 +22,17 @@ import { PDF_PATH } from '@/lib/guia'
 // (la guía + notificación interna). Ningún paso posterior a Supabase puede
 // tumbar el registro.
 //
-// 🔑 DIFERENCIA CLAVE con /preparate: aquí se pide SOLO el correo. Decisión de
-// Annelis ("solo email, y PDF"). Menos fricción, y sin teléfono no hace falta
-// consentimiento de SMS. El teléfono llega después, en el calendario.
+// 🔑 Se piden CUATRO datos: nombre, apellido, correo y teléfono. Decisión de
+// Annelis el 2026-11-01. Cuesta conversión frente a pedir sólo el correo, pero
+// deja el contacto completo en el CRM desde el primer toque.
+//
+// ⚖️ El teléfono trae una obligación: para poder TEXTEAR o LLAMAR hace falta
+// permiso expreso (TCPA · ver `memoria/mi-compliance.md`). Por eso hay una
+// casilla de consentimiento — y está **sin marcar y NO es obligatoria**:
+//   · Si la marca → etiqueta `sms-consent-si` y Annelis puede textear/llamar.
+//   · Si no       → etiqueta `sms-consent-no`. Sólo correo.
+// Condicionar la entrega de la guía al permiso de SMS sería justo lo que la
+// regla prohíbe, así que la guía se entrega igual en los dos casos.
 //
 // 🔑 La guía NO depende de ningún workflow de GoHighLevel: a la fecha no existe
 // ninguno que dispare con la etiqueta `guia-instagram`. El correo lo manda esta
@@ -33,11 +41,30 @@ import { PDF_PATH } from '@/lib/guia'
 // ============================================================================
 
 const GuiaSchema = z.object({
-  email: z.string().email('Revisa el correo'),
+  firstName: z.string().trim().min(2, 'Escribe tu nombre'),
+  lastName: z.string().trim().min(2, 'Escribe tu apellido'),
+  email: z.string().trim().email('Revisa el correo'),
+  phone: z
+    .string()
+    .trim()
+    .refine((v) => v.replace(/\D/g, '').length >= 10, 'Revisa el teléfono'),
+  // Un checkbox sin marcar NO llega en el FormData. Así que ausente = no dio
+  // permiso, y eso es exactamente el valor por defecto correcto.
+  smsConsent: z.coerce.boolean().default(false),
   locale: z.enum(['es', 'en']).default('es'),
   // Honeypot — los bots llenan todo, las personas no ven este campo.
   website: z.string().max(0).optional(),
 })
+
+/** GoHighLevel y Twilio quieren E.164. Un `(407) 910-2406` escrito a mano no
+ *  sirve: se guarda, pero el envío falla después y nadie se enteraría. */
+function toE164(raw: string): string {
+  const digits = raw.replace(/\D/g, '')
+  if (raw.trim().startsWith('+')) return `+${digits}`
+  if (digits.length === 10) return `+1${digits}`
+  if (digits.length === 11 && digits.startsWith('1')) return `+${digits}`
+  return `+${digits}`
+}
 
 export type GuiaState = {
   ok: boolean
@@ -45,6 +72,17 @@ export type GuiaState = {
   /** Sólo se llena al tener éxito: la página la muestra para descargar ya. */
   pdfUrl?: string
   fieldErrors?: Record<string, string[] | undefined>
+  /** Lo que la persona ya había escrito. React 19 **vacía** el formulario
+   *  después de cada envío, así que si no se devuelve aquí, un error de
+   *  validación la obliga a teclear los cuatro campos otra vez. Comprobado en
+   *  el navegador: sin esto, los cuatro inputs vuelven vacíos. */
+  values?: {
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    smsConsent: boolean
+  }
 }
 
 const INQUIRY_TYPE = 'Lead magnet · Guía Definitiva (Instagram)'
@@ -91,14 +129,15 @@ async function persistLead(
     const { data: row, error } = await supabase
       .from('leads')
       .insert({
-        // No pedimos nombre. La columna existe y es NOT NULL en otros flujos,
-        // así que se guarda el correo como etiqueta legible.
-        name: data.email.split('@')[0],
+        name: `${data.firstName} ${data.lastName}`,
         email: data.email,
-        whatsapp: null,
+        whatsapp: toE164(data.phone),
         company: null,
         inquiry_type: INQUIRY_TYPE,
-        message: `Pidió La Guía Definitiva para Comprar Casa en USA (enlace de Instagram · ${data.locale === 'en' ? '/en/guide' : '/guia'})`,
+        // El permiso queda escrito en el registro, no sólo en una etiqueta del
+        // CRM: si algún día hay que probar que dio consentimiento, la prueba
+        // vive en la fuente de verdad.
+        message: `Pidió La Guía Definitiva para Comprar Casa en USA (enlace de Instagram · ${data.locale === 'en' ? '/en/guide' : '/guia'}). Permiso de SMS/llamadas: ${data.smsConsent ? 'SÍ' : 'NO'}.`,
         locale: data.locale,
         source_path: ctx.source_path,
         user_agent: ctx.user_agent,
@@ -137,13 +176,21 @@ async function syncToCrm(
   leadId: string | null,
 ) {
   const result = await upsertContact({
-    // GoHighLevel pide un nombre; sin él el contacto sale en blanco en la lista.
-    firstName: data.email.split('@')[0],
+    firstName: data.firstName,
+    lastName: data.lastName,
     email: data.email,
+    phone: toE164(data.phone),
     source: 'annelisortiz.com — Guía Definitiva (Instagram)',
     // `guia-instagram` = quién la pidió. Es la etiqueta que Annelis pidió para
     // poder ver quién llega por el enlace de la bio.
-    tags: ['guia-instagram', 'lead', `idioma-${data.locale}`],
+    // `sms-consent-*` = si se le puede textear. Antes de mandar cualquier SMS
+    // hay que filtrar por `sms-consent-si`. Ver [[cumplimiento-sms-ghl]].
+    tags: [
+      'guia-instagram',
+      'lead',
+      `idioma-${data.locale}`,
+      data.smsConsent ? 'sms-consent-si' : 'sms-consent-no',
+    ],
   })
 
   if (!leadId) return
@@ -186,7 +233,8 @@ function guiaHtml(data: z.infer<typeof GuiaSchema>): string {
   const isEn = data.locale === 'en'
   const pdf = `${site.url}${PDF_PATH}`
 
-  const greeting = isEn ? 'Hi,' : 'Hola,'
+  const name = escapeHtml(data.firstName)
+  const greeting = isEn ? `Hi ${name},` : `Hola ${name},`
   const intro = isEn
     ? `Here's your copy of <strong>The Definitive Guide to Buying a Home in the USA</strong> — 12 pages, from credit all the way to the keys.`
     : `Aquí está tu copia de <strong>La Guía Definitiva para Comprar Casa en USA</strong> — 12 páginas, desde el crédito hasta las llaves.`
@@ -249,7 +297,7 @@ function guiaPlain(data: z.infer<typeof GuiaSchema>): string {
   const isEn = data.locale === 'en'
   const pdf = `${site.url}${PDF_PATH}`
   if (isEn) {
-    return `Hi,
+    return `Hi ${data.firstName},
 
 Here's your copy of The Definitive Guide to Buying a Home in the USA — 12 pages, from credit all the way to the keys.
 
@@ -269,7 +317,7 @@ Mortgage Loan Originator · NMLS #${siteBusiness.nmlsLoanOfficer}
 ${disclosure(true)}
 `
   }
-  return `Hola,
+  return `Hola ${data.firstName},
 
 Aquí está tu copia de La Guía Definitiva para Comprar Casa en USA — 12 páginas, desde el crédito hasta las llaves.
 
@@ -297,15 +345,19 @@ function internalHtml(data: z.infer<typeof GuiaSchema>): string {
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:560px;margin:0 auto;padding:32px 16px;color:#0a0a0a;background:#fafafa;">
   <div style="background:#fff;border:1px solid #eaeaea;border-radius:12px;padding:32px;">
     <p style="margin:0 0 6px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#a07f3f;">annelisortiz.com · Guía</p>
-    <h1 style="margin:0 0 20px;font-size:22px;font-weight:600;">Alguien pidió la Guía Definitiva</h1>
+    <h1 style="margin:0 0 20px;font-size:22px;font-weight:600;">${escapeHtml(data.firstName)} ${escapeHtml(data.lastName)} pidió la Guía Definitiva</h1>
     <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      <tr><td style="padding:8px 0;color:#666;width:38%;">Email</td><td style="padding:8px 0;"><strong>${escapeHtml(data.email)}</strong></td></tr>
+      <tr><td style="padding:8px 0;color:#666;width:38%;">Nombre</td><td style="padding:8px 0;"><strong>${escapeHtml(data.firstName)} ${escapeHtml(data.lastName)}</strong></td></tr>
+      <tr><td style="padding:8px 0;color:#666;">Email</td><td style="padding:8px 0;"><strong>${escapeHtml(data.email)}</strong></td></tr>
+      <tr><td style="padding:8px 0;color:#666;">Teléfono</td><td style="padding:8px 0;"><strong>${escapeHtml(toE164(data.phone))}</strong></td></tr>
+      <tr><td style="padding:8px 0;color:#666;">¿Puedes textearle?</td><td style="padding:8px 0;"><strong style="color:${data.smsConsent ? '#1a7f37' : '#b42318'};">${data.smsConsent ? 'SÍ — dio permiso' : 'NO — sólo correo o llamada que tú marques'}</strong></td></tr>
       <tr><td style="padding:8px 0;color:#666;">Idioma</td><td style="padding:8px 0;"><strong>${data.locale.toUpperCase()}</strong></td></tr>
       <tr><td style="padding:8px 0;color:#666;">Origen</td><td style="padding:8px 0;"><strong>Enlace de Instagram → /guia</strong></td></tr>
     </table>
   </div>
   <p style="margin:24px 0 0;text-align:center;font-size:11px;color:#999;line-height:1.6;">
-    Ya se le envió la guía y se creó el contacto en GoHighLevel con la etiqueta <strong>guia-instagram</strong>.
+    Ya se le envió la guía y se creó el contacto en GoHighLevel con las etiquetas
+    <strong>guia-instagram</strong> y <strong>${data.smsConsent ? 'sms-consent-si' : 'sms-consent-no'}</strong>.
   </p>
 </body>
 </html>`.trim()
@@ -319,12 +371,23 @@ export async function pedirGuia(
   _prev: GuiaState,
   formData: FormData,
 ): Promise<GuiaState> {
-  const parsed = GuiaSchema.safeParse(Object.fromEntries(formData))
+  const raw = Object.fromEntries(formData)
+  const parsed = GuiaSchema.safeParse(raw)
   if (!parsed.success) {
+    const str = (k: string) => (typeof raw[k] === 'string' ? (raw[k] as string) : '')
     return {
       ok: false,
-      message: 'Revisa el correo.',
+      message: 'Revisa los datos marcados.',
       fieldErrors: parsed.error.flatten().fieldErrors,
+      // El honeypot NUNCA se devuelve: si se repintara, un bot que lo llenó una
+      // vez lo tendría ya puesto en el segundo intento.
+      values: {
+        firstName: str('firstName'),
+        lastName: str('lastName'),
+        email: str('email'),
+        phone: str('phone'),
+        smsConsent: raw.smsConsent != null,
+      },
     }
   }
   // El honeypot lo ataja el propio esquema: `website` es `.max(0)`, así que si
@@ -402,9 +465,9 @@ export async function pedirGuia(
       from: 'Annelis Ortiz <hola@annelisortiz.com>',
       to: [to],
       replyTo: data.email,
-      subject: `[${GUIA_META.code}] ${data.email} — Guía Definitiva (Instagram)`,
+      subject: `[${GUIA_META.code}] ${data.firstName} ${data.lastName} — Guía Definitiva (Instagram)`,
       html: internalHtml(data),
-      text: `Alguien pidió la Guía Definitiva:\n\nEmail: ${data.email}\nIdioma: ${data.locale}\nOrigen: enlace de Instagram → /guia\n`,
+      text: `${data.firstName} ${data.lastName} pidió la Guía Definitiva:\n\nEmail: ${data.email}\nTeléfono: ${toE164(data.phone)}\n¿Puedes textearle?: ${data.smsConsent ? 'SÍ — dio permiso' : 'NO — sólo correo'}\nIdioma: ${data.locale}\nOrigen: enlace de Instagram → /guia\n`,
       tags: [{ name: 'source', value: 'guia_signup' }, ...tags],
     })
     if (error) throw new Error(error.message ?? String(error))

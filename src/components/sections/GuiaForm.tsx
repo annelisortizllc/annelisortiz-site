@@ -20,6 +20,51 @@ function SubmitBtn() {
   )
 }
 
+/** Un campo con su etiqueta y su error. Cuatro campos idénticos repetidos a
+ *  mano son cuatro sitios donde se olvida el `autoComplete` o el error. */
+function Field({
+  id,
+  name,
+  label,
+  type,
+  autoComplete,
+  placeholder,
+  error,
+  defaultValue,
+}: {
+  id: string
+  name: string
+  label: string
+  type: 'text' | 'email' | 'tel'
+  autoComplete: string
+  placeholder?: string
+  error?: string
+  defaultValue?: string
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="mb-2 block text-xs uppercase tracking-wider text-muted"
+      >
+        {label}
+      </label>
+      <input
+        id={id}
+        name={name}
+        type={type}
+        required
+        autoComplete={autoComplete}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
+        aria-invalid={error ? true : undefined}
+        className="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground focus:border-accent focus:outline-none"
+      />
+      {error ? <p className="mt-2 text-xs text-red-400">{error}</p> : null}
+    </div>
+  )
+}
+
 export function GuiaForm({
   locale = 'es',
   bookingUrl,
@@ -95,24 +140,70 @@ export function GuiaForm({
         aria-hidden
       />
 
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Field
+          id="guia-firstName"
+          name="firstName"
+          label="Nombre"
+          type="text"
+          autoComplete="given-name"
+          error={state.fieldErrors?.firstName?.[0]}
+          defaultValue={state.values?.firstName}
+        />
+        <Field
+          id="guia-lastName"
+          name="lastName"
+          label="Apellido"
+          type="text"
+          autoComplete="family-name"
+          error={state.fieldErrors?.lastName?.[0]}
+          defaultValue={state.values?.lastName}
+        />
+        <Field
+          id="guia-email"
+          name="email"
+          label="Correo"
+          type="email"
+          autoComplete="email"
+          placeholder="tucorreo@ejemplo.com"
+          error={state.fieldErrors?.email?.[0]}
+          defaultValue={state.values?.email}
+        />
+        <Field
+          id="guia-phone"
+          name="phone"
+          label="Teléfono"
+          type="tel"
+          autoComplete="tel"
+          placeholder="(407) 555-0123"
+          error={state.fieldErrors?.phone?.[0]}
+          defaultValue={state.values?.phone}
+        />
+      </div>
+
+      {/* ── Permiso de texto/llamada ───────────────────────────────────
+          Sin marcar y OPCIONAL a propósito. La guía se entrega igual si
+          no lo marca; lo único que cambia es la etiqueta en el CRM. */}
       <label
-        htmlFor="guia-email"
-        className="mb-2 block text-xs uppercase tracking-wider text-muted"
+        htmlFor="guia-smsConsent"
+        className="mt-5 flex cursor-pointer gap-3 rounded-lg border border-border bg-background p-4"
       >
-        Tu correo
+        <input
+          id="guia-smsConsent"
+          name="smsConsent"
+          type="checkbox"
+          defaultChecked={state.values?.smsConsent}
+          className="mt-0.5 size-4 shrink-0 accent-[var(--accent)]"
+        />
+        <span className="text-xs leading-relaxed text-muted">
+          Sí, Annelis me puede escribir por texto o llamarme sobre mi compra de
+          casa. Responde <strong className="text-foreground">STOP</strong> para
+          dejar de recibir mensajes; pueden aplicar tarifas de tu plan.{' '}
+          <span className="text-foreground">
+            No es requisito para recibir la guía.
+          </span>
+        </span>
       </label>
-      <input
-        id="guia-email"
-        name="email"
-        type="email"
-        required
-        autoComplete="email"
-        placeholder="tucorreo@ejemplo.com"
-        className="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground focus:border-accent focus:outline-none"
-      />
-      {state.fieldErrors?.email ? (
-        <p className="mt-2 text-xs text-red-400">{state.fieldErrors.email[0]}</p>
-      ) : null}
 
       <div className="mt-5">
         <SubmitBtn />
